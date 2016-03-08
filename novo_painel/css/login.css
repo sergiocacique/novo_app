@@ -1,0 +1,72 @@
+/* line 1, ../../app/styles/scss/pages/_signin.scss */
+.panel-default{
+    border-color: #fff !important;
+}
+
+.body{
+    background: #f6f8fa !important;
+}
+.signin-wrapper {
+  position: relative;
+  margin: 60px auto 5px;
+  padding: 20px;
+  width: 420px;
+  background-color: #fff;
+}
+.btn-primary{
+    background-color: #8ab933 !important;
+    border-color: #8ab933 !important;
+}
+.login{
+    background: none repeat scroll 0 0 #fbf8f1;
+    height: 390px;
+    margin: 0 auto;
+    width: 370px;
+    border-radius: 4px;
+    border: 1px solid #e7edf2;
+    position: relative;
+    top: 50px;
+}
+.login_img{
+    background-image: url("../imagens/capa.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    margin-bottom: 25px;
+    margin-top: 40px;
+    height: 70px;
+    border-radius: 4px 4px 0 0;
+}
+/* line 8, ../../app/styles/scss/pages/_signin.scss */
+
+.signin-wrapper .signin-brand {
+  margin: 20px 0 40px;
+  text-align: center;
+  font-size: 34px;
+}
+
+/* line 14, ../../app/styles/scss/pages/_signin.scss */
+
+.signin-alt {
+  margin-bottom: 20px;
+}
+
+/* line 18, ../../app/styles/scss/pages/_signin.scss */
+
+.signin-cr {
+  margin: 0 0 20px;
+  text-align: center;
+  color: #ecf0f1;
+}
+
+@media (max-width: 768px) {
+  /* line 25, ../../app/styles/scss/pages/_signin.scss */
+
+  .signin-wrapper {
+    width: 90%;
+  }
+}
+.form-control {
+    border: 2px solid #ddd;
+    border-radius: 3px;
+    box-shadow: none;
+}
