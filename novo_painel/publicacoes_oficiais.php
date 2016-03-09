@@ -98,15 +98,24 @@ if (!isset($_SESSION['UsuarioID'])) {
             <ul class="filters">
                 <li class="selected">
                     <a href="#">
-                        Secretárias
+                        Licitações
                     </a>
                 </li>
                 <li>
                     <a href="#">
-                        Leis
+                        Consursos
                     </a>
                 </li>
-
+                <li>
+                    <a href="#">
+                        Legislação
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        Diário Oficial
+                    </a>
+                </li>
             </ul>
         </div>
 
@@ -122,7 +131,7 @@ if (!isset($_SESSION['UsuarioID'])) {
     <div class="row discovery">
         <div class="col-sm-9 col-sm-offset-2 col-md-10 col-md-offset-1">
             <div class="header">
-                <h1>Informações</h1>
+                <h1>+ Transparência</h1>
                 <div class="tagline"> Descubra tudo sobre o e-SIC em um só lugar. Feito para você. Relaxe e aproveite a viagem. </div>
             </div>
 

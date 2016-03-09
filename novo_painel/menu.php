@@ -15,42 +15,60 @@
             <a href="esic.php">
                 <i class="fa fa-laptop fa-2x"></i>
                         <span class="nav-text">
-                            e-SIC
+                            Capa
                         </span>
             </a>
 
         </li>
         <li class="has-subnav">
-            <a href="consultas.php">
+            <a href="o_municipio.php">
                 <i class="fa fa-list fa-2x"></i>
                         <span class="nav-text">
-                            Consultas
+                            O Município
                         </span>
             </a>
 
         </li>
         <li class="has-subnav">
-            <a href="despesas_pessoal.php">
+            <a href="departamentos.php">
                 <i class="fa fa-folder-open fa-2x"></i>
                         <span class="nav-text">
-                            Despesas com pessoal
+                            Departamentos
                         </span>
             </a>
 
         </li>
         <li>
-            <a href="informacoes.php">
-                <i class="fa fa-bar-chart-o fa-2x"></i>
+            <a href="informativos.php">
+                <i class="fa fa-tags fa-2x"></i>
                         <span class="nav-text">
-                            Informações
+                            Informativos
                         </span>
             </a>
         </li>
         <li>
-            <a href="mais_transparencia.php">
+            <a href="publicacoes_oficiais.php">
                 <i class="fa fa-font fa-2x"></i>
                         <span class="nav-text">
-                            + Transparência
+                            Publicações Oficiais
+                        </span>
+            </a>
+        </li>
+
+        <li>
+            <a href="transparencia.php">
+                <i class="fa fa-bar-chart-o fa-2x"></i>
+                        <span class="nav-text">
+                            Transparencia
+                        </span>
+            </a>
+        </li>
+
+        <li>
+            <a href="acesso_informacao.php">
+                <i class="fa fa-exclamation fa-2x"></i>
+                        <span class="nav-text">
+                            Acesso á Informação
                         </span>
             </a>
         </li>

@@ -92,17 +92,36 @@ if (!isset($_SESSION['UsuarioID'])) {
     </header>
     <div class=" hide_when_collapsed scroll_content">
         <ul class="filters">
-        <div class="section">
+            <div class="section">
+                <div class="title">
+                    <i class="fa fa-folder-open"></i>
+                    Contas
+                </div>
+                <li>
+                    <a href="#">
+                        Despesas
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        Receitas
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        Passagens
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        Diárias
+                    </a>
+                </li>
                 <li>
                     <a href="#">
                         Convênios
                     </a>
                 </li>
-            <li>
-                <a href="#">
-                    Empresas
-                </a>
-            </li>
                 <li>
                     <a href="#">
                         Projetos Sociais
@@ -110,52 +129,46 @@ if (!isset($_SESSION['UsuarioID'])) {
                 </li>
                 <li>
                     <a href="#">
-                        Obras
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
                         RREO / RGF
                     </a>
                 </li>
-        </div>
-
-        <div class="section">
-            <div class="title">
-                <i class="fa fa-folder-open"></i>
-                PRESSEM
             </div>
-                <li>
-                    <a href="#">
-                        Fundos de Investimentos
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        DAIR
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        APR
-                    </a>
-                </li>
-        </div>
 
-         <div class="section">
+            <div class="section">
                 <div class="title">
                     <i class="fa fa-folder-open"></i>
-                    CPL
+                    Despesas com Pessoal
                 </div>
+                <li>
+                    <a href="#">
+                        Folha de Pagamento
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        Servidores Cedidos
+                    </a>
+                </li>
+
+            </div>
+
+            <div class="section">
+                <div class="title">
+                    <i class="fa fa-folder-open"></i>
+                    + Transparencia
+                </div>
+                <li>
+                    <a href="javascript:void(0)" onclick="contratos_licitacoes()">
+                        Obras
+                    </a>
+                </li>
                 <li>
                     <a href="javascript:void(0)" onclick="contratos_licitacoes()">
                         Contratos e Licitações
                     </a>
                 </li>
-
             </div>
         </ul>
-
 
     </div>
 </div>

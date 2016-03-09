@@ -98,22 +98,17 @@ if (!isset($_SESSION['UsuarioID'])) {
             <ul class="filters">
                 <li class="selected">
                     <a href="#">
-                        Folha de Pagamento
+                        Gabinete do Prefeito(a)
                     </a>
                 </li>
                 <li>
                     <a href="#">
-                        Servidores Cedidos
+                        Gabinete do Vice-Prefeito(a)
                     </a>
                 </li>
                 <li>
                     <a href="#">
-                        Diárias
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        Passagens
+                        Secretárias
                     </a>
                 </li>
             </ul>

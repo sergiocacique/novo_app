@@ -3,26 +3,15 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>WD5 - Portal da Transparência</title>
+    <title>Minha Prefeitura - Login</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
     <!-- PRINCIPAL -->
     <link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="stylesheet" href="css/cidade.css">
-    <link rel="stylesheet" href="css/cidade-social.css">
-    <link rel="stylesheet" href="css/wrapkit-skins-all.css">
-    <link rel="stylesheet" href="css/font-awesome.css">
     <link rel="stylesheet" href="css/login.css">
     <!-- VENDOR -->
-    <script src="lib/jquery.js"></script>
-    <script src="lib/bootstrap.js"></script>
-    <script src="lib/jquery-ui.js"></script>
-    <script src="lib/modernizr.custom.js"></script>
-    <script src="js/tempo.js"></script>
-    <script src="../js/jquery.forms.js"></script>
-    <script src="../js/jquery.mask.js"></script>
-    <script src="../js/jquery.validate.min.js"></script>
+
     <!-- END VENDOR -->
     <!-- FIM PRINCIPAL -->
     <script>

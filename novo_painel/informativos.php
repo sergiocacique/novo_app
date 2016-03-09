@@ -92,24 +92,59 @@ if (!isset($_SESSION['UsuarioID'])) {
         <h1>PÁGINA INICIAL</h1>
     </header>
     <div class=" hide_when_collapsed scroll_content">
-
-        <div class="section">
-
-            <ul class="filters">
-                <li class="selected">
+        <ul class="filters">
+            <div class="section">
+                <li>
                     <a href="#">
-                        Links
+                        Notícias
                     </a>
                 </li>
                 <li>
                     <a href="#">
-                        Servidores
+                        Eventos
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        Enquetes
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        Links Úteis
+                    </a>
+                </li>
+            </div>
+
+            <div class="section">
+                <div class="title">
+                    <i class="fa fa-folder-open"></i>
+                    Multimídia
+                </div>
+                <li>
+                    <a href="#">
+                        Galeria de Fotos
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        Galeria de Vídeos
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        Áudios
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        Documentos
                     </a>
                 </li>
 
-            </ul>
-        </div>
+            </div>
 
+        </ul>
 
 
 
@@ -122,7 +157,7 @@ if (!isset($_SESSION['UsuarioID'])) {
     <div class="row discovery">
         <div class="col-sm-9 col-sm-offset-2 col-md-10 col-md-offset-1">
             <div class="header">
-                <h1>+ Transparência</h1>
+                <h1>Informações</h1>
                 <div class="tagline"> Descubra tudo sobre o e-SIC em um só lugar. Feito para você. Relaxe e aproveite a viagem. </div>
             </div>
 

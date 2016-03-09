@@ -39,7 +39,7 @@ if ($mostra > 0) {
 //        $_SESSION['PrefeituraID'] = "0";
 //    }
 
-    $_SESSION['PrefeituraID'] = "1";
+    $_SESSION['PrefeituraID'] = "9";
     if ($verDados['atualizado'] == 'nao'){
         //header('Location: meus_dados.php'); exit;
         header('Location: index.php'); exit;
