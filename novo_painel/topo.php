@@ -13,7 +13,7 @@ $verPerfil = mysql_fetch_array($sqlPerfil);
         <div class="row">
             <div class="col-sm-3 col-sm-offset-1">
                 <div class="see-frontstore">
-                    <a href="http://area-vip.minestore.com.br/" target="blank">ver portal da transparência</a>
+                    <a href="http://area-vip.minestore.com.br/" target="blank"><?php echo $verPrefConfig['Titulo'];?></a>
                 </div>
                 <a href=""></a>
             </div>

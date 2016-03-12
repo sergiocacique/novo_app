@@ -1,5 +1,12 @@
+<?php
+$sqlPrefeitura = mysql_query("SELECT * FROM prefeitura WHERE CdPrefeitura = ".$_SESSION['PrefeituraID']." ");
+$verPrefeitura = mysql_fetch_array($sqlPrefeitura);
+
+$sqlPrefConfig = mysql_query("SELECT * FROM prefeitura_config WHERE CdPrefeitura = ".$_SESSION['PrefeituraID']." ");
+$verPrefConfig = mysql_fetch_array($sqlPrefConfig);
+?>
 <nav class="main-menu">
-    <a class="logo" href="/admin">boa vista</a>
+    <a class="<?php echo $verPrefeitura['Pasta'];?>" href="/admin"><?php echo $verPrefeitura['Nome'];?></a>
 
     <ul>
         <li>
@@ -12,7 +19,7 @@
 
         </li>
         <li class="has-subnav">
-            <a href="esic.php">
+            <a href="capa.php">
                 <i class="fa fa-laptop fa-2x"></i>
                         <span class="nav-text">
                             Capa
@@ -85,7 +92,7 @@
 
     <ul class="logout">
         <li>
-            <a href="#">
+            <a href="sair.php">
                 <i class="fa fa-power-off fa-2x"></i>
                         <span class="nav-text">
                             Sair

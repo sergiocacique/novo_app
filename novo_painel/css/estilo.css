@@ -70,6 +70,20 @@ body.orders .table-striped .product-item .product-visibility .fa-eye {
     text-shadow: none;
     width: 100%;
 }
+.main-menu .pacaraima {
+    background-color: transparent;
+    background-image: url("../imagens/brasao/pacaraima.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    border: 0 none;
+    color: transparent;
+    display: block;
+    font: 0px/0 a;
+    height: 45px;
+    margin: 20px auto 0;
+    text-shadow: none;
+    width: 100%;
+}
 .main-menu:hover,nav.main-menu.expanded {
     width:250px;
     overflow:visible;
