@@ -1,11 +1,8 @@
 <?php
-$sqlAdmin = mysql_query("SELECT * FROM admin WHERE CdUsuario = ".$_SESSION['UsuarioID']." ");
+$sqlAdmin = mysql_query("SELECT * FROM vw_prefeitura WHERE CdPrefeitura = ".$_SESSION['PrefeituraID']." ");
 $verAdmin = mysql_fetch_array($sqlAdmin);
 
-$sqlPermissao = mysql_query("SELECT * FROM adm_permissao WHERE CdUsuario = ".$_SESSION['UsuarioID']." ");
-$verPermissao = mysql_fetch_array($sqlPermissao);
-
-$sqlPerfil = mysql_query("SELECT * FROM adm_perfil WHERE id = ".$verAdmin['Perfil']." ");
+$sqlPerfil = mysql_query("SELECT * FROM vw_admin WHERE CdUsuario = ".$_SESSION['UsuarioID']." ");
 $verPerfil = mysql_fetch_array($sqlPerfil);
 ?>
 <div class="top-bar">
@@ -13,7 +10,7 @@ $verPerfil = mysql_fetch_array($sqlPerfil);
         <div class="row">
             <div class="col-sm-3 col-sm-offset-1">
                 <div class="see-frontstore">
-                    <a href="http://area-vip.minestore.com.br/" target="blank"><?php echo $verPrefConfig['Titulo'];?></a>
+                    <a href="http://area-vip.minestore.com.br/" target="blank"><?php echo $verAdmin['Titulo'];?></a>
                 </div>
                 <a href=""></a>
             </div>
@@ -21,8 +18,8 @@ $verPerfil = mysql_fetch_array($sqlPerfil);
                 <div class="profile-nav">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                         <img class="profile-avatar" src="https://www.gravatar.com/avatar/0b8db6c8e66f3505c0f6e7ddd99fcc71?d=mm">
-                        <h6><?php echo $verAdmin['Nome'];?></h6>
-                        <small><?php echo $verPerfil['Nome_perfil'];?></small>
+                        <h6><?php echo $verPerfil['Nome'];?></h6>
+                        <small><?php echo $verPerfil['NomePerfil'];?></small>
                     </a>
                 </div>
             </div>

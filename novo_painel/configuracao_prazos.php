@@ -1,10 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: elidiane
- * Date: 24/11/14
- * Time: 09:34
- */
+
 include ("conexao.php");
 include ("funcao.php");
 

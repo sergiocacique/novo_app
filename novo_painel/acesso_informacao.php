@@ -1,10 +1,15 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: elidiane
- * Date: 24/11/14
+ * User: sergio cacique
+ * Date: 01/03/2016
  * Time: 09:34
- */
+ *//**
+  * Created by PhpStorm.
+  * User: sergio cacique
+  * Date: 01/03/2016
+  * Time: 09:34
+  */
 include ("conexao.php");
 include ("funcao.php");
 

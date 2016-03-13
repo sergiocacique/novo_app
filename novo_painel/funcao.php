@@ -21,18 +21,18 @@ function porcentagem_nnx ( $parcial, $porcentagem ) {
 
 function retorna_mes($MES){
     switch ($MES) {
-        case 1 : $MES='Janeiro'; break;
-        case 2 : $MES='Fevereiro';    break;
-        case 3 : $MES='Março';    break;
-        case 4 : $MES='Abril';    break;
-        case 5 : $MES='Maio';    break;
-        case 6 : $MES='Junho';    break;
-        case 7 : $MES='Julho';    break;
-        case 8 : $MES='Agosto';    break;
-        case 9 : $MES='Setembro'; break;
-        case 10 : $MES='Outubro'; break;
-        case 11 : $MES='Novembro';    break;
-        case 12 : $MES='Dezembro'; break;
+        case 1 : $MES='Jan'; break;
+        case 2 : $MES='Fev';    break;
+        case 3 : $MES='Mar';    break;
+        case 4 : $MES='Abr';    break;
+        case 5 : $MES='Mai';    break;
+        case 6 : $MES='Jun';    break;
+        case 7 : $MES='Jul';    break;
+        case 8 : $MES='Ago';    break;
+        case 9 : $MES='Set'; break;
+        case 10 : $MES='Out'; break;
+        case 11 : $MES='Nov';    break;
+        case 12 : $MES='Dez'; break;
     }
     return $MES;
 }

@@ -1,10 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: elidiane
- * Date: 24/11/14
- * Time: 09:34
- */
+
 include ("conexao.php");
 include ("funcao.php");
 
@@ -87,69 +82,7 @@ if (!isset($_SESSION['UsuarioID'])) {
     </div>
 </div>
 <?php include ("menu.php");?>
-<div class="pane">
-    <header class=" hide_when_collapsed">
-        <h1>PÁGINA INICIAL</h1>
-    </header>
-    <div class=" hide_when_collapsed scroll_content">
-        <ul class="filters">
-            <div class="section">
-                <li>
-                    <a href="#">
-                        Notícias
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        Eventos
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        Enquetes
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        Links Úteis
-                    </a>
-                </li>
-            </div>
-
-            <div class="section">
-                <div class="title">
-                    <i class="fa fa-folder-open"></i>
-                    Multimídia
-                </div>
-                <li>
-                    <a href="#">
-                        Galeria de Fotos
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        Galeria de Vídeos
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        Áudios
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        Documentos
-                    </a>
-                </li>
-
-            </div>
-
-        </ul>
-
-
-
-    </div>
-</div>
+<?php include ("menu_informativos.php");?>
 <?php include ("topo.php");?>
 
 

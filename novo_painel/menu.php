@@ -1,12 +1,9 @@
 <?php
-$sqlPrefeitura = mysql_query("SELECT * FROM prefeitura WHERE CdPrefeitura = ".$_SESSION['PrefeituraID']." ");
+$sqlPrefeitura = mysql_query("SELECT * FROM vw_prefeitura WHERE CdPrefeitura = ".$_SESSION['PrefeituraID']." ");
 $verPrefeitura = mysql_fetch_array($sqlPrefeitura);
-
-$sqlPrefConfig = mysql_query("SELECT * FROM prefeitura_config WHERE CdPrefeitura = ".$_SESSION['PrefeituraID']." ");
-$verPrefConfig = mysql_fetch_array($sqlPrefConfig);
 ?>
 <nav class="main-menu">
-    <a class="<?php echo $verPrefeitura['Pasta'];?>" href="/admin"><?php echo $verPrefeitura['Nome'];?></a>
+    <a class="<?php echo $verPrefeitura['Pasta'];?>" href="/admin"><?php echo $verPrefeitura['Fantasia'];?></a>
 
     <ul>
         <li>
