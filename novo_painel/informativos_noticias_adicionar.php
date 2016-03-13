@@ -170,5 +170,5 @@ $verAdmin = mysql_fetch_array($sqlAdmin);
         //auditoria($_POST,$_SESSION['Usuario'].' Adicionou RREO/RGF : '.$Nome.'');
     }
 
-
+header('Location: informativos_noticias.php'); exit;
 ?>

@@ -92,8 +92,8 @@ if (!isset($_SESSION['UsuarioID'])) {
     <div class="row discovery">
         <div class="col-sm-9 col-md-10">
           <div class="header">
-              <h1>Notícias</h1>
-              <a class="btn btn-3d btn-reveal btn-red" href="informativos_noticias_novo.php">ADICIONAR NOVA NOTÍCIA</a>
+              <h1>Eventos</h1>
+              <a class="btn btn-3d btn-reveal btn-red" href="informativos_eventos_novo.php">ADICIONAR NOVO EVENTO</a>
           </div>
         </div>
     </div>
@@ -106,7 +106,7 @@ if (!isset($_SESSION['UsuarioID'])) {
         $pagina = (isset($_GET['pagina']))? $_GET['pagina'] : 1;
 
         //$cmd = "select *, concat(DtCadastro, ' ', HrCadastro) as dthr from site_noticias WHERE Acao = 'Publicado' ORDER BY dthr DESC";
-        $cmd = "select * from vw_noticias WHERE CdPrefeitura = '".$_SESSION['PrefeituraID']."' ORDER BY DtCadastro DESC";
+        $cmd = "select * from vw_eventos WHERE CdPrefeitura = '".$_SESSION['PrefeituraID']."' ORDER BY DtInicio DESC";
 
         $produtos = mysql_query($cmd);
 
@@ -119,7 +119,7 @@ if (!isset($_SESSION['UsuarioID'])) {
         $inicio = ($registros*$pagina)-$registros;
 
 
-        $cmd = "select * from vw_noticias WHERE CdPrefeitura = '".$_SESSION['PrefeituraID']."' ORDER BY DtCadastro DESC limit $inicio,$registros";
+        $cmd = "select * from vw_eventos WHERE CdPrefeitura = '".$_SESSION['PrefeituraID']."' ORDER BY DtInicio DESC limit $inicio,$registros";
         $produtos = mysql_query($cmd);
         $total = mysql_num_rows($produtos);
         while ($produto = mysql_fetch_array($produtos)) {
@@ -138,16 +138,15 @@ if (!isset($_SESSION['UsuarioID'])) {
           }
         ?>
   			<div class="col-sm-12 col-md-12 listaChamado">
-          <a href="informativos_noticias_editar.php?noticia=<?php echo $produto['CdNoticia'];?>">
+          <a href="informativos_eventos_editar.php?evento=<?php echo $produto['id'];?>">
           <div class="data <?php echo $cor;?>">
-            <?php echo date('d', strtotime($produto['DtCadastro']));?>
-            <span><?php echo retorna_mes(date('m', strtotime($produto['DtCadastro'])));?></span>
-            <span class="ano"><?php echo date('Y', strtotime($produto['DtCadastro']));?></span>
+            <?php echo date('d', strtotime($produto['DtInicio']));?>
+            <span><?php echo retorna_mes(date('m', strtotime($produto['DtInicio'])));?></span>
+            <span class="ano"><?php echo date('Y', strtotime($produto['DtInicio']));?></span>
           </div>
           <h5 class="<?php echo $corFonte;?>"><?php echo $produto['Titulo'];?></h5>
           <p>
-              <strong><?php echo $produto['Acao'];?> - Categoria:</strong> <?php echo $produto['Categoria'];?> <br>
-              <strong>Departamento:</strong> <?php echo $produto['NomeDepartamento'];?>
+              <strong>Departamento vinculado:</strong> <?php echo $produto['NomeDepartamento'];?>
           </p>
         </a>
         </div>
