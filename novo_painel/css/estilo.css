@@ -10,6 +10,9 @@ body {
     padding-bottom: 50px;
     color: #333 !important;
 }
+.logo_prefeituras{
+    margin: 35px;
+}
 .table {
     font-size: 14px !important;
 }
@@ -346,9 +349,149 @@ body.orders .table-striped .product-item .product-visibility .fa-eye {
     text-shadow: none;
     width: 100%;
 }
+.main-menu .uiramuta {
+    background-color: transparent;
+    background-image: url("../imagens/brasao/uiramuta.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    border: 0 none;
+    color: transparent;
+    display: block;
+    font: 0px/0 a;
+    height: 45px;
+    margin: 20px auto 0;
+    text-shadow: none;
+    width: 100%;
+}
+.main-menu .normandia {
+    background-color: transparent;
+    background-image: url("../imagens/brasao/normandia.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    border: 0 none;
+    color: transparent;
+    display: block;
+    font: 0px/0 a;
+    height: 45px;
+    margin: 20px auto 0;
+    text-shadow: none;
+    width: 100%;
+}
+.main-menu .canta {
+    background-color: transparent;
+    background-image: url("../imagens/brasao/canta.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    border: 0 none;
+    color: transparent;
+    display: block;
+    font: 0px/0 a;
+    height: 45px;
+    margin: 20px auto 0;
+    text-shadow: none;
+    width: 100%;
+}
+.main-menu .altoalegre {
+    background-color: transparent;
+    background-image: url("../imagens/brasao/altoalegre.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    border: 0 none;
+    color: transparent;
+    display: block;
+    font: 0px/0 a;
+    height: 45px;
+    margin: 20px auto 0;
+    text-shadow: none;
+    width: 100%;
+}
 .main-menu .pacaraima {
     background-color: transparent;
     background-image: url("../imagens/brasao/pacaraima.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    border: 0 none;
+    color: transparent;
+    display: block;
+    font: 0px/0 a;
+    height: 45px;
+    margin: 20px auto 0;
+    text-shadow: none;
+    width: 100%;
+}
+.main-menu .caroebe {
+    background-color: transparent;
+    background-image: url("../imagens/brasao/caroebe.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    border: 0 none;
+    color: transparent;
+    display: block;
+    font: 0px/0 a;
+    height: 45px;
+    margin: 20px auto 0;
+    text-shadow: none;
+    width: 100%;
+}
+.main-menu .pacaraima {
+    background-color: transparent;
+    background-image: url("../imagens/brasao/pacaraima.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    border: 0 none;
+    color: transparent;
+    display: block;
+    font: 0px/0 a;
+    height: 45px;
+    margin: 20px auto 0;
+    text-shadow: none;
+    width: 100%;
+}
+.main-menu .pacaraima {
+    background-color: transparent;
+    background-image: url("../imagens/brasao/pacaraima.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    border: 0 none;
+    color: transparent;
+    display: block;
+    font: 0px/0 a;
+    height: 45px;
+    margin: 20px auto 0;
+    text-shadow: none;
+    width: 100%;
+}
+.main-menu .mucajai {
+    background-color: transparent;
+    background-image: url("../imagens/brasao/mucajai.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    border: 0 none;
+    color: transparent;
+    display: block;
+    font: 0px/0 a;
+    height: 45px;
+    margin: 20px auto 0;
+    text-shadow: none;
+    width: 100%;
+}
+.main-menu .rorainopolis {
+    background-color: transparent;
+    background-image: url("../imagens/brasao/rorainopolis.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    border: 0 none;
+    color: transparent;
+    display: block;
+    font: 0px/0 a;
+    height: 45px;
+    margin: 20px auto 0;
+    text-shadow: none;
+    width: 100%;
+}
+.main-menu .demo {
+    background-color: transparent;
+    background-image: url("../imagens/brasao/demo.png");
     background-position: center center;
     background-repeat: no-repeat;
     border: 0 none;

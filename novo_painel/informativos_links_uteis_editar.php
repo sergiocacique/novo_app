@@ -1,10 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: elidiane
- * Date: 24/11/14
- * Time: 09:34
- */
+
 include ("conexao.php");
 include ("funcao.php");
 
@@ -25,7 +20,7 @@ if (!isset($_SESSION['UsuarioID'])) {
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Minha Prefeitura - Dashboard</title>
+    <title>Portal da Transparência</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
@@ -36,6 +31,7 @@ if (!isset($_SESSION['UsuarioID'])) {
 
     <script src="js/bootstrap.js"></script>
     <script src="js/jquery.1.11.1.min.js"></script>
+    <script src="//cdn.ckeditor.com/4.5.7/standard/ckeditor.js"></script>
     <script>
 
         function loadImages() {
@@ -87,23 +83,74 @@ if (!isset($_SESSION['UsuarioID'])) {
     </div>
 </div>
 <?php include ("menu.php");?>
-
+<?php include ("menu_informativos.php");?>
 <?php include ("topo.php");?>
 
+<?php
+$CdNoticia = $_GET['link'];
 
+$sqlPagina = mysql_query("SELECT * FROM link_uteis WHERE id = '".$CdNoticia."'");
+$rsPagina = mysql_fetch_array($sqlPagina);
+ ?>
 <div id="conteudo" class="container">
-    <div class="row discovery">
-        <div class="col-sm-9 col-sm-offset-2 col-md-10 col-md-offset-1">
-            <div class="header">
-                <h1>Dashboard</h1>
-                <div class="tagline"> Bem vindo ao novo Dashboard. </div>
+  <div class="row discovery">
+      <div class="col-sm-9 col-md-10">
+        <div class="header">
+            <h1>Alterar Links Úteis</h1>
+        </div>
+      </div>
+  </div>
+
+    <div class="row discovery2">
+      <div class="table-responsive">
+        <form class="validate" action="informativos_links_uteis_gravar.php" method="post">
+          <input type="hidden" id="id" name="id" value="<?php echo $rsPagina['id'];?>">
+
+          <div class=" col-sm-12 col-md-7">
+            <div class="fancy-form">
+              <label>Titulo do Link</label>
+              <input id="titulo" name="titulo" class="form-control" type="text" placeholder="<?php echo $rsPagina['NomeLink'];?>" value="<?php echo $rsPagina['NomeLink'];?>">
             </div>
+          </div>
 
-
-
+          <div class=" col-sm-12 col-md-7">
+            <div class="fancy-form">
+              <label>Endereço do Link</label>
+              <input id="url" name="url" class="form-control" type="text" placeholder="<?php echo $rsPagina['Link'];?>" value="<?php echo $rsPagina['Link'];?>">
             </div>
+          </div>
+
+
+          <div class=" col-sm-12 col-md-6">
+            <label>Ação</label>
+            <div class="fancy-form fancy-form-select">
+              <select class="form-control" id="acao" name="acao">
+                <?php
+                $sqlGlossario = mysql_query("SELECT * FROM acao ORDER BY NomeAcao ASC");
+                $Glossario = mysql_num_rows($sqlGlossario);
+
+                for ($y = 0; $y < $Glossario; $y++){
+                    $verGlossario = mysql_fetch_array($sqlGlossario);
+
+                    ?>
+                <option value="<?php echo $verGlossario['NomeAcao']; ?>" <?php if ($rsPagina['Acao'] == $verGlossario['NomeAcao']){?>selected<?php }?>><?php echo $verGlossario['NomeAcao']; ?></option>
+                <?php
+                }
+                ?>
+              </select>
+            <i class="fancy-arrow"></i>
+          </div>
+        </div>
+
+        <div class=" col-sm-12 col-md-12">
+          <button type="submit" class="btn btn-3d btn-teal btn-block margin-top-30">
+  				GRAVAR
+  			</button></div>
+
+        </form>
+        </div>
     </div>
 </div>
-<div class="container"></div>
+
 </body>
 </html>

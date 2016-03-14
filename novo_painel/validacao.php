@@ -22,19 +22,25 @@ if ($mostra > 0) {
     $update = mysql_query("UPDATE admin SET Horario = '".$atual."', Limite = '".$expira."' WHERE CdUsuario = '".$verDados['CdUsuario']."'");
     $acessos = mysql_query("INSERT INTO acessos (CdUsuario,DtCadastro,IP) VALUES ('".$_SESSION['UsuarioID']."','".$atual."','".$IP."')");
 
-//    if ($soma == 1){
-//        $_SESSION['PrefeituraID'] = $verAcesso['CdPrefeitura'];
-//    }else{
-//        $_SESSION['PrefeituraID'] = "0";
-//    }
+    $pref = mysql_query("SELECT * FROM admin_prefeitura WHERE CdUsuario = ".$verDados['CdUsuario']." ");
+    $soma = mysql_num_rows($pref);
+    $verAcesso = mysql_fetch_array($pref);
 
-    $_SESSION['PrefeituraID'] = "5";
-    if ($verDados['atualizado'] == 'nao'){
-        //header('Location: meus_dados.php'); exit;
-        header('Location: index.php'); exit;
-    }else{
-        header('Location: index.php'); exit;
-    }
+   if ($soma == 1){
+       $_SESSION['PrefeituraID'] = $verAcesso['CdPrefeitura'];
+       header('Location: index.php'); exit;
+   }else{
+       $_SESSION['PrefeituraID'] = "0";
+       header('Location: prefeitura.php'); exit;
+   }
+
+    //$_SESSION['PrefeituraID'] = "5";
+    // if ($verDados['atualizado'] == 'nao'){
+    //     //header('Location: meus_dados.php'); exit;
+    //     header('Location: index.php'); exit;
+    // }else{
+    //     header('Location: index.php'); exit;
+    // }
 
 
 

@@ -15,11 +15,11 @@
                         Eventos
                     </a>
                 </li>
-                <li>
+                <!-- <li>
                     <a href="informativos_enquete.php">
                         Enquetes
                     </a>
-                </li>
+                </li> -->
                 <li>
                     <a href="informativos_links_uteis.php">
                         Links Úteis

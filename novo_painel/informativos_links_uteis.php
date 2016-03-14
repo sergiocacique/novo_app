@@ -1,10 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: elidiane
- * Date: 24/11/14
- * Time: 09:34
- */
+
 include ("conexao.php");
 include ("funcao.php");
 
@@ -25,7 +20,7 @@ if (!isset($_SESSION['UsuarioID'])) {
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Minha Prefeitura - Dashboard</title>
+    <title>Portal da Transparência</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
@@ -37,6 +32,8 @@ if (!isset($_SESSION['UsuarioID'])) {
     <script src="js/bootstrap.js"></script>
     <script src="js/jquery.1.11.1.min.js"></script>
     <script>
+
+
 
         function loadImages() {
             if (document.getElementById) {  // DOM3 = IE5, NS6
@@ -87,23 +84,74 @@ if (!isset($_SESSION['UsuarioID'])) {
     </div>
 </div>
 <?php include ("menu.php");?>
-
+<?php include ("menu_informativos.php");?>
 <?php include ("topo.php");?>
 
 
 <div id="conteudo" class="container">
     <div class="row discovery">
-        <div class="col-sm-9 col-sm-offset-2 col-md-10 col-md-offset-1">
-            <div class="header">
-                <h1>Dashboard</h1>
-                <div class="tagline"> Bem vindo ao novo Dashboard. </div>
-            </div>
+        <div class="col-sm-9 col-md-10">
+          <div class="header">
+              <h1>Links Úteis</h1>
+              <a class="btn btn-3d btn-reveal btn-red" href="informativos_link_uteis_novo.php">ADICIONAR NOVO LINK ÚTEIS</a>
+          </div>
+        </div>
+    </div>
+
+    <div class="row discovery2">
+
+      <div class="table-responsive">
+
+        <?php
+        $pagina = (isset($_GET['pagina']))? $_GET['pagina'] : 1;
+
+        //$cmd = "select *, concat(DtCadastro, ' ', HrCadastro) as dthr from site_noticias WHERE Acao = 'Publicado' ORDER BY dthr DESC";
+        $cmd = "select * from link_uteis WHERE CdPrefeitura = '".$_SESSION['PrefeituraID']."' ORDER BY NomeLink ASC";
+
+        $produtos = mysql_query($cmd);
+
+        $total = mysql_num_rows($produtos);
+
+        $registros = 50;
+
+        $numPaginas = ceil($total/$registros);
+
+        $inicio = ($registros*$pagina)-$registros;
 
 
+        $cmd = "select * from link_uteis WHERE CdPrefeitura = '".$_SESSION['PrefeituraID']."' ORDER BY NomeLink ASC limit $inicio,$registros";
+        $produtos = mysql_query($cmd);
+        $total = mysql_num_rows($produtos);
+        while ($produto = mysql_fetch_array($produtos)) {
+          if($produto['Acao'] == "Publicado"){
+            $cor = "verde";
+            $corFonte = "font-verde";
+          }elseif ($produto['Acao'] == "Aguardando") {
+            $cor = "laranja";
+            $corFonte = "font-laranja";
+          }elseif ($produto['Acao'] == "Excluido") {
+            $cor = "vermelho";
+            $corFonte = "font-vermelho";
+          }else{
+            $cor = "cinza";
+            $corFonte = "font-cinza";
+          }
+        ?>
+  			<div class="col-sm-12 col-md-12 listaChamado">
+          <a href="informativos_links_uteis_editar.php?link=<?php echo $produto['id'];?>">
+          <h5 class="<?php echo $corFonte;?>"><?php echo $produto['NomeLink'];?></h5>
+          <p>
+              <strong>Endereço:</strong> <?php echo $produto['Link'];?>
+          </p>
+        </a>
+        </div>
+        <?php
+        }
+        ?>
 
-            </div>
+        </div>
     </div>
 </div>
-<div class="container"></div>
+
 </body>
 </html>

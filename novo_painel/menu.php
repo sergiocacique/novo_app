@@ -1,6 +1,10 @@
+
 <?php
 $sqlPrefeitura = mysql_query("SELECT * FROM vw_prefeitura WHERE CdPrefeitura = ".$_SESSION['PrefeituraID']." ");
 $verPrefeitura = mysql_fetch_array($sqlPrefeitura);
+
+$sqlPerfil2 = mysql_query("SELECT * FROM vw_admin WHERE CdUsuario = ".$_SESSION['UsuarioID']." ");
+$verPerfil2 = mysql_fetch_array($sqlPerfil2);
 ?>
 <nav class="main-menu">
     <a class="<?php echo $verPrefeitura['Pasta'];?>" href="/admin"><?php echo $verPrefeitura['Fantasia'];?></a>
@@ -15,6 +19,21 @@ $verPrefeitura = mysql_fetch_array($sqlPrefeitura);
             </a>
 
         </li>
+        <?php
+        if($verPerfil2['NomePerfil'] == "Desenvolvedor"){
+        ?>
+        <li>
+            <a href="prefeitura.php">
+                <i class="fa fa-th fa-2x"></i>
+                        <span class="nav-text">
+                            Prefeituras
+                        </span>
+            </a>
+
+        </li>
+        <?php
+      }
+        ?>
         <li class="has-subnav">
             <a href="capa.php">
                 <i class="fa fa-laptop fa-2x"></i>
