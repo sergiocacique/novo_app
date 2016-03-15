@@ -106,7 +106,7 @@ if (!isset($_SESSION['UsuarioID'])) {
         $pagina = (isset($_GET['pagina']))? $_GET['pagina'] : 1;
 
         //$cmd = "select *, concat(DtCadastro, ' ', HrCadastro) as dthr from site_noticias WHERE Acao = 'Publicado' ORDER BY dthr DESC";
-        $cmd = "select * from vw_eventos WHERE CdPrefeitura = '".$_SESSION['PrefeituraID']."' ORDER BY DtInicio DESC";
+        $cmd = "select * from vw_eventos WHERE CdPrefeitura = '".$_SESSION['PrefeituraID']."' AND Acao <> 'Excluido' ORDER BY DtInicio DESC";
 
         $produtos = mysql_query($cmd);
 
@@ -119,7 +119,7 @@ if (!isset($_SESSION['UsuarioID'])) {
         $inicio = ($registros*$pagina)-$registros;
 
 
-        $cmd = "select * from vw_eventos WHERE CdPrefeitura = '".$_SESSION['PrefeituraID']."' ORDER BY DtInicio DESC limit $inicio,$registros";
+        $cmd = "select * from vw_eventos WHERE CdPrefeitura = '".$_SESSION['PrefeituraID']."' AND Acao <> 'Excluido' ORDER BY DtInicio DESC limit $inicio,$registros";
         $produtos = mysql_query($cmd);
         $total = mysql_num_rows($produtos);
         while ($produto = mysql_fetch_array($produtos)) {

@@ -54,17 +54,6 @@ if (!isset($_SESSION['UsuarioID'])) {
             $("#loading2").delay(200).fadeOut("slow");
         });
 
-        function listaChamado(acao){
-            start();
-            $('#loading2').css('visibility','visible');
-            $.post("inicio_chamado.php", { acao: acao },
-                function(data){
-                    $('#conteudo').html(data);
-                    $('html, body').animate({scrollTop:0}, 'slow');
-                }).done(function() {
-                    $('#loading2').css('visibility','hidden');
-                });
-        }
 
         jQuery(function($){
             // JQUERY MASK INPUT
@@ -107,111 +96,82 @@ if (!isset($_SESSION['UsuarioID'])) {
   <div class="row discovery">
       <div class="col-sm-9 col-md-10">
         <div class="header">
-            <h1>Adicionar Nova Notícias</h1>
+            <h1>Adicionar Nova Passagem</h1>
         </div>
       </div>
   </div>
     <div class="row discovery2">
       <div class="table-responsive">
-        <form class="validate" action="informativos_noticias_adicionar.php" method="post" enctype="multipart/form-data">
+        <form class="validate" action="transparencia_passagens_adicionar.php" method="post">
 
           <div class=" col-sm-12 col-md-3">
-            <div class="fancy-form">
-              <label>Data</label>
-              <input  data-mask="date" id="dtcadastro" name="dtcadastro" class="form-control masked" type="text" placeholder="DD/MM/AAAA" data-placeholder="_" data-format="99/99/9999">
-            </div>
-          </div>
-
-          <div class=" col-sm-12 col-md-9">
-            <div class="fancy-form">
-              <label>Titulo</label>
-              <input id="titulo" name="titulo" class="form-control" type="text" placeholder="Digite o titulo da notícia">
-            </div>
-          </div>
-
-            <div class=" col-sm-12 col-md-6">
-              <label>Categoria</label>
-              <div class="fancy-form fancy-form-select">
-            	<select class="form-control" id="categoria" name="categoria">
-                <?php
-                $sqlGlossario = mysql_query("SELECT * FROM site_noticias_categoria ORDER BY Categoria ASC");
-                $Glossario = mysql_num_rows($sqlGlossario);
-
-                for ($y = 0; $y < $Glossario; $y++){
-                    $verGlossario = mysql_fetch_array($sqlGlossario);
-
-                    ?>
-            		<option value="<?php echo $verGlossario['CdCategoria']; ?>"><?php echo $verGlossario['Categoria']; ?></option>
-                <?php
-                }
-                ?>
-            	</select>
-              <i class="fancy-arrow"></i>
-            </div>
-          </div>
-
-          <div class=" col-sm-12 col-md-6">
-            <label>Departamento</label>
+            <label>Mês</label>
             <div class="fancy-form fancy-form-select">
-              <select class="form-control" id="departamento" name="departamento">
+              <select class="form-control" id="mes" name="mes">
                 <?php
-                $sqlGlossario = mysql_query("SELECT * FROM departamento WHERE CdPrefeitura = '".$_SESSION['PrefeituraID']."' ORDER BY NomeDepartamento ASC");
-                $Glossario = mysql_num_rows($sqlGlossario);
-
-                for ($y = 0; $y < $Glossario; $y++){
-                    $verGlossario = mysql_fetch_array($sqlGlossario);
-
+                for ($i = 1; $i <= 12; $i++){
                     ?>
-                <option value="<?php echo $verGlossario['CdDepartamento']; ?>"><?php echo $verGlossario['NomeDepartamento']; ?></option>
-                <?php
-                }
-                ?>
+                    <option value="<?=$i?>"><?=retorna_mes_extenso($i)?></option>
+                <?php }?>
               </select>
             <i class="fancy-arrow"></i>
           </div>
         </div>
 
+        <div class=" col-sm-12 col-md-3">
+          <label>Ano</label>
+          <div class="fancy-form fancy-form-select">
+            <select class="form-control" id="ano" name="ano">
+              <?php
+              for($ano=date('Y');$ano > date('Y')-10;$ano--){
+                  ?>
+                  <option value="<?=$ano?>"><?=$ano?></option>
+              <?php }?>
+            </select>
+          <i class="fancy-arrow"></i>
+        </div>
+      </div>
 
-          <div class=" col-sm-12 col-md-12">
-            <label>Matéria</label>
-            <textarea name="editor1" id="editor1"></textarea>
-              <script>
-                  CKEDITOR.replace( 'editor1' );
-              </script>
-          </div>
-
-          <!-- FOTO  -->
-          <div class=" col-sm-12 col-md-12">
-            <div class="col-md-12">
-					<label>
-						Foto da Chamada - opcional
-						<small class="text-muted">Largura de 808px</small>
-					</label>
-
-					<!-- custom file upload -->
-					<div class="fancy-file-upload fancy-file-primary">
-						<i class="fa fa-upload"></i>
-						<input type="file" class="form-control" onchange="jQuery(this).next('input').val(this.value);" name="arquivo" id="arquivo" />
-						<input type="text" class="form-control" placeholder="no file selected" readonly="" />
-						<span class="button">Procurar Foto</span>
-					</div>
-					<small class="text-muted block">Tamanho máximo: 1Mb (jpg/png/gif)</small>
-
-				</div>
-          </div>
-
-          <div class=" col-sm-12 col-md-6">
+          <div class=" col-sm-12 col-md-3">
             <div class="fancy-form">
-              <label>Fotografo</label>
-              <input id="Fotografo" name="Fotografo" class="form-control" type="text" placeholder="Informe o nome do Fotografo">
+              <label>Data da Ida</label>
+              <input data-mask="date" id="DtIda" name="DtIda" class="form-control masked" type="text" placeholder="DD/MM/AAAA" data-placeholder="_" data-format="99/99/9999">
             </div>
           </div>
 
-          <div class=" col-sm-12 col-md-6">
+          <div class=" col-sm-12 col-md-3">
             <div class="fancy-form">
-              <label>Legenda da Foto</label>
-              <input id="LegendaFoto" name="LegendaFoto" class="form-control" type="text" placeholder="Informe a leganda da foto">
+              <label>Data da Volta</label>
+              <input data-mask="date" id="DtVolta" name="DtVolta" class="form-control masked" type="text" placeholder="DD/MM/AAAA" data-placeholder="_" data-format="99/99/9999">
             </div>
+          </div>
+
+          <div class=" col-sm-12 col-md-7">
+            <div class="fancy-form">
+              <label>Nome Completo</label>
+              <input id="Nome" name="Nome" class="form-control" type="text" placeholder="Digite o Nome Completo">
+            </div>
+          </div>
+
+          <div class=" col-sm-12 col-md-7">
+            <div class="fancy-form">
+              <label>Destino</label>
+              <input id="Destino" name="Destino" class="form-control" type="text" placeholder="Digite o Destino Completo">
+            </div>
+          </div>
+
+
+          <div class=" col-sm-12 col-md-5">
+            <div class="fancy-form">
+              <label>Valor da Viagem (R$)</label>
+              <input data-mask="money" id="Valor" name="Valor" class="form-control" type="text" placeholder="0,00">
+            </div>
+          </div>
+
+
+          <div class=" col-sm-12 col-md-12">
+            <label>Objetivo da Viagem</label>
+            <textarea name="objetivo" class="form-control" rows="5" id="objetivo"></textarea>
           </div>
 
           <div class=" col-sm-12 col-md-6">

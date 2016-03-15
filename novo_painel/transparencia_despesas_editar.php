@@ -54,17 +54,6 @@ if (!isset($_SESSION['UsuarioID'])) {
             $("#loading2").delay(200).fadeOut("slow");
         });
 
-        function listaChamado(acao){
-            start();
-            $('#loading2').css('visibility','visible');
-            $.post("inicio_chamado.php", { acao: acao },
-                function(data){
-                    $('#conteudo').html(data);
-                    $('html, body').animate({scrollTop:0}, 'slow');
-                }).done(function() {
-                    $('#loading2').css('visibility','hidden');
-                });
-        }
 
         jQuery(function($){
             // JQUERY MASK INPUT
@@ -100,119 +89,76 @@ if (!isset($_SESSION['UsuarioID'])) {
     </div>
 </div>
 <?php include ("menu.php");?>
-<?php include ("menu_informativos.php");?>
+<?php include ("menu_transparencia.php");?>
 <?php include ("topo.php");?>
+
+<?php
+$id = $_GET['despesa'];
+
+$sqlPagina = mysql_query("SELECT * FROM despesas WHERE id = '".$id."'");
+$rsPagina = mysql_fetch_array($sqlPagina);
+ ?>
 
 <div id="conteudo" class="container">
   <div class="row discovery">
       <div class="col-sm-9 col-md-10">
         <div class="header">
-            <h1>Adicionar Nova Notícias</h1>
+            <h1>Alterar Nova Despesa</h1>
         </div>
       </div>
   </div>
     <div class="row discovery2">
       <div class="table-responsive">
-        <form class="validate" action="informativos_noticias_adicionar.php" method="post" enctype="multipart/form-data">
+        <form class="validate" action="transparencia_despesas_gravar.php" method="post">
+          <input type="hidden" id="id" name="id" value="<?php echo $rsPagina['id'];?>">
 
           <div class=" col-sm-12 col-md-3">
-            <div class="fancy-form">
-              <label>Data</label>
-              <input  data-mask="date" id="dtcadastro" name="dtcadastro" class="form-control masked" type="text" placeholder="DD/MM/AAAA" data-placeholder="_" data-format="99/99/9999">
-            </div>
-          </div>
-
-          <div class=" col-sm-12 col-md-9">
-            <div class="fancy-form">
-              <label>Titulo</label>
-              <input id="titulo" name="titulo" class="form-control" type="text" placeholder="Digite o titulo da notícia">
-            </div>
-          </div>
-
-            <div class=" col-sm-12 col-md-6">
-              <label>Categoria</label>
-              <div class="fancy-form fancy-form-select">
-            	<select class="form-control" id="categoria" name="categoria">
-                <?php
-                $sqlGlossario = mysql_query("SELECT * FROM site_noticias_categoria ORDER BY Categoria ASC");
-                $Glossario = mysql_num_rows($sqlGlossario);
-
-                for ($y = 0; $y < $Glossario; $y++){
-                    $verGlossario = mysql_fetch_array($sqlGlossario);
-
-                    ?>
-            		<option value="<?php echo $verGlossario['CdCategoria']; ?>"><?php echo $verGlossario['Categoria']; ?></option>
-                <?php
-                }
-                ?>
-            	</select>
-              <i class="fancy-arrow"></i>
-            </div>
-          </div>
-
-          <div class=" col-sm-12 col-md-6">
-            <label>Departamento</label>
+            <label>Mês</label>
             <div class="fancy-form fancy-form-select">
-              <select class="form-control" id="departamento" name="departamento">
+              <select class="form-control" id="mes" name="mes">
                 <?php
-                $sqlGlossario = mysql_query("SELECT * FROM departamento WHERE CdPrefeitura = '".$_SESSION['PrefeituraID']."' ORDER BY NomeDepartamento ASC");
-                $Glossario = mysql_num_rows($sqlGlossario);
-
-                for ($y = 0; $y < $Glossario; $y++){
-                    $verGlossario = mysql_fetch_array($sqlGlossario);
-
+                for ($i = 1; $i <= 12; $i++){
                     ?>
-                <option value="<?php echo $verGlossario['CdDepartamento']; ?>"><?php echo $verGlossario['NomeDepartamento']; ?></option>
-                <?php
-                }
-                ?>
+                    <option value="<?=$i?>" <?php if ($rsPagina['Mes'] == $i){?>selected<?php }?>><?=retorna_mes_extenso($i)?></option>
+                <?php }?>
               </select>
             <i class="fancy-arrow"></i>
           </div>
         </div>
 
+        <div class=" col-sm-12 col-md-3">
+          <label>Ano</label>
+          <div class="fancy-form fancy-form-select">
+            <select class="form-control" id="ano" name="ano">
+              <?php
+              for($ano=date('Y');$ano > date('Y')-10;$ano--){
+                  ?>
+                  <option value="<?=$ano?>" <?php if ($rsPagina['Ano'] == $ano){?>selected<?php }?>><?=$ano?></option>
+              <?php }?>
+            </select>
+          <i class="fancy-arrow"></i>
+        </div>
+      </div>
 
-          <div class=" col-sm-12 col-md-12">
-            <label>Matéria</label>
-            <textarea name="editor1" id="editor1"></textarea>
-              <script>
-                  CKEDITOR.replace( 'editor1' );
-              </script>
-          </div>
-
-          <!-- FOTO  -->
-          <div class=" col-sm-12 col-md-12">
-            <div class="col-md-12">
-					<label>
-						Foto da Chamada - opcional
-						<small class="text-muted">Largura de 808px</small>
-					</label>
-
-					<!-- custom file upload -->
-					<div class="fancy-file-upload fancy-file-primary">
-						<i class="fa fa-upload"></i>
-						<input type="file" class="form-control" onchange="jQuery(this).next('input').val(this.value);" name="arquivo" id="arquivo" />
-						<input type="text" class="form-control" placeholder="no file selected" readonly="" />
-						<span class="button">Procurar Foto</span>
-					</div>
-					<small class="text-muted block">Tamanho máximo: 1Mb (jpg/png/gif)</small>
-
-				</div>
-          </div>
-
-          <div class=" col-sm-12 col-md-6">
+          <div class=" col-sm-12 col-md-7">
             <div class="fancy-form">
-              <label>Fotografo</label>
-              <input id="Fotografo" name="Fotografo" class="form-control" type="text" placeholder="Informe o nome do Fotografo">
+              <label>Titulo do Evento</label>
+              <input id="titulo" name="titulo" class="form-control" type="text" value="<?php echo $rsPagina['Titulo'];?>" placeholder="Digite o titulo">
             </div>
           </div>
 
-          <div class=" col-sm-12 col-md-6">
-            <div class="fancy-form">
-              <label>Legenda da Foto</label>
-              <input id="LegendaFoto" name="LegendaFoto" class="form-control" type="text" placeholder="Informe a leganda da foto">
-            </div>
+
+          <div class=" col-sm-12 col-md-5">
+            <label>Categoria</label>
+            <div class="fancy-form fancy-form-select">
+              <select class="form-control" id="categoria" name="categoria">
+                <option value="Empenho" <?php if ($rsPagina['Categoria'] == "Empenho"){?>selected<?php }?>>Empenho</option>
+                <option value="Liquidação" <?php if ($rsPagina['Categoria'] == "Liquidação"){?>selected<?php }?>>Liquidação</option>
+              </select>
+            <i class="fancy-arrow"></i>
           </div>
+        </div>
+
 
           <div class=" col-sm-12 col-md-6">
             <label>Ação</label>
@@ -226,7 +172,7 @@ if (!isset($_SESSION['UsuarioID'])) {
                     $verGlossario = mysql_fetch_array($sqlGlossario);
 
                     ?>
-                <option value="<?php echo $verGlossario['NomeAcao']; ?>"><?php echo $verGlossario['NomeAcao']; ?></option>
+                <option value="<?php echo $verGlossario['NomeAcao']; ?>" <?php if ($rsPagina['Acao'] == $verGlossario['NomeAcao']){?>selected<?php }?>><?php echo $verGlossario['NomeAcao']; ?></option>
                 <?php
                 }
                 ?>
@@ -235,9 +181,10 @@ if (!isset($_SESSION['UsuarioID'])) {
           </div>
         </div>
 
+
         <div class=" col-sm-12 col-md-12">
           <button type="submit" class="btn btn-3d btn-teal btn-block margin-top-30">
-  				GRAVAR
+  				SALVAR
   			</button></div>
 
         </form>

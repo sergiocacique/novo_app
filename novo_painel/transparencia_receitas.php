@@ -54,17 +54,7 @@ if (!isset($_SESSION['UsuarioID'])) {
             $("#loading2").delay(200).fadeOut("slow");
         });
 
-        function listaChamado(acao){
-            start();
-            $('#loading2').css('visibility','visible');
-            $.post("inicio_chamado.php", { acao: acao },
-                function(data){
-                    $('#conteudo').html(data);
-                    $('html, body').animate({scrollTop:0}, 'slow');
-                }).done(function() {
-                    $('#loading2').css('visibility','hidden');
-                });
-        }
+
     </script>
 </head>
 <body class="orders index">
@@ -84,7 +74,7 @@ if (!isset($_SESSION['UsuarioID'])) {
     </div>
 </div>
 <?php include ("menu.php");?>
-<?php include ("menu_informativos.php");?>
+<?php include ("menu_transparencia.php");?>
 <?php include ("topo.php");?>
 
 
@@ -92,8 +82,8 @@ if (!isset($_SESSION['UsuarioID'])) {
     <div class="row discovery">
         <div class="col-sm-9 col-md-10">
           <div class="header">
-              <h1>Notícias</h1>
-              <a class="btn btn-3d btn-reveal btn-red" href="informativos_noticias_novo.php">ADICIONAR NOVA NOTÍCIA</a>
+              <h1>Receitas</h1>
+              <a class="btn btn-3d btn-reveal btn-red" href="transparencia_receitas_novo.php">ADICIONAR NOVA RECEITA</a>
           </div>
         </div>
     </div>
@@ -106,7 +96,7 @@ if (!isset($_SESSION['UsuarioID'])) {
         $pagina = (isset($_GET['pagina']))? $_GET['pagina'] : 1;
 
         //$cmd = "select *, concat(DtCadastro, ' ', HrCadastro) as dthr from site_noticias WHERE Acao = 'Publicado' ORDER BY dthr DESC";
-        $cmd = "select * from vw_noticias WHERE CdPrefeitura = '".$_SESSION['PrefeituraID']."' AND Acao <> 'Excluido' ORDER BY DtCadastro DESC";
+        $cmd = "select * from receitas WHERE CdPrefeitura = '".$_SESSION['PrefeituraID']."' AND Acao <> 'Excluido' ORDER BY Ano DESC, Mes DESC";
 
         $produtos = mysql_query($cmd);
 
@@ -119,37 +109,35 @@ if (!isset($_SESSION['UsuarioID'])) {
         $inicio = ($registros*$pagina)-$registros;
 
 
-        $cmd = "select * from vw_noticias WHERE CdPrefeitura = '".$_SESSION['PrefeituraID']."' AND Acao <> 'Excluido' ORDER BY DtCadastro DESC limit $inicio,$registros";
+        $cmd = "select * from receitas WHERE CdPrefeitura = '".$_SESSION['PrefeituraID']."' AND Acao <> 'Excluido' ORDER BY Ano DESC, Mes DESC limit $inicio,$registros";
         $produtos = mysql_query($cmd);
         $total = mysql_num_rows($produtos);
         while ($produto = mysql_fetch_array($produtos)) {
           if($produto['Acao'] == "Publicado"){
-            $cor = "verde";
+            $cor = "border-verde";
             $corFonte = "font-verde";
           }elseif ($produto['Acao'] == "Aguardando") {
-            $cor = "laranja";
+            $cor = "border-laranja";
             $corFonte = "font-laranja";
           }elseif ($produto['Acao'] == "Excluido") {
-            $cor = "vermelho";
+            $cor = "border-vermelho";
             $corFonte = "font-vermelho";
           }else{
-            $cor = "cinza";
+            $cor = "border-cinza";
             $corFonte = "font-cinza";
           }
         ?>
-  			<div class="col-sm-12 col-md-12 listaChamado">
-          <a href="informativos_noticias_editar.php?noticia=<?php echo $produto['CdNoticia'];?>">
-          <div class="data <?php echo $cor;?>">
-            <?php echo date('d', strtotime($produto['DtCadastro']));?>
-            <span><?php echo retorna_mes(date('m', strtotime($produto['DtCadastro'])));?></span>
-            <span class="ano"><?php echo date('Y', strtotime($produto['DtCadastro']));?></span>
-          </div>
+  			<div class="col-sm-12 col-md-4">
+          <div class="listar <?php echo $cor;?>">
+          <a href="transparencia_receitas_editar.php?receita=<?php echo $produto['id'];?>">
+
           <h5 class="<?php echo $corFonte;?>"><?php echo $produto['Titulo'];?></h5>
           <p>
-              <strong><?php echo $produto['Acao'];?> - Categoria:</strong> <?php echo $produto['Categoria'];?> <br>
-              <strong>Departamento:</strong> <?php echo $produto['NomeDepartamento'];?>
+              <strong>Periodo:</strong> <?php echo retorna_mes_extenso($produto['Mes']);?>/<?php echo $produto['Ano'];?><br>
+              <strong>Categoria:</strong> <?php echo $produto['Categoria'];?>
           </p>
         </a>
+      </div>
         </div>
         <?php
         }

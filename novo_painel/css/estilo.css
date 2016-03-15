@@ -10,6 +10,7 @@ body {
     padding-bottom: 50px;
     color: #333 !important;
 }
+.categoria{}
 .logo_prefeituras{
     margin: 35px;
 }
@@ -40,6 +41,18 @@ body {
 .font-laranja{
   color: #ff7e00 !important;
 }
+.border-verde{
+    border-left: 4px solid #008942 !important;
+}
+.border-vermelho{
+  border-left: 4px solid #a50000 !important;
+}
+.border-cinza{
+  border-left: 4px solid #7b7b7b !important;
+}
+.border-laranja{
+  border-left: 4px solid #ff7e00 !important;
+}
 .listaChamado{
     background-color: #fff;
     border: 1px solid #ddd;
@@ -49,6 +62,7 @@ body {
     font-weight: bold;
     text-transform: uppercase;
 }
+
 .listaChamado .data{
     color: #fff;
     float: left;
@@ -64,19 +78,45 @@ body {
 .listaChamado a{
   text-decoration: none;
 }
-a:hover {
-    text-decoration: none;
+.listaChamado .data span{
+  display: block;
+  font-size: 16px;
+  margin: -5px;
+  text-transform: uppercase;
 }
-  .listaChamado .data span{
+.listaChamado .data .ano{
+display: block;
+font-size: 15px;
+}
+.listar{
+    background-color: #fff;
+    border: 1px solid #ddd;
+    margin: 15px;
+    padding: 15px;
+    width: 100%;
+}
+.listar h5{
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.listar:hover{
+  background-color: #cdcdcd;
+  text-decoration: none;
+}
+.listar .data span{
     display: block;
     font-size: 16px;
     margin: -5px;
     text-transform: uppercase;
 }
-.listaChamado .data .ano{
+.listar .data .ano{
   display: block;
   font-size: 15px;
 }
+a:hover {
+    text-decoration: none;
+}
+
 label {
     display: block;
     font-weight: 400;
@@ -1158,6 +1198,7 @@ ul.filters li.selected .count {
     border: 1px solid #78a300;
     color: #fff;
 }
+
 .title i {
     float: left;
     font-size: 15px !important;
