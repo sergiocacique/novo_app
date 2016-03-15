@@ -172,7 +172,7 @@ $rsPagina = mysql_fetch_array($sqlPagina);
           </div>
 
           <div class="box-branco">
-              <h4>Informações inmportantes</h4>
+              <h4>Informações importantes</h4>
               <div class=" col-sm-12 col-md-4">
                 <label>Valor Aprovado (R$)</label>
                 <input id="val_aprovado" name="val_aprovado" class="form-control" value="<?php echo number_format($rsPagina['aprovado'], 2, ',', '.');?>" type="text">
