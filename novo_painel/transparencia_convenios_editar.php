@@ -89,7 +89,7 @@ if (!isset($_SESSION['UsuarioID'])) {
     </div>
 </div>
 <?php include ("menu.php");?>
-<?php include ("menu_informativos.php");?>
+<?php include ("menu_transparencia.php");?>
 <?php include ("topo.php");?>
 
 <?php
