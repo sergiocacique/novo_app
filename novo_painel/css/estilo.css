@@ -20,6 +20,10 @@ body {
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
     padding: 20px 0;
 }
+.box-branco h4{
+    color: #02b6e6;
+    padding: 0 17px;
+}
 .categoria{}
 .logo_prefeituras{
     margin: 35px;
