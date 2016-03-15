@@ -190,12 +190,26 @@ $rsPagina = mysql_fetch_array($sqlPagina);
 
               <div class=" col-sm-12 col-md-4">
                 <label>Inicio da Vigencia</label>
-                <input id="inicio_vigencia" name="inicio_vigencia" class="form-control" value="<?php echo date('d/m/Y', strtotime($rsPagina['InicioVigencia']));?>" type="text">
+                <?php
+                if($rsPagina['InicioVigencia'] != "" OR $rsPagina['InicioVigencia'] != "0000-00-00"){
+                  $InicioVig = date('d/m/Y', strtotime($rsPagina['InicioVigencia']));
+                }else{
+                  $InicioVig = "";
+                }
+                ?>
+                <input id="inicio_vigencia" name="inicio_vigencia" class="form-control" value="<?php echo $InicioVig;?>" type="text">
               </div>
 
               <div class=" col-sm-12 col-md-4">
                 <label>Fim da Vigencia</label>
-                <input id="fim_vigencia" name="fim_vigencia" class="form-control" value="<?php echo date('d/m/Y', strtotime($rsPagina['FimVigencia']));?>" type="text">
+                <?php
+                if($rsPagina['FimVigencia'] != "" OR $rsPagina['FimVigencia'] != "0000-00-00"){
+                  $FimVig = date('d/m/Y', strtotime($rsPagina['FimVigencia']));
+                }else{
+                  $FimVig = "";
+                }
+                ?>
+                <input id="fim_vigencia" name="fim_vigencia" class="form-control" value="<?php echo $FimVig;?>" type="text">
               </div>
 
               <div class=" col-sm-12 col-md-4">
