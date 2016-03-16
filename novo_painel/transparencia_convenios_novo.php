@@ -98,7 +98,7 @@ if (!isset($_SESSION['UsuarioID'])) {
   <div class="row discovery">
       <div class="col-sm-9 col-md-10">
         <div class="header">
-            <h1>Alterar Convênios</h1>
+            <h1>Adicionar Novo Convênios</h1>
         </div>
       </div>
   </div>
@@ -169,7 +169,7 @@ if (!isset($_SESSION['UsuarioID'])) {
               <h4>Informações importantes</h4>
               <div class=" col-sm-12 col-md-4">
                 <label>Valor Aprovado (R$)</label>
-                <input id="val_aprovado" name="val_aprovado" class="form-control" type="text">
+                <input data-mask="money" id="val_aprovado" name="val_aprovado" class="form-control" type="text">
               </div>
 
               <div class=" col-sm-12 col-md-4">

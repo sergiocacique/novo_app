@@ -82,48 +82,68 @@ if (!isset($_SESSION['UsuarioID'])) {
     <div class="row discovery">
         <div class="col-sm-9 col-md-10">
           <div class="header">
-              <h1>Convênios</h1>
-              <a class="btn btn-3d btn-reveal btn-red" href="transparencia_convenios_novo.php">ADICIONAR NOVO CONVÊNIO</a>
+              <h1>RREO / RGF</h1>
+              <a class="btn btn-3d btn-reveal btn-red" href="transparencia_rreo_novo.php">ADICIONAR NOVO RREO / RGF</a>
           </div>
-          <?php
-          $sqlGlossario = mysql_query("SELECT * FROM convenios WHERE CdPrefeitura = '".$_SESSION['PrefeituraID']."' AND Acao <> 'Excluido' GROUP BY ano ORDER BY ano DESC");
-          $Glossario = mysql_num_rows($sqlGlossario);
-
-          for ($y = 0; $y < $Glossario; $y++){
-              $verGlossario = mysql_fetch_array($sqlGlossario);
-
-              ?>
-          <div class="category">
-              <div class="title">
-                  <h4><?php echo $verGlossario['ano'];?></h4>
-                  Convênios de <strong><?php echo $verGlossario['ano'];?></strong>.
-              </div>
-              <div class="col-sm-9 col-md-10">
-              <?php
-              $sqlGlossario1 = mysql_query("SELECT * FROM convenios WHERE ano = '".$verGlossario['ano']."' AND CdPrefeitura = '".$_SESSION['PrefeituraID']."' AND Acao <> 'Excluido' GROUP BY mes ORDER BY mes DESC");
-              $Glossario1 = mysql_num_rows($sqlGlossario1);
-
-              for ($x = 0; $x < $Glossario1; $x++){
-                  $verGlossario1 = mysql_fetch_array($sqlGlossario1);
-
-                  ?>
-                    <div class="cards">
-                      <div class="item">
-                        <a class="btn btn-3d btn-reveal btn-blue" href="transparencia_convenios_ver.php?mes=<?php echo $verGlossario1['mes'];?>&ano=<?php echo $verGlossario1['ano'];?>"><?php echo retorna_mes_extenso($verGlossario1['mes']);?></a>
-                      </div>
-                    </div>
-                  <?php
-                  }
-                  ?>
-</div>
-
-          </div>
-          <?php
-          }
-          ?>
         </div>
     </div>
 
+    <div class="row discovery2">
+
+      <div class="table-responsive">
+
+        <?php
+        $pagina = (isset($_GET['pagina']))? $_GET['pagina'] : 1;
+
+        //$cmd = "select *, concat(DtCadastro, ' ', HrCadastro) as dthr from site_noticias WHERE Acao = 'Publicado' ORDER BY dthr DESC";
+        $cmd = "select * from rreo WHERE CdPrefeitura = '".$_SESSION['PrefeituraID']."' AND Acao <> 'Excluido' ORDER BY Ano DESC, Bim DESC";
+
+        $produtos = mysql_query($cmd);
+
+        $total = mysql_num_rows($produtos);
+
+        $registros = 50;
+
+        $numPaginas = ceil($total/$registros);
+
+        $inicio = ($registros*$pagina)-$registros;
+
+
+        $cmd = "select * from rreo WHERE CdPrefeitura = '".$_SESSION['PrefeituraID']."' AND Acao <> 'Excluido' ORDER BY Ano DESC, Bim DESC limit $inicio,$registros";
+        $produtos = mysql_query($cmd);
+        $total = mysql_num_rows($produtos);
+        while ($produto = mysql_fetch_array($produtos)) {
+          if($produto['Acao'] == "Publicado"){
+            $cor = "border-verde";
+            $corFonte = "font-verde";
+          }elseif ($produto['Acao'] == "Aguardando") {
+            $cor = "border-laranja";
+            $corFonte = "font-laranja";
+          }elseif ($produto['Acao'] == "Excluido") {
+            $cor = "border-vermelho";
+            $corFonte = "font-vermelho";
+          }else{
+            $cor = "border-cinza";
+            $corFonte = "font-cinza";
+          }
+        ?>
+  			<div class="col-sm-12 col-md-4">
+          <div class="listar <?php echo $cor;?>">
+          <a href="transparencia_rreo_editar.php?rreo=<?php echo $produto['id'];?>">
+
+          <h5 class="<?php echo $corFonte;?>"><?php echo $produto['Nome'];?></h5>
+          <p>
+              <strong>Periodo:</strong> <?php echo $produto['Bimestre'];?>/<?php echo $produto['Ano'];?><br>
+          </p>
+        </a>
+      </div>
+        </div>
+        <?php
+        }
+        ?>
+
+        </div>
+    </div>
 </div>
 
 </body>

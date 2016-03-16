@@ -93,9 +93,9 @@ if (!isset($_SESSION['UsuarioID'])) {
 <?php include ("topo.php");?>
 
 <?php
-$id = $_GET['despesa'];
+$id = $_GET['rreo'];
 
-$sqlPagina = mysql_query("SELECT * FROM despesas WHERE id = '".$id."'");
+$sqlPagina = mysql_query("SELECT * FROM rreo WHERE id = '".$id."'");
 $rsPagina = mysql_fetch_array($sqlPagina);
  ?>
 
@@ -103,24 +103,25 @@ $rsPagina = mysql_fetch_array($sqlPagina);
   <div class="row discovery">
       <div class="col-sm-9 col-md-10">
         <div class="header">
-            <h1>Alterar Despesa</h1>
+            <h1>Alterar RREO / RGF</h1>
         </div>
       </div>
   </div>
     <div class="row discovery2">
       <div class="table-responsive">
-        <form class="validate" action="transparencia_despesas_gravar.php" method="post">
+        <form class="validate" action="transparencia_rreo_gravar.php" method="post">
           <input type="hidden" id="id" name="id" value="<?php echo $rsPagina['id'];?>">
 
           <div class=" col-sm-12 col-md-3">
-            <label>Mês</label>
+            <label>Bimestre</label>
             <div class="fancy-form fancy-form-select">
-              <select class="form-control" id="mes" name="mes">
-                <?php
-                for ($i = 1; $i <= 12; $i++){
-                    ?>
-                    <option value="<?=$i?>" <?php if ($rsPagina['Mes'] == $i){?>selected<?php }?>><?=retorna_mes_extenso($i)?></option>
-                <?php }?>
+              <select class="form-control" id="bimestre" name="bimestre">
+                    <option value="1º BIMESTRE"<?php if ($rsPagina['Bimestre'] == "1º BIMESTRE"){?>selected<?php }?>>1º BIMESTRE</option>
+                    <option value="2º BIMESTRE 1º QUADRIMESTRE"<?php if ($rsPagina['Bimestre'] == "2º BIMESTRE 1º QUADRIMESTRE"){?>selected<?php }?>>2º BIMESTRE 1º QUADRIMESTRE</option>
+                    <option value="3º BIMESTRE"<?php if ($rsPagina['Bimestre'] == "3º BIMESTRE"){?>selected<?php }?>>3º BIMESTRE</option>
+                    <option value="4º BIMESTRE 2º QUADRIMESTRE"<?php if ($rsPagina['Bimestre'] == "4º BIMESTRE 2º QUADRIMESTRE"){?>selected<?php }?>>4º BIMESTRE 2º QUADRIMESTRE</option>
+                    <option value="5º BIMESTRE"<?php if ($rsPagina['Bimestre'] == "5º BIMESTRE"){?>selected<?php }?>>5º BIMESTRE</option>
+                    <option value="6º BIMESTRE 3º QUADRIMESTRE"<?php if ($rsPagina['Bimestre'] == "6º BIMESTRE 3º QUADRIMESTRE"){?>selected<?php }?>>6º BIMESTRE 3º QUADRIMESTRE</option>
               </select>
             <i class="fancy-arrow"></i>
           </div>
@@ -142,23 +143,10 @@ $rsPagina = mysql_fetch_array($sqlPagina);
 
           <div class=" col-sm-12 col-md-7">
             <div class="fancy-form">
-              <label>Titulo do Evento</label>
-              <input id="titulo" name="titulo" class="form-control" type="text" value="<?php echo $rsPagina['Titulo'];?>" placeholder="Digite o titulo">
+              <label>Titulo</label>
+              <input id="titulo" name="titulo" class="form-control" type="text" value="<?php echo $rsPagina['Nome'];?>" placeholder="Digite o titulo">
             </div>
           </div>
-
-
-          <div class=" col-sm-12 col-md-5">
-            <label>Categoria</label>
-            <div class="fancy-form fancy-form-select">
-              <select class="form-control" id="categoria" name="categoria">
-                <option value="Empenho" <?php if ($rsPagina['Categoria'] == "Empenho"){?>selected<?php }?>>Empenho</option>
-                <option value="Liquidação" <?php if ($rsPagina['Categoria'] == "Liquidação"){?>selected<?php }?>>Liquidação</option>
-              </select>
-            <i class="fancy-arrow"></i>
-          </div>
-        </div>
-
 
           <div class=" col-sm-12 col-md-6">
             <label>Ação</label>

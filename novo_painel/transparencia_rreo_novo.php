@@ -92,35 +92,28 @@ if (!isset($_SESSION['UsuarioID'])) {
 <?php include ("menu_transparencia.php");?>
 <?php include ("topo.php");?>
 
-<?php
-$id = $_GET['despesa'];
-
-$sqlPagina = mysql_query("SELECT * FROM despesas WHERE id = '".$id."'");
-$rsPagina = mysql_fetch_array($sqlPagina);
- ?>
-
 <div id="conteudo" class="container">
   <div class="row discovery">
       <div class="col-sm-9 col-md-10">
         <div class="header">
-            <h1>Alterar Despesa</h1>
+            <h1>Adicionar Novo RREO / RGF</h1>
         </div>
       </div>
   </div>
     <div class="row discovery2">
       <div class="table-responsive">
-        <form class="validate" action="transparencia_despesas_gravar.php" method="post">
-          <input type="hidden" id="id" name="id" value="<?php echo $rsPagina['id'];?>">
+        <form class="validate" action="transparencia_rreo_adicionar.php" method="post" enctype="multipart/form-data">
 
           <div class=" col-sm-12 col-md-3">
-            <label>Mês</label>
+            <label>Bimestre</label>
             <div class="fancy-form fancy-form-select">
-              <select class="form-control" id="mes" name="mes">
-                <?php
-                for ($i = 1; $i <= 12; $i++){
-                    ?>
-                    <option value="<?=$i?>" <?php if ($rsPagina['Mes'] == $i){?>selected<?php }?>><?=retorna_mes_extenso($i)?></option>
-                <?php }?>
+              <select class="form-control" id="bimestre" name="bimestre">
+                <option value="1º BIMESTRE">1º BIMESTRE</option>
+                <option value="2º BIMESTRE 1º QUADRIMESTRE">2º BIMESTRE 1º QUADRIMESTRE</option>
+                <option value="3º BIMESTRE">3º BIMESTRE</option>
+                <option value="4º BIMESTRE 2º QUADRIMESTRE">4º BIMESTRE 2º QUADRIMESTRE</option>
+                <option value="5º BIMESTRE">5º BIMESTRE</option>
+                <option value="6º BIMESTRE 3º QUADRIMESTRE">6º BIMESTRE 3º QUADRIMESTRE</option>
               </select>
             <i class="fancy-arrow"></i>
           </div>
@@ -133,7 +126,7 @@ $rsPagina = mysql_fetch_array($sqlPagina);
               <?php
               for($ano=date('Y');$ano > date('Y')-10;$ano--){
                   ?>
-                  <option value="<?=$ano?>" <?php if ($rsPagina['Ano'] == $ano){?>selected<?php }?>><?=$ano?></option>
+                  <option value="<?=$ano?>"><?=$ano?></option>
               <?php }?>
             </select>
           <i class="fancy-arrow"></i>
@@ -142,22 +135,11 @@ $rsPagina = mysql_fetch_array($sqlPagina);
 
           <div class=" col-sm-12 col-md-7">
             <div class="fancy-form">
-              <label>Titulo do Evento</label>
-              <input id="titulo" name="titulo" class="form-control" type="text" value="<?php echo $rsPagina['Titulo'];?>" placeholder="Digite o titulo">
+              <label>Titulo</label>
+              <input id="titulo" name="titulo" class="form-control" type="text" placeholder="Digite o titulo">
             </div>
           </div>
 
-
-          <div class=" col-sm-12 col-md-5">
-            <label>Categoria</label>
-            <div class="fancy-form fancy-form-select">
-              <select class="form-control" id="categoria" name="categoria">
-                <option value="Empenho" <?php if ($rsPagina['Categoria'] == "Empenho"){?>selected<?php }?>>Empenho</option>
-                <option value="Liquidação" <?php if ($rsPagina['Categoria'] == "Liquidação"){?>selected<?php }?>>Liquidação</option>
-              </select>
-            <i class="fancy-arrow"></i>
-          </div>
-        </div>
 
 
           <div class=" col-sm-12 col-md-6">
@@ -172,7 +154,7 @@ $rsPagina = mysql_fetch_array($sqlPagina);
                     $verGlossario = mysql_fetch_array($sqlGlossario);
 
                     ?>
-                <option value="<?php echo $verGlossario['NomeAcao']; ?>" <?php if ($rsPagina['Acao'] == $verGlossario['NomeAcao']){?>selected<?php }?>><?php echo $verGlossario['NomeAcao']; ?></option>
+                <option value="<?php echo $verGlossario['NomeAcao']; ?>"><?php echo $verGlossario['NomeAcao']; ?></option>
                 <?php
                 }
                 ?>
@@ -181,10 +163,28 @@ $rsPagina = mysql_fetch_array($sqlPagina);
           </div>
         </div>
 
+        <div class=" col-sm-12 col-md-12">
+          <div class="col-md-12">
+        <label>
+          Arquivo
+          <small class="text-muted">obrigatório</small>
+        </label>
+
+        <!-- custom file upload -->
+        <div class="fancy-file-upload fancy-file-primary">
+          <i class="fa fa-upload"></i>
+          <input type="file" class="form-control" onchange="jQuery(this).next('input').val(this.value);" name="arquivo" id="arquivo" />
+          <input type="text" class="form-control" placeholder="no file selected" readonly="" />
+          <span class="button">Procurar Arquivo</span>
+        </div>
+        <small class="text-muted block">Tamanho máximo: 2Mb (pdf)</small>
+
+      </div>
+        </div>
 
         <div class=" col-sm-12 col-md-12">
           <button type="submit" class="btn btn-3d btn-teal btn-block margin-top-30">
-  				SALVAR
+  				GRAVAR
   			</button></div>
 
         </form>
