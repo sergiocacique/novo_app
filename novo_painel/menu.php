@@ -34,7 +34,7 @@ $verPerfil2 = mysql_fetch_array($sqlPerfil2);
         <?php
       }
         ?>
-        <li class="has-subnav">
+        <!-- <li class="has-subnav">
             <a href="capa.php">
                 <i class="fa fa-laptop fa-2x"></i>
                         <span class="nav-text">
@@ -42,7 +42,7 @@ $verPerfil2 = mysql_fetch_array($sqlPerfil2);
                         </span>
             </a>
 
-        </li>
+        </li> -->
         <li class="has-subnav">
             <a href="o_municipio.php">
                 <i class="fa fa-list fa-2x"></i>
@@ -52,7 +52,7 @@ $verPerfil2 = mysql_fetch_array($sqlPerfil2);
             </a>
 
         </li>
-        <li class="has-subnav">
+        <!-- <li class="has-subnav">
             <a href="departamentos.php">
                 <i class="fa fa-folder-open fa-2x"></i>
                         <span class="nav-text">
@@ -60,7 +60,7 @@ $verPerfil2 = mysql_fetch_array($sqlPerfil2);
                         </span>
             </a>
 
-        </li>
+        </li> -->
         <li>
             <a href="informativos.php">
                 <i class="fa fa-tags fa-2x"></i>
@@ -69,14 +69,14 @@ $verPerfil2 = mysql_fetch_array($sqlPerfil2);
                         </span>
             </a>
         </li>
-        <li>
+        <!-- <li>
             <a href="publicacoes_oficiais.php">
                 <i class="fa fa-font fa-2x"></i>
                         <span class="nav-text">
                             Publicações Oficiais
                         </span>
             </a>
-        </li>
+        </li> -->
 
         <li>
             <a href="transparencia.php">
@@ -87,23 +87,23 @@ $verPerfil2 = mysql_fetch_array($sqlPerfil2);
             </a>
         </li>
 
-        <li>
+        <!-- <li>
             <a href="acesso_informacao.php">
                 <i class="fa fa-exclamation fa-2x"></i>
                         <span class="nav-text">
                             Acesso á Informação
                         </span>
             </a>
-        </li>
+        </li> -->
 
-        <li>
+        <!-- <li>
             <a href="configuracao.php">
                 <i class="fa fa-cog fa-2x"></i>
                         <span class="nav-text">
                             Configurações
                         </span>
             </a>
-        </li>
+        </li> -->
     </ul>
 
     <ul class="logout">

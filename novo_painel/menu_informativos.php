@@ -27,7 +27,7 @@
                 </li>
             </div>
 
-            <div class="section">
+            <!-- <div class="section">
                 <div class="title">
                     <i class="fa fa-folder-open"></i>
                     Multimídia
@@ -53,7 +53,7 @@
                     </a>
                 </li>
 
-            </div>
+            </div> -->
 
         </ul>
 

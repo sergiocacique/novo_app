@@ -34,11 +34,11 @@
                         Convênios
                     </a>
                 </li>
-                <li>
+                <!-- <li>
                     <a href="transparencia_projetos_sociais.php">
                         Projetos Sociais
                     </a>
-                </li>
+                </li> -->
                 <li>
                     <a href="transparencia_rreo.php">
                         RREO / RGF
@@ -56,15 +56,15 @@
                         Folha de Pagamento
                     </a>
                 </li>
-                <li>
+                <!-- <li>
                     <a href="transparencia_servidores_cedidos.php">
                         Servidores Cedidos
                     </a>
-                </li>
+                </li> -->
 
             </div>
 
-            <div class="section">
+            <!-- <div class="section">
                 <div class="title">
                     <i class="fa fa-folder-open"></i>
                     + Transparencia
@@ -79,7 +79,7 @@
                         Contratos e Licitações
                     </a>
                 </li>
-            </div>
+            </div> -->
         </ul>
 
     </div>

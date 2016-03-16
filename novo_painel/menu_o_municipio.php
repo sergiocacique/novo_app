@@ -6,22 +6,22 @@
         <ul class="filters">
         <div class="section">
                 <li>
-                    <a href="#">
+                    <a href="o_municipio_historia.php">
                         História do Município
                     </a>
                 </li>
             <li>
-                <a href="#">
+                <a href="o_municipio_dados.php">
                     Dados do Município
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="o_municipio_simbolo.php">
                     Símbolos do Município
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="o_municipio_projetos.php">
                     Projetos
                 </a>
             </li>
@@ -33,12 +33,12 @@
                 Atrações Turísticas
             </div>
                 <li>
-                    <a href="#">
+                    <a href="o_municipio_categoria.php">
                         Categorias
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="o_municipio_atracoes.php">
                         Atrações
                     </a>
                 </li>
@@ -51,22 +51,22 @@
                     Serviços
                 </div>
                 <li>
-                    <a href="javascript:void(0)" onclick="contratos_licitacoes()">
+                    <a href="o_municipio_servicos_cidadao.php">
                         Serviços ao Cidadão
                     </a>
                 </li>
              <li>
-                 <a href="javascript:void(0)" onclick="contratos_licitacoes()">
+                 <a href="o_municipio_servicos_empreendedor.php">
                      Serviços ao Empreendedor
                  </a>
              </li>
              <li>
-                 <a href="javascript:void(0)" onclick="contratos_licitacoes()">
+                 <a href="o_municipio_servicos_estudante.php">
                      Serviços ao Estudante
                  </a>
              </li>
              <li>
-                 <a href="javascript:void(0)" onclick="contratos_licitacoes()">
+                 <a href="o_municipio_servicos_servidor_publico.php">
                      Serviços ao Servidor Público
                  </a>
              </li>
