@@ -102,29 +102,23 @@ if (!isset($_SESSION['UsuarioID'])) {
 <?php include ("menu.php");?>
 <?php include ("menu_o_municipio.php");?>
 <?php include ("topo.php");?>
-<?php
-$ID = $_GET['atracao'];
 
-$sqlPagina = mysql_query("SELECT * FROM servicos WHERE id = '".$ID."'");
-$rsPagina = mysql_fetch_array($sqlPagina);
- ?>
 <div id="conteudo" class="container">
   <div class="row discovery">
       <div class="col-sm-9 col-md-10">
         <div class="header">
-            <h1>Alterar Serviços ao Estudante</h1>
+            <h1>Adicionar Novo Serviços ao Servidor Público</h1>
         </div>
       </div>
   </div>
     <div class="row discovery2">
       <div class="table-responsive">
-        <form class="validate" action="o_municipio_servicos_estudante_gravar.php" method="post" enctype="multipart/form-data">
-          <input type="hidden" id="id" name="id" value="<?php echo $rsPagina['id'];?>">
+        <form class="validate" action="o_municipio_servicos_servidor_publico_adicionar.php" method="post" enctype="multipart/form-data">
 
           <div class=" col-sm-12 col-md-9">
             <div class="fancy-form">
               <label>Titulo</label>
-              <input id="titulo" name="titulo" class="form-control" type="text" values="<?php echo $rsPagina['Titulo'];?>" placeholder="Digite o titulo">
+              <input id="titulo" name="titulo" class="form-control" type="text" placeholder="Digite o titulo">
             </div>
           </div>
 
@@ -140,7 +134,7 @@ $rsPagina = mysql_fetch_array($sqlPagina);
                     $verGlossario = mysql_fetch_array($sqlGlossario);
 
                     ?>
-                <option value="<?php echo $verGlossario['CdDepartamento']; ?>"<?php if ($rsPagina['CdDepartamento'] == $verGlossario['CdDepartamento']){?>selected<?php }?>><?php echo $verGlossario['NomeDepartamento']; ?></option>
+                <option value="<?php echo $verGlossario['CdDepartamento']; ?>"><?php echo $verGlossario['NomeDepartamento']; ?></option>
                 <?php
                 }
                 ?>
@@ -152,11 +146,13 @@ $rsPagina = mysql_fetch_array($sqlPagina);
 
           <div class=" col-sm-12 col-md-12">
             <label>Descrição</label>
-            <textarea name="editor1" id="editor1"><?php echo $rsPagina['Descricao'];?></textarea>
+            <textarea name="editor1" id="editor1"></textarea>
               <script>
                   CKEDITOR.replace( 'editor1' );
               </script>
           </div>
+
+
 
           <div class=" col-sm-12 col-md-6">
             <label>Ação</label>
@@ -170,7 +166,7 @@ $rsPagina = mysql_fetch_array($sqlPagina);
                     $verGlossario = mysql_fetch_array($sqlGlossario);
 
                     ?>
-                <option value="<?php echo $verGlossario['NomeAcao']; ?>" <?php if ($rsPagina['Acao'] == $verGlossario['NomeAcao']){?>selected<?php }?>><?php echo $verGlossario['NomeAcao']; ?></option>
+                <option value="<?php echo $verGlossario['NomeAcao']; ?>"><?php echo $verGlossario['NomeAcao']; ?></option>
                 <?php
                 }
                 ?>

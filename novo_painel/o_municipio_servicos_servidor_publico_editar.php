@@ -112,13 +112,13 @@ $rsPagina = mysql_fetch_array($sqlPagina);
   <div class="row discovery">
       <div class="col-sm-9 col-md-10">
         <div class="header">
-            <h1>Alterar Serviços ao Estudante</h1>
+            <h1>Alterar Serviços ao Servidor Público</h1>
         </div>
       </div>
   </div>
     <div class="row discovery2">
       <div class="table-responsive">
-        <form class="validate" action="o_municipio_servicos_estudante_gravar.php" method="post" enctype="multipart/form-data">
+        <form class="validate" action="o_municipio_servicos_servidor_publico_gravar.php" method="post" enctype="multipart/form-data">
           <input type="hidden" id="id" name="id" value="<?php echo $rsPagina['id'];?>">
 
           <div class=" col-sm-12 col-md-9">
