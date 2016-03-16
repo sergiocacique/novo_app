@@ -64,7 +64,7 @@
 
             </div>
 
-            <!-- <div class="section">
+            <div class="section">
                 <div class="title">
                     <i class="fa fa-folder-open"></i>
                     + Transparencia
@@ -79,7 +79,7 @@
                         Contratos e Licitações
                     </a>
                 </li>
-            </div> -->
+            </div>
         </ul>
 
     </div>
