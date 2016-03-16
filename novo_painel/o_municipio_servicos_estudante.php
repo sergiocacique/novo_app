@@ -93,7 +93,7 @@ if (!isset($_SESSION['UsuarioID'])) {
         <div class="col-sm-9 col-md-10">
           <div class="header">
               <h1>Serviços ao Cidadão</h1>
-              <a class="btn btn-3d btn-reveal btn-red" href="o_municipio_servicos_empreendedor_novo.php">ADICIONAR NOVO SERVIÇO AO EMPREENDEDOR</a>
+              <a class="btn btn-3d btn-reveal btn-red" href="o_municipio_servicos_estudante_novo.php">ADICIONAR NOVO SERVIÇO AO ESTUDANTE</a>
           </div>
         </div>
     </div>
@@ -106,7 +106,7 @@ if (!isset($_SESSION['UsuarioID'])) {
         $pagina = (isset($_GET['pagina']))? $_GET['pagina'] : 1;
 
         //$cmd = "select *, concat(DtCadastro, ' ', HrCadastro) as dthr from site_noticias WHERE Acao = 'Publicado' ORDER BY dthr DESC";
-        $cmd = "select * from servicos WHERE CdPrefeitura = '".$_SESSION['PrefeituraID']."' AND Tipo = 'empreendedor' AND Acao <> 'Excluido' ORDER BY Titulo DESC";
+        $cmd = "select * from servicos WHERE CdPrefeitura = '".$_SESSION['PrefeituraID']."' AND Tipo = 'estudante' AND Acao <> 'Excluido' ORDER BY Titulo DESC";
 
         $produtos = mysql_query($cmd);
 
@@ -119,7 +119,7 @@ if (!isset($_SESSION['UsuarioID'])) {
         $inicio = ($registros*$pagina)-$registros;
 
 
-        $cmd = "select * from servicos WHERE CdPrefeitura = '".$_SESSION['PrefeituraID']."' AND Tipo = 'empreendedor' AND Acao <> 'Excluido' ORDER BY Titulo DESC limit $inicio,$registros";
+        $cmd = "select * from servicos WHERE CdPrefeitura = '".$_SESSION['PrefeituraID']."' AND Tipo = 'estudante' AND Acao <> 'Excluido' ORDER BY Titulo DESC limit $inicio,$registros";
         $produtos = mysql_query($cmd);
         $total = mysql_num_rows($produtos);
         while ($produto = mysql_fetch_array($produtos)) {
@@ -138,7 +138,7 @@ if (!isset($_SESSION['UsuarioID'])) {
           }
         ?>
   			<div class="col-sm-12 col-md-12 listaChamado">
-          <a href="o_municipio_servicos_empreendedor_editar.php?servico=<?php echo $produto['id'];?>">
+          <a href="o_municipio_servicos_estudante_editar.php?servico=<?php echo $produto['id'];?>">
           <h5 class="<?php echo $corFonte;?>"><?php echo $produto['Titulo'];?></h5>
           <p>
               <strong>Departamento:</strong> <?php echo $produto['CdDepartamento'];?>
