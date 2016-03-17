@@ -66,6 +66,8 @@ $headers .= "Reply-To: ".$emailremetente.$quebra_linha;
 /* Enviando a mensagem */
 mail($emaildestinatario, $assunto, $mensagemHTML, $headers, "-r". $emailsender);
 
+header('Location: login.php'); exit;
+
 /* Mostrando na tela as informa��es enviadas por e-mail */
 print "Mensagem <b>$assunto</b> enviada com sucesso!<br><br>
 De: $emailsender<br>
