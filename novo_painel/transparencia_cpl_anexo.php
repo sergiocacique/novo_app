@@ -112,45 +112,49 @@ $rsPagina = mysql_fetch_array($sqlPagina);
       <ul class="nav nav-tabs">
       	<li><a href="transparencia_cpl_editar.php?contrato=<?php echo $rsPagina['CdCPL'];?>">Dados Iniciais</a></li>
       	<li><a href="transparencia_cpl_empresa.php?contrato=<?php echo $rsPagina['CdCPL'];?>">Empresa</a></li>
-        <li class="active"><a href="javascript:void(0)">Recursos</a></li>
-        <li><a href="transparencia_cpl_anexo.php?contrato=<?php echo $rsPagina['CdCPL'];?>">Anexos</a></li>
+        <li><a href="transparencia_cpl_recursos.php?contrato=<?php echo $rsPagina['CdCPL'];?>">Recursos</a></li>
+        <li class="active"><a href="javascript:void(0)">Anexos</a></li>
       </ul>
 
       <div class="table-responsive">
-        <form id="formulario_clientes" name="formulario_clientes" class="validate" action="transparencia_cpl_recurso_adicionar.php" method="post">
+        <form id="formulario_clientes" name="formulario_clientes" class="validate" action="transparencia_cpl_anexo_adicionar.php" method="post" enctype="multipart/form-data">
         <input type="hidden" name="CdCPL" value="<?php echo $rsPagina['CdCPL'];?>">
 
-        <div class=" col-sm-12 col-md-12">
-          <label>Recurso</label>
+        <div class=" col-sm-12 col-md-6">
+          <label>Tipo de Documento</label>
           <div class="fancy-form fancy-form-select">
-            <select class="form-control" id="recurso" name="recurso">
-              <?php
-              $sqlGlossario = mysql_query("SELECT * FROM cpl_recurso WHERE Acao <> 'Excluido' ORDER BY nome ASC");
-              $Glossario = mysql_num_rows($sqlGlossario);
-
-              for ($y = 0; $y < $Glossario; $y++){
-                  $verGlossario = mysql_fetch_array($sqlGlossario);
-
-                  ?>
-              <option value="<?php echo $verGlossario['id']; ?>"><?php echo $verGlossario['nome']; ?></option>
-              <?php
-              }
-              ?>
+            <select class="form-control" id="Tipo" name="Tipo">
+              <option value="Edital">Edital</option>
+              <option value="Contrato na Integra">Contrato na Integra</option>
+              <option value="Extrato do Contrato">Extrato do Contrato</option>
+              <option value="Outro Documento">Outro Documento</option>
             </select>
           <i class="fancy-arrow"></i>
         </div>
       </div>
 
-        <div class=" col-sm-12 col-md-3">
-          <div class="fancy-form">
-            <label>Descrição</label>
-            <input id="descricao" name="descricao" class="form-control" type="text">
-          </div>
-        </div>
+      <div class=" col-sm-12 col-md-6">
+        <div class="col-md-12">
+      <label>
+        Arquivo
+        <small class="text-muted">obrigatório</small>
+      </label>
+
+      <!-- custom file upload -->
+      <div class="fancy-file-upload fancy-file-primary">
+        <i class="fa fa-upload"></i>
+        <input type="file" class="form-control" onchange="jQuery(this).next('input').val(this.value);" name="arquivo" id="arquivo" />
+        <input type="text" class="form-control" placeholder="no file selected" readonly="" />
+        <span class="button">Procurar Arquivo</span>
+      </div>
+      <small class="text-muted block">Tamanho máximo: 2Mb (pdf)</small>
+
+    </div>
+      </div>
 
         <div class=" col-sm-12 col-md-12">
           <button type="submit" class="btn btn-3d btn-teal btn-block margin-top-30">
-  				ADICIONAR EMPRESA
+  				ANEXAR
   			</button></div>
 
         </form>
@@ -163,8 +167,8 @@ $rsPagina = mysql_fetch_array($sqlPagina);
             <colgroup>
               <col class="col-xs-1">
               <col class="col-xs-2">
-              <col class="col-xs-2">
               <col class="col-xs-7">
+              <col class="col-xs-2">
 
             </colgroup>
         		<thead>
@@ -172,6 +176,7 @@ $rsPagina = mysql_fetch_array($sqlPagina);
                 <th></th>
         				<th>Nome</th>
         				<th>Descrição</th>
+                <th>Data</th>
         			</tr>
         		</thead>
         		<tbody>
@@ -184,9 +189,10 @@ $rsPagina = mysql_fetch_array($sqlPagina);
 
                   ?>
         			<tr>
-        				<td><a class="btn btn-3d btn-reveal btn-red" href="transparencia_cpl_recurso_excluir.php?id=<?php echo $verGlossario['id']; ?>&CdCPL=<?php echo $verGlossario['CdCPL']; ?>">EXCLUIR</a></td>
-                <td><?php echo $verGlossario['nome']; ?></td>
-                <td><?php echo $verGlossario['Descricao']; ?></td>
+        				<td><a class="btn btn-3d btn-reveal btn-red" href="transparencia_cpl_anexo_excluir.php?id=<?php echo $verGlossario['id']; ?>&CdCPL=<?php echo $verGlossario['CdCPL']; ?>">EXCLUIR</a></td>
+                <td><?php echo $verGlossario['Tipo']; ?></td>
+                <td><?php echo $verGlossario['Arquivo']; ?></td>
+                <td><?php echo date('d/m/Y', strtotime($verGlossario['DtCadastro'])); ?></td>
         			</tr>
               <?php
               }

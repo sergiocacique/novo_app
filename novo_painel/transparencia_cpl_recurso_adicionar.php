@@ -19,38 +19,36 @@ $sqlAdmin = mysql_query("SELECT * FROM vw_prefeitura WHERE CdPrefeitura = ".$_SE
 $verAdmin = mysql_fetch_array($sqlAdmin);
 
     $CdCPL = $_POST['CdCPL'];
+    $Recurso = $_POST['recurso'];
     $CdPrefeitura = $_SESSION['PrefeituraID'];
     $CdUsuario = $_SESSION['UsuarioID'];
-    $Nome = $_POST['empresa'];
-    $CPFCNPJ = $_POST['cnpjcpf'];
-    $Situacao = $_POST['situacao'];
+    $Descricao = $_POST['descricao'];
+
     $DtCadastro = date('Y-m-d H:i:s');
 
 
 
-        $query = "INSERT INTO cpl_empresa";
-        $query = $query . " ( CdCPL,";
-        $query = $query . " CdPrefeitura,";
+        $query = "INSERT INTO cpl_recursos";
+        $query = $query . " ( CdPrefeitura,";
         $query = $query . " CdUsuario,";
-        $query = $query . " Nome,";
-        $query = $query . " CPFCNPJ,";
-        $query = $query . " DtCadastro,";
+        $query = $query . " CdCPL,";
+        $query = $query . " CdRecurso,";
+        $query = $query . " Descricao,";
         $query = $query . " Acao,";
-        $query = $query . " Situacao)";
+        $query = $query . " DtCadastro)";
 
         $query = $query . " VALUES";
 
-        $query = $query . " ( '" . $CdCPL . "',";
-        $query = $query . " '" . $CdPrefeitura . "',";
+        $query = $query . " ( '" . $CdPrefeitura . "',";
         $query = $query . " '" . $CdUsuario . "',";
-        $query = $query . " '" . $Nome . "',";
-        $query = $query . " '" . $CPFCNPJ . "',";
-        $query = $query . " '" . $DtCadastro . "',";
+        $query = $query . " '" . $CdCPL . "',";
+        $query = $query . " '" . $Recurso . "',";
+        $query = $query . " '" . $Descricao . "',";
         $query = $query . " 'Publicado',";
-        $query = $query . " '" . $Situacao . "')";
+        $query = $query . " '" . $DtCadastro . "')";
 
         $verifica = mysql_query($query);
 
-        header("Location: transparencia_cpl_empresa.php?contrato=".$CdCPL.""); exit;
+        header("Location: transparencia_cpl_recursos.php?contrato=".$CdCPL.""); exit;
 
 ?>

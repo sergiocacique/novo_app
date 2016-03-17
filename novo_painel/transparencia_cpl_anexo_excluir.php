@@ -24,7 +24,7 @@ $verAdmin = mysql_fetch_array($sqlAdmin);
 
 
 
-        $query = "UPDATE cpl_recursos SET";
+        $query = "UPDATE cpl_anexo SET";
 
         $query = $query . " DtAtualizacao = '" . $DtAtualizacao . "',";
         $query = $query . " Acao = 'Excluido'";
@@ -35,5 +35,5 @@ $verAdmin = mysql_fetch_array($sqlAdmin);
 
         $verifica = mysql_query($query);
 
-        header("Location: transparencia_cpl_recursos.php?contrato=".$CdCPL.""); exit;
+        header("Location: transparencia_cpl_anexo.php?contrato=".$CdCPL.""); exit;
 ?>
