@@ -96,14 +96,14 @@ $verPerfil2 = mysql_fetch_array($sqlPerfil2);
             </a>
         </li> -->
 
-        <!-- <li>
+        <li>
             <a href="configuracao.php">
                 <i class="fa fa-cog fa-2x"></i>
                         <span class="nav-text">
                             Configurações
                         </span>
             </a>
-        </li> -->
+        </li>
     </ul>
 
     <ul class="logout">
