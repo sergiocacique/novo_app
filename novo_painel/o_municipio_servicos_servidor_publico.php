@@ -106,7 +106,7 @@ if (!isset($_SESSION['UsuarioID'])) {
         $pagina = (isset($_GET['pagina']))? $_GET['pagina'] : 1;
 
         //$cmd = "select *, concat(DtCadastro, ' ', HrCadastro) as dthr from site_noticias WHERE Acao = 'Publicado' ORDER BY dthr DESC";
-        $cmd = "select * from servicos WHERE CdPrefeitura = '".$_SESSION['PrefeituraID']."' AND Tipo = 'servidor' AND Acao <> 'Excluido' ORDER BY Titulo DESC";
+        $cmd = "select * from vw_servicos WHERE CdPrefeitura = '".$_SESSION['PrefeituraID']."' AND Tipo = 'servidor' AND Acao <> 'Excluido' ORDER BY Titulo DESC";
 
         $produtos = mysql_query($cmd);
 
@@ -119,7 +119,7 @@ if (!isset($_SESSION['UsuarioID'])) {
         $inicio = ($registros*$pagina)-$registros;
 
 
-        $cmd = "select * from servicos WHERE CdPrefeitura = '".$_SESSION['PrefeituraID']."' AND Tipo = 'servidor' AND Acao <> 'Excluido' ORDER BY Titulo DESC limit $inicio,$registros";
+        $cmd = "select * from vw_servicos WHERE CdPrefeitura = '".$_SESSION['PrefeituraID']."' AND Tipo = 'servidor' AND Acao <> 'Excluido' ORDER BY Titulo DESC limit $inicio,$registros";
         $produtos = mysql_query($cmd);
         $total = mysql_num_rows($produtos);
         while ($produto = mysql_fetch_array($produtos)) {
@@ -141,7 +141,7 @@ if (!isset($_SESSION['UsuarioID'])) {
           <a href="o_municipio_servicos_servidor_publico_editar.php?servico=<?php echo $produto['id'];?>">
           <h5 class="<?php echo $corFonte;?>"><?php echo $produto['Titulo'];?></h5>
           <p>
-              <strong>Departamento:</strong> <?php echo $produto['CdDepartamento'];?>
+              <strong>Departamento:</strong> <?php echo $produto['NomeDepartamento'];?>
           </p>
         </a>
         </div>

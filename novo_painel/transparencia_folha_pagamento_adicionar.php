@@ -155,6 +155,7 @@ function vinculo($key){
         }
     }
     dump($sql);
+    exit;
     mysql_query($sql) or die("Error: ".mysql_error());
 
     echo "</div>";

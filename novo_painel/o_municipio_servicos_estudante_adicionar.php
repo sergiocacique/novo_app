@@ -36,11 +36,12 @@ $verAdmin = mysql_fetch_array($sqlAdmin);
         $query = $query . " VALUES";
         $query = $query . " ('".$_SESSION['PrefeituraID']."',";
         $query = $query . " '" . $_SESSION['UsuarioID'] . "',";
+        $query = $query . " '" . $CdCategoria . "',";
         $query = $query . " 'estudante',";
         $query = $query . " '" . $Titulo . "',";
         $query = $query . " '" . $Descricao . "',";
         $query = $query . " '" . $Acao . "',";
-        $query = $query . " '" . $DtAtualizacao . "'";
+        $query = $query . " '" . $DtAtualizacao . "')";
         $verifica = mysql_query($query);
 
 

@@ -30,7 +30,7 @@ $verAdmin = mysql_fetch_array($sqlAdmin);
         $query = $query . " CdDepartamento = '" . $CdCategoria . "',";
         $query = $query . " Descricao = '" . $Descricao . "',";
         $query = $query . " Acao = '" . $Acao . "',";
-        $query = $query . " DtAtualizacao = '" . $DtAtualizacao . "')";
+        $query = $query . " DtAtualizacao = '" . $DtAtualizacao . "'";
         $query = $query . " WHERE";
         $query = $query . " id = '" . $ID . "'";
         $verifica = mysql_query($query);

@@ -53,18 +53,6 @@ if (!isset($_SESSION['UsuarioID'])) {
             // Animate loader off screen
             $("#loading2").delay(200).fadeOut("slow");
         });
-
-        function listaChamado(acao){
-            start();
-            $('#loading2').css('visibility','visible');
-            $.post("inicio_chamado.php", { acao: acao },
-                function(data){
-                    $('#conteudo').html(data);
-                    $('html, body').animate({scrollTop:0}, 'slow');
-                }).done(function() {
-                    $('#loading2').css('visibility','hidden');
-                });
-        }
     </script>
 </head>
 <body class="orders index">
@@ -84,16 +72,20 @@ if (!isset($_SESSION['UsuarioID'])) {
     </div>
 </div>
 <?php include ("menu.php");?>
-<?php include ("menu_o_municipio.php");?>
+<?php include ("menu_transparencia.php");?>
 <?php include ("topo.php");?>
-
+<?php
+$Mes = $_GET['mes'];
+$Ano = $_GET['ano'];
+?>
 
 <div id="conteudo" class="container">
     <div class="row discovery">
         <div class="col-sm-9 col-md-10">
           <div class="header">
-              <h1>Serviços ao Cidadão</h1>
-              <a class="btn btn-3d btn-reveal btn-red" href="o_municipio_servicos_empreendedor_novo.php">ADICIONAR NOVO SERVIÇO AO EMPREENDEDOR</a>
+              <h1>Contratos e Licitações de <strong><?php echo retorna_mes_extenso($Mes)?>/<?php echo $Ano?></strong></h1>
+              <a class="btn btn-3d btn-reveal btn-amber" href="transparencia_passagens.php">SELECIONAR OUTRO MÊS</a>
+              <a class="btn btn-3d btn-reveal btn-red" href="transparencia_passagens_novo.php">ADICIONAR NOVA DIÁRIA</a>
           </div>
         </div>
     </div>
@@ -106,7 +98,7 @@ if (!isset($_SESSION['UsuarioID'])) {
         $pagina = (isset($_GET['pagina']))? $_GET['pagina'] : 1;
 
         //$cmd = "select *, concat(DtCadastro, ' ', HrCadastro) as dthr from site_noticias WHERE Acao = 'Publicado' ORDER BY dthr DESC";
-        $cmd = "select * from vw_servicos WHERE CdPrefeitura = '".$_SESSION['PrefeituraID']."' AND Tipo = 'empreendedor' AND Acao <> 'Excluido' ORDER BY Titulo DESC";
+        $cmd = "select * from vw_cpl WHERE CdPrefeitura = '".$_SESSION['PrefeituraID']."' AND Acao <> 'Excluido' AND DATE_FORMAT(DtAbertura, '%m' ) = '".$Mes."' AND DATE_FORMAT(DtAbertura, '%Y' ) = '".$Ano."'";
 
         $produtos = mysql_query($cmd);
 
@@ -119,31 +111,33 @@ if (!isset($_SESSION['UsuarioID'])) {
         $inicio = ($registros*$pagina)-$registros;
 
 
-        $cmd = "select * from vw_servicos WHERE CdPrefeitura = '".$_SESSION['PrefeituraID']."' AND Tipo = 'empreendedor' AND Acao <> 'Excluido' ORDER BY Titulo DESC limit $inicio,$registros";
+        $cmd = "select * from vw_cpl WHERE CdPrefeitura = '".$_SESSION['PrefeituraID']."' AND Acao <> 'Excluido' AND DATE_FORMAT(DtAbertura, '%m' ) = '".$Mes."' AND DATE_FORMAT(DtAbertura, '%Y' ) = '".$Ano."' limit $inicio,$registros";
         $produtos = mysql_query($cmd);
         $total = mysql_num_rows($produtos);
         while ($produto = mysql_fetch_array($produtos)) {
           if($produto['Acao'] == "Publicado"){
-            $cor = "verde";
+            $cor = "border-verde";
             $corFonte = "font-verde";
           }elseif ($produto['Acao'] == "Aguardando") {
-            $cor = "laranja";
+            $cor = "border-laranja";
             $corFonte = "font-laranja";
           }elseif ($produto['Acao'] == "Excluido") {
-            $cor = "vermelho";
+            $cor = "border-vermelho";
             $corFonte = "font-vermelho";
           }else{
-            $cor = "cinza";
+            $cor = "border-cinza";
             $corFonte = "font-cinza";
           }
         ?>
-  			<div class="col-sm-12 col-md-12 listaChamado">
-          <a href="o_municipio_servicos_empreendedor_editar.php?servico=<?php echo $produto['id'];?>">
-          <h5 class="<?php echo $corFonte;?>"><?php echo $produto['Titulo'];?></h5>
+  			<div class="col-sm-12 col-md-12">
+          <div class="listar <?php echo $cor;?>">
+          <a href="transparencia_cpl_editar.php?contrato=<?php echo $produto['CdCPL'];?>">
+          <h5 class="<?php echo $corFonte;?>"><?php echo $produto['NumeroProcesso'];?></h5>
           <p>
-              <strong>Departamento:</strong> <?php echo $produto['NomeDepartamento'];?>
+              <?php echo $produto['Descricao'];?>
           </p>
         </a>
+      </div>
         </div>
         <?php
         }

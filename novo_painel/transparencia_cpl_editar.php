@@ -59,7 +59,6 @@ if (!isset($_SESSION['UsuarioID'])) {
           // JQUERY MASK INPUT
           console.log('aplicando mascara')
           $('[data-mask="date"]').mask('00/00/0000');
-          $('[data-mask="processo"]').mask('0000/0000');
           $('[data-mask="time"]').mask('00:00:00');
           $('[data-mask="date_time"]').mask('00/00/0000 00:00:00');
           $('[data-mask="zip"]').mask('00000-000');
@@ -93,19 +92,36 @@ if (!isset($_SESSION['UsuarioID'])) {
 <?php include ("menu.php");?>
 <?php include ("menu_transparencia.php");?>
 <?php include ("topo.php");?>
+<?php
 
+if (isset($_GET['protocolo'])) {
+  $protocolo = $_GET['protocolo'];
+  $sqlPagina = mysql_query("SELECT * FROM cpl WHERE Protocolo = '".$protocolo."'");
+}else{
+  $contrato = $_GET['contrato'];
+  $sqlPagina = mysql_query("SELECT * FROM cpl WHERE CdCPL = '".$contrato."'");
+}
+$rsPagina = mysql_fetch_array($sqlPagina);
+ ?>
 <div id="conteudo" class="container">
   <div class="row discovery">
       <div class="col-sm-9 col-md-10">
         <div class="header">
-            <h1>Adicionar Novo Contratos e Licitações</h1>
+            <h1>Alterar Contratos e Licitações</h1>
         </div>
       </div>
   </div>
     <div class="row discovery2">
+      <ul class="nav nav-tabs">
+      	<li class="active"><a href="javascript:void(0)">Dados Iniciais</a></li>
+      	<li><a href="transparencia_cpl_empresa.php?contrato=<?php echo $rsPagina['CdCPL'];?>">Empresa</a></li>
+        <li><a href="transparencia_cpl_recursos.php?contrato=<?php echo $rsPagina['CdCPL'];?>">Recursos</a></li>
+        <li><a href="transparencia_cpl_anexo.php?contrato=<?php echo $rsPagina['CdCPL'];?>">Anexos</a></li>
+      </ul>
+
       <div class="table-responsive">
-        <form id="formulario_clientes" name="formulario_clientes" class="validate" action="transparencia_cpl_adicionar.php" method="post">
-            <input type="hidden" name="protocolo" value="<?php echo date('Y').date('m').date('d').date('H').date('i').date('s')?>">
+        <form id="formulario_clientes" name="formulario_clientes" class="validate" action="transparencia_cpl_gravar.php" method="post">
+            <input type="hidden" name="CdCPL" value="<?php echo $rsPagina['CdCPL'];?>">
 
           <div class=" col-sm-12 col-md-6">
             <label>Secretaria</label>
@@ -119,7 +135,7 @@ if (!isset($_SESSION['UsuarioID'])) {
                     $verGlossario = mysql_fetch_array($sqlGlossario);
 
                     ?>
-            		<option value="<?php echo $verGlossario['NomeDepartamento']; ?>"><?php echo $verGlossario['NomeDepartamento']; ?></option>
+            		<option value="<?php echo $verGlossario['CdDepartamento']; ?>" <?php if ($verGlossario['CdDepartamento'] == $rsPagina['Orgao']){?>selected<?php }?>><?php echo $verGlossario['NomeDepartamento']; ?></option>
                 <?php
                 }
                 ?>
@@ -131,14 +147,14 @@ if (!isset($_SESSION['UsuarioID'])) {
         <div class=" col-sm-12 col-md-3">
           <div class="fancy-form">
             <label>Número do Processo</label>
-            <input data-mask="processo" id="processo" name="processo" class="form-control" type="text" placeholder="0001/2016">
+            <input id="processo" name="processo" class="form-control" type="text" placeholder="0001/2016" value="<?php echo $rsPagina['NumeroProcesso'];?>">
           </div>
         </div>
 
         <div class=" col-sm-12 col-md-3">
           <div class="fancy-form">
             <label>Valor do Contrato (R$)</label>
-            <input data-mask="money" id="valor_contrato" name="valor_contrato" class="form-control" type="text" placeholder="0,00">
+            <input data-mask="money" id="valor_contrato" name="valor_contrato" class="form-control" type="text" placeholder="0,00" value="<?php echo $rsPagina['valor_licitacao'];?>">
           </div>
         </div>
 
@@ -154,7 +170,7 @@ if (!isset($_SESSION['UsuarioID'])) {
                   $verGlossario = mysql_fetch_array($sqlGlossario);
 
                   ?>
-              <option value="<?php echo $verGlossario['id']; ?>"><?php echo $verGlossario['nome']; ?></option>
+              <option value="<?php echo $verGlossario['id']; ?>" <?php if ($verGlossario['id'] == $rsPagina['Orgao']){?>selected<?php }?>><?php echo $verGlossario['nome']; ?></option>
               <?php
               }
               ?>
@@ -167,28 +183,28 @@ if (!isset($_SESSION['UsuarioID'])) {
       <div class=" col-sm-12 col-md-6">
         <div class="fancy-form">
           <label>Data da Abertura</label>
-          <input data-mask="date" id="dtAbertura" name="dtAbertura" class="form-control" type="text" placeholder="00/00/0000">
+          <input id="dtAbertura" name="dtAbertura" class="form-control" type="text" placeholder="00/00/0000" value="<?php echo date('d/m/Y', strtotime($rsPagina['DtAbertura']));?>">
         </div>
       </div>
 
       <div class=" col-sm-12 col-md-6">
         <div class="fancy-form">
           <label>Publicado em:</label>
-          <input id="publicado" name="publicado" class="form-control" type="text" placeholder="DOM - Diário Oficial Municipal">
+          <input id="publicado" name="publicado" class="form-control" type="text" placeholder="DOM - Diário Oficial Municipal" value="<?php echo $rsPagina['Veiculo'];?>">
         </div>
       </div>
 
       <div class=" col-sm-12 col-md-6">
         <div class="fancy-form">
           <label>Data da Publicação</label>
-          <input data-mask="date" id="DtPublicacao" name="DtPublicacao" class="form-control" type="text" placeholder="00/00/0000">
+          <input id="DtPublicacao" name="DtPublicacao" class="form-control" type="text" placeholder="00/00/0000" value="<?php echo date('d/m/Y', strtotime($rsPagina['DtPublicacao']));?>">
         </div>
       </div>
 
       <div class=" col-sm-12 col-md-6">
         <div class="fancy-form">
           <label>Número do DOC. de Publicação</label>
-          <input id="numDoc" name="numDoc" class="form-control" type="text" placeholder="DOM - 0001">
+          <input id="numDoc" name="numDoc" class="form-control" type="text" placeholder="DOM - 0001" value="<?php echo $rsPagina['numeroDOM'];?>">
         </div>
       </div>
 </div>
@@ -205,7 +221,7 @@ if (!isset($_SESSION['UsuarioID'])) {
                 $verGlossario = mysql_fetch_array($sqlGlossario);
 
                 ?>
-            <option value="<?php echo $verGlossario['id']; ?>"><?php echo $verGlossario['nome']; ?></option>
+            <option value="<?php echo $verGlossario['id']; ?>" <?php if ($verGlossario['id'] == $rsPagina['Finalidade']){?>selected<?php }?>><?php echo $verGlossario['nome']; ?></option>
             <?php
             }
             ?>
@@ -226,7 +242,7 @@ if (!isset($_SESSION['UsuarioID'])) {
                 $verGlossario = mysql_fetch_array($sqlGlossario);
 
                 ?>
-            <option value="<?php echo $verGlossario['id']; ?>"><?php echo $verGlossario['nome']; ?></option>
+            <option value="<?php echo $verGlossario['id']; ?>" <?php if ($verGlossario['id'] == $rsPagina['Modalidade']){?>selected<?php }?>><?php echo $verGlossario['nome']; ?></option>
             <?php
             }
             ?>
@@ -247,7 +263,7 @@ if (!isset($_SESSION['UsuarioID'])) {
                 $verGlossario = mysql_fetch_array($sqlGlossario);
 
                 ?>
-            <option value="<?php echo $verGlossario['id']; ?>"><?php echo $verGlossario['nome']; ?></option>
+            <option value="<?php echo $verGlossario['id']; ?>" <?php if ($verGlossario['id'] == $rsPagina['Tipo']){?>selected<?php }?>><?php echo $verGlossario['nome']; ?></option>
             <?php
             }
             ?>
@@ -258,7 +274,7 @@ if (!isset($_SESSION['UsuarioID'])) {
 
       <div class=" col-sm-12 col-md-12">
         <label>Objeto do Contrato</label>
-        <textarea name="objeto" class="form-control" rows="5" id="objeto"></textarea>
+        <textarea name="objeto" class="form-control" rows="5" id="objeto"><?php echo $rsPagina['Descricao'];?></textarea>
       </div>
 
           <div class=" col-sm-12 col-md-6">
@@ -273,7 +289,7 @@ if (!isset($_SESSION['UsuarioID'])) {
                     $verGlossario = mysql_fetch_array($sqlGlossario);
 
                     ?>
-                <option value="<?php echo $verGlossario['NomeAcao']; ?>"><?php echo $verGlossario['NomeAcao']; ?></option>
+                <option value="<?php echo $verGlossario['NomeAcao']; ?>" <?php if ($rsPagina['Acao'] == $verGlossario['NomeAcao']){?>selected<?php }?>><?php echo $verGlossario['NomeAcao']; ?></option>
                 <?php
                 }
                 ?>

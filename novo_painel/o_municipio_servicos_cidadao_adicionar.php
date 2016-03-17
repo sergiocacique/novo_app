@@ -20,7 +20,7 @@ $verAdmin = mysql_fetch_array($sqlAdmin);
 
     $Titulo = addslashes($_POST['titulo']);
     $CdCategoria = $_POST['departamento'];
-    $Descricao = (isset($_POST['editor1']))? $_POST['editor1'] : '';
+    $Descricao = addslashes($_POST['editor1']);
     $Acao = $_POST['acao'];
     $DtAtualizacao = date('Y-m-d H:i:s');
 
@@ -36,13 +36,13 @@ $verAdmin = mysql_fetch_array($sqlAdmin);
         $query = $query . " VALUES";
         $query = $query . " ('".$_SESSION['PrefeituraID']."',";
         $query = $query . " '" . $_SESSION['UsuarioID'] . "',";
+        $query = $query . " '" . $CdCategoria . "',";
         $query = $query . " 'cidadao',";
         $query = $query . " '" . $Titulo . "',";
         $query = $query . " '" . $Descricao . "',";
         $query = $query . " '" . $Acao . "',";
-        $query = $query . " '" . $DtAtualizacao . "'";
+        $query = $query . " '" . $DtAtualizacao . "')";
         $verifica = mysql_query($query);
-
 
 header('Location: o_municipio_servicos_cidadao.php'); exit;
 ?>

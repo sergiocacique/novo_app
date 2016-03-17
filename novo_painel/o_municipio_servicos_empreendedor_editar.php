@@ -103,7 +103,7 @@ if (!isset($_SESSION['UsuarioID'])) {
 <?php include ("menu_o_municipio.php");?>
 <?php include ("topo.php");?>
 <?php
-$ID = $_GET['atracao'];
+$ID = $_GET['servico'];
 
 $sqlPagina = mysql_query("SELECT * FROM servicos WHERE id = '".$ID."'");
 $rsPagina = mysql_fetch_array($sqlPagina);

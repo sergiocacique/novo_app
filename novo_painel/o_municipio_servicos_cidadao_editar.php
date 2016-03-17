@@ -103,7 +103,7 @@ if (!isset($_SESSION['UsuarioID'])) {
 <?php include ("menu_o_municipio.php");?>
 <?php include ("topo.php");?>
 <?php
-$ID = $_GET['atracao'];
+$ID = $_GET['servico'];
 
 $sqlPagina = mysql_query("SELECT * FROM servicos WHERE id = '".$ID."'");
 $rsPagina = mysql_fetch_array($sqlPagina);
@@ -124,7 +124,7 @@ $rsPagina = mysql_fetch_array($sqlPagina);
           <div class=" col-sm-12 col-md-9">
             <div class="fancy-form">
               <label>Titulo</label>
-              <input id="titulo" name="titulo" class="form-control" type="text" values="<?php echo $rsPagina['Titulo'];?>" placeholder="Digite o titulo">
+              <input id="titulo" name="titulo" class="form-control" type="text" value="<?php echo $rsPagina['Titulo'];?>" placeholder="<?php echo $rsPagina['Titulo'];?>">
             </div>
           </div>
 

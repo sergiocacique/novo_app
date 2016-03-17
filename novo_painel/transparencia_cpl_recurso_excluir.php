@@ -18,22 +18,22 @@ if (!isset($_SESSION['UsuarioID'])) {
 $sqlAdmin = mysql_query("SELECT * FROM vw_prefeitura WHERE CdPrefeitura = ".$_SESSION['PrefeituraID']." ");
 $verAdmin = mysql_fetch_array($sqlAdmin);
 
-    $ID = addslashes($_POST['id']);
-    $Titulo = addslashes($_POST['titulo']);
-    $CdCategoria = $_POST['departamento'];
-    $Descricao = (isset($_POST['editor1']))? $_POST['editor1'] : '';
-    $Acao = $_POST['acao'];
+    $id = $_GET['id'];
+    $CdCPL = $_GET['CdCPL'];
     $DtAtualizacao = date('Y-m-d H:i:s');
 
-        $query = "UPDATE servicos SET";
-        $query = $query . " Titulo = '" . $Titulo . "',";
-        $query = $query . " CdDepartamento = '" . $CdCategoria . "',";
-        $query = $query . " Descricao = '" . $Descricao . "',";
-        $query = $query . " Acao = '" . $Acao . "',";
-        $query = $query . " DtAtualizacao = '" . $DtAtualizacao . "'";
+
+
+        $query = "UPDATE cpl_empresa SET";
+
+        $query = $query . " DtAtualizacao = '" . $DtAtualizacao . "',";
+        $query = $query . " Acao = 'Excluido'";
+
         $query = $query . " WHERE";
-        $query = $query . " id = '" . $ID . "'";
+
+        $query = $query . " id = '" . $id . "'";
+
         $verifica = mysql_query($query);
 
-header('Location: o_municipio_servicos_cidadao.php'); exit;
+        header("Location: transparencia_cpl_empresa.php?contrato=".$CdCPL.""); exit;
 ?>

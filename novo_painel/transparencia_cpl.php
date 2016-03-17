@@ -86,7 +86,7 @@ if (!isset($_SESSION['UsuarioID'])) {
               <a class="btn btn-3d btn-reveal btn-red" href="transparencia_cpl_novo.php">ADICIONAR NOVO CONTRATO E LICITAÇÃO</a>
           </div>
           <?php
-          $sqlGlossario = mysql_query("SELECT * FROM cpl WHERE CdPrefeitura = '".$_SESSION['PrefeituraID']."' AND Acao <> 'Excluido' GROUP BY DATE_FORMAT(DtAbertura, '%Y') ORDER BY DATE_FORMAT(DtAbertura, '%Y') DESC");
+          $sqlGlossario = mysql_query("SELECT * FROM vw_cpl WHERE CdPrefeitura = '".$_SESSION['PrefeituraID']."' AND Acao <> 'Excluido' GROUP BY DATE_FORMAT(DtAbertura, '%Y') ORDER BY DATE_FORMAT(DtAbertura, '%Y') DESC");
           $Glossario = mysql_num_rows($sqlGlossario);
 
           for ($y = 0; $y < $Glossario; $y++){
@@ -100,7 +100,7 @@ if (!isset($_SESSION['UsuarioID'])) {
               </div>
               <div class="col-sm-9 col-md-10">
               <?php
-              $sqlGlossario1 = mysql_query("SELECT * FROM cpl WHERE DATE_FORMAT(DtAbertura, '%Y' ) = '".$verGlossario['ano']."' AND CdPrefeitura = '".$_SESSION['PrefeituraID']."' AND Acao <> 'Excluido' GROUP BY DATE_FORMAT(DtAbertura, '%m') ORDER BY DATE_FORMAT(DtAbertura, '%m') DESC");
+              $sqlGlossario1 = mysql_query("SELECT * FROM vw_cpl WHERE DATE_FORMAT(DtAbertura, '%Y' ) = '".date('Y', strtotime($verGlossario['DtAbertura']))."' AND CdPrefeitura = '".$_SESSION['PrefeituraID']."' AND Acao <> 'Excluido' GROUP BY DATE_FORMAT(DtAbertura, '%m') ORDER BY DATE_FORMAT(DtAbertura, '%m') DESC");
               $Glossario1 = mysql_num_rows($sqlGlossario1);
 
               for ($x = 0; $x < $Glossario1; $x++){
@@ -109,7 +109,7 @@ if (!isset($_SESSION['UsuarioID'])) {
                   ?>
                     <div class="cards">
                       <div class="item">
-                        <a class="btn btn-3d btn-reveal btn-blue" href="transparencia_cpl_ver.php?mes=<?php echo date('m', strtotime($verGlossario1['mes']));?>&ano=<?php echo date('Y', strtotime($verGlossario1['ano']));?>"><?php echo retorna_mes_extenso($verGlossario1['mes']);?></a>
+                        <a class="btn btn-3d btn-reveal btn-blue" href="transparencia_cpl_ver.php?mes=<?php echo date('m', strtotime($verGlossario1['DtAbertura']));?>&ano=<?php echo date('Y', strtotime($verGlossario1['DtAbertura']));?>"><?php echo retorna_mes_extenso(date('m', strtotime($verGlossario1['DtAbertura'])));?></a>
                       </div>
                     </div>
                   <?php
