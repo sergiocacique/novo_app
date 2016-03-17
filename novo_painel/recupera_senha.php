@@ -73,59 +73,55 @@ $mensagemHTML = '<meta content="NOINDEX, NOFOLLOW" name="ROBOTS" />
 <table align="center" bgcolor="#f1f1f1" border="0" cellpadding="0" cellspacing="0" width="100%">
 	<tbody>
 		<tr>
-			<td valign="top" width="100%">
-			<table align="center" bgcolor="#FFFFFF" border="0" cellpadding="0" cellspacing="0" class="deviceWidth" style="min-width:550px;" width="550">
+			<td>
+			<table align="center" border="0" cellpadding="0" cellspacing="0" style="width: 550px;">
 				<tbody>
 					<tr>
-						<td valign="top">&nbsp;</td>
+						<td>&nbsp;</td>
 					</tr>
-				</tbody>
-			</table>
-
-			<table align="center" border="0" cellpadding="0" cellspacing="0" class="mobile-content-size" style="min-width:550px;" width="550">
-				<tbody>
 					<tr>
-						<td bgcolor="#ffffff" class="story-one" height="622" style="min-width:550px;" valign="top" width="550">
-
-						<div>
-						<table align="center" border="0" cellpadding="0" cellspacing="0" class="mobile-content-size" style="min-width:550px" width="550">
+						<td bgcolor="#FFFFFF">
+						<table align="center" bgcolor="#FFFFFF" border="0" cellpadding="5" cellspacing="5" class="deviceWidth" style="min-width:550px;" width="550">
 							<tbody>
 								<tr>
-									<td class="story-one-body-copy" style="vertical-align: top; font-size: 20px; color: rgb(34, 34, 34); font-weight: normal; font-family: &quot;Open Sans&quot;,helvetica,MotoSans,Verdana,Arial,sans-serif; line-height: 22px; padding: 0px 83px;" width="550">
-                  <p>&nbsp;</p>
-									<p>&nbsp;</p>
-									<p>&nbsp;</p>
-                  <p>Ol&aacute; <span style="color:#A52A2A;">'.$rsPagina['Nome'].'</span>,</p>
-									<p>&nbsp;</p>
-									</td>
+									<td>&nbsp;</td>
 								</tr>
 								<tr>
-									<td class="story-one-body-copy" style="vertical-align: top; font-size: 20px; color: rgb(34, 34, 34); font-weight: normal; font-family: &quot;Open Sans&quot;,helvetica,MotoSans,Verdana,Arial,sans-serif; line-height: 22px; padding: 0px 83px;" width="550">voc&ecirc; solicitou uma nova senha de acesso em '.date('d/m/Y', strtotime($rsPagina['DtAtualizacao'])).'.<br />
+									<td style="text-align: center;"><img height="45" src="https://www.minhaprefeitura.com.br/console/imagens/brasao/'.$rsPagina2['Pasta'].'.png" style="font-family:&quot;Open Sans&quot;,arial, verdana, sans-serif; font-size:14px; color:#FFFFFF; border:0;" width="45" /></td>
+								</tr>
+								<tr class="story-one-body-copy" style="vertical-align: top; font-size: 20px; color: rgb(34, 34, 34); font-weight: normal; font-family: &quot;Open Sans&quot;,helvetica,MotoSans,Verdana,Arial,sans-serif; line-height: 22px; padding: 0px 83px;" width="550">
+									<td><br />
+									<span style="color: rgb(34, 34, 34); font-family: &quot;Open Sans&quot;, helvetica, MotoSans, Verdana, Arial, sans-serif; font-size: 20px; line-height: 22px;">Ol&aacute;&nbsp;</span><span style="font-family: &quot;Open Sans&quot;, helvetica, MotoSans, Verdana, Arial, sans-serif; font-size: 20px; line-height: 22px; color: rgb(165, 42, 42);">'.$rsPagina2['Nome'].'</span><span style="color: rgb(34, 34, 34); font-family: &quot;Open Sans&quot;, helvetica, MotoSans, Verdana, Arial, sans-serif; font-size: 20px; line-height: 22px;">,<br />
 									<br />
-									sua nova senha: <strong>'.$senha.'</strong><br />
+									voc&ecirc; solicitou uma nova senha de acesso em '.date('d/m/Y', strtotime($rsPagina2['DtAtualizacao'])).'.<br />
+									sua nova senha:&nbsp;</span><strong style="color: rgb(34, 34, 34); font-family: &quot;Open Sans&quot;, helvetica, MotoSans, Verdana, Arial, sans-serif; font-size: 20px; line-height: 22px;">'.$senha.'</strong><br />
+									&nbsp;<br />
 									&nbsp;</td>
 								</tr>
-							</tbody>
-						</table>
-
-						<table align="center" border="0" cellpadding="0" cellspacing="0" class="mobile-content-size" style="min-width:550px" width="550">
-							<tbody>
 								<tr>
-									<td align="center" class="story-one-body-copy" style="text-align: center; vertical-align: middle; font-size: 12px; color: #000000; font-weight:700; font-family:&quot;Open Sans&quot;, helvetica, MotoSans,Verdana, Arial, sans-serif; line-height: 28px; padding:0px 0px 0px 85px;letter-spacing: 0px;" width="275">
-                    Acesse o endere&ccedil;o abaixo para acessar o painel de administrativo<br />
-									<a href="http://app.minhaprefeitura.com.br" target="_blank" title="">http://app.minhaprefeitura.com.br</a></td>
+									<td><span style="line-height: 20.8px; text-align: center;">Acesse o endere&ccedil;o abaixo para acessar o painel de administrativo</span><br style="line-height: 20.8px; text-align: center;" />
+									<a href="http://app.minhaprefeitura.com.br" style="line-height: 20.8px; text-align: center;" target="_blank" title="">http://app.minhaprefeitura.com.br</a></td>
+								</tr>
+								<tr>
+									<td>&nbsp;</td>
 								</tr>
 							</tbody>
 						</table>
-						</div>
 						</td>
+					</tr>
+					<tr>
+						<td>&nbsp;</td>
 					</tr>
 				</tbody>
 			</table>
-			<!-- end story --></td>
+
+			<p>&nbsp;</p>
+			</td>
 		</tr>
 	</tbody>
 </table>
+
+<p>&nbsp;</p>
 ';
 
 
