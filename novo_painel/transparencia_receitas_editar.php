@@ -93,7 +93,7 @@ if (!isset($_SESSION['UsuarioID'])) {
 <?php include ("topo.php");?>
 
 <?php
-$id = $_GET['despesa'];
+$id = $_GET['receita'];
 
 $sqlPagina = mysql_query("SELECT * FROM receitas WHERE id = '".$id."'");
 $rsPagina = mysql_fetch_array($sqlPagina);
