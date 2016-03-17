@@ -6,8 +6,12 @@ include ("funcao.php");
 if(!isset($_POST['txtCPF'])) die("N&atilde;o recebi nenhum par&acitc;metro. Por favor volte ao formulario.html antes");
 
 $CPF = $_POST['txtCPF'];
-$sqlPagina = mysql_query("SELECT * FROM vw_admin WHERE CPF = '".$CPF."'");
+$sqlPagina = mysql_query("SELECT * FROM admin WHERE CPF = '".$CPF."'");
 $rsPagina = mysql_fetch_array($sqlPagina);
+
+
+$sqlPagina2 = mysql_query("SELECT * FROM vw_admin WHERE CdUsuario = '".$rsPagina['CdUsuario']."'");
+$rsPagina2 = mysql_fetch_array($sqlPagina2);
 
 $DtAtualizacao = date('Y-m-d H:i:s');
 $senha = geraSenha(6, false, true);
@@ -34,12 +38,12 @@ elseif(PHP_OS == "WINNT") $quebra_linha = "\r\n"; // Se for Windows
 else die("Este script nao esta preparado para funcionar com o sistema operacional de seu servidor");
 
 // Passando os dados obtidos pelo formul�rio para as vari�veis abaixo
-$nomeremetente     = $rsPagina['Fantasia'];
+$nomeremetente     = $rsPagina2['Fantasia'];
 $emailremetente    = $emailsender;
 $emaildestinatario = trim($rsPagina['Email']);
 $comcopia          = trim($_POST['comcopia']);
 $comcopiaoculta    = trim($_POST['comcopiaoculta']);
-$assunto           = $rsPagina['Fantasia']." - Alteração de Senha";
+$assunto           = $rsPagina2['Fantasia']." - Alteração de Senha";
 $mensagem          = $_POST['mensagem'];
 
 
