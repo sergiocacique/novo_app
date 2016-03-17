@@ -95,7 +95,9 @@ $verPerfil2 = mysql_fetch_array($sqlPerfil2);
                         </span>
             </a>
         </li> -->
-
+        <?php
+        if($verPerfil2['NomePerfil'] == "Desenvolvedor" OR $verPerfil2['NomePerfil'] == "Administrador"){
+        ?>
         <li>
             <a href="configuracao.php">
                 <i class="fa fa-cog fa-2x"></i>
@@ -104,6 +106,9 @@ $verPerfil2 = mysql_fetch_array($sqlPerfil2);
                         </span>
             </a>
         </li>
+        <?php
+      }
+        ?>
     </ul>
 
     <ul class="logout">
