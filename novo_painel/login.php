@@ -67,7 +67,7 @@
 
                                             <div class="col-md-6 col-sm-6 col-xs-6">
                                                 <div class="form-tip pt-20">
-                                                    <a class="no-text-decoration size-13 margin-top-10 block" href="#">Esqueceu sua senha?</a>
+                                                    <a class="no-text-decoration size-13 margin-top-10 block" href="esqueceu_senha.php">Esqueceu sua senha?</a>
                                                 </div>
                                             </div>
 
