@@ -6,24 +6,24 @@
         <ul class="filters">
         <div class="section">
                 <li>
-                    <a href="#">
+                    <a href="acesso_informacao_chamados.php">
                         Chamados
                     </a>
                 </li>
             <li>
-                <a href="#">
+                <a href="acesso_informacao_usuarios.php">
                     Usuários
                 </a>
             </li>
 
             <li>
-                <a href="#">
+                <a href="acesso_informacao_glossario.php">
                     Glossário
                 </a>
             </li>
 
             <li>
-                <a href="#">
+                <a href="acesso_informacao_perguntas_frequentes.php">
                     Perguntas Frequentes
                 </a>
             </li>
