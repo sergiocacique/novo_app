@@ -152,8 +152,9 @@ $rsPagina = mysql_fetch_array($sqlPagina);
             <label>Categoria</label>
             <div class="fancy-form fancy-form-select">
               <select class="form-control" id="categoria" name="categoria">
-                <option value="Empenho" <?php if ($rsPagina['Categoria'] == "Empenho"){?>selected<?php }?>>Empenho</option>
-                <option value="Liquidação" <?php if ($rsPagina['Categoria'] == "Liquidação"){?>selected<?php }?>>Liquidação</option>
+                <option value="extra" <?php if ($rsPagina['Categoria'] == "extra"){?>selected<?php }?>>Extra</option>
+                <option value="previsto" <?php if ($rsPagina['Categoria'] == "previsto"){?>selected<?php }?>>Previsto</option>
+                <option value="arrecadada" <?php if ($rsPagina['Categoria'] == "arrecadada"){?>selected<?php }?>>Arrecadada</option>
               </select>
             <i class="fancy-arrow"></i>
           </div>

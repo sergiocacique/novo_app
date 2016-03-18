@@ -144,8 +144,9 @@ if (!isset($_SESSION['UsuarioID'])) {
             <label>Categoria</label>
             <div class="fancy-form fancy-form-select">
               <select class="form-control" id="categoria" name="categoria">
-                <option value="Empenho">Empenho</option>
-                <option value="Liquidação">Liquidação</option>
+                <option value="extra">Extra</option>
+                <option value="previsto">previsto</option>
+                <option value="arrecadada">arrecadada</option>
               </select>
             <i class="fancy-arrow"></i>
           </div>
