@@ -1,0 +1,40 @@
+.menu-detalhe{
+  color: #666;
+}
+#footer .copyright {
+    padding: 20px 0 5px;
+}
+#footer .copyright {
+    background-color: #252525;
+    padding: 20px 0;
+}
+.container {
+    position: relative;
+}
+.fsize12 {
+    font-size: 12px !important;
+    line-height: 16px !important;
+}
+#footer .spaced {
+    padding: 60px 15px;
+}
+#footer {
+    background-color: #2b2b2b;
+    border-top: 5px solid #252525;
+    color: #777;
+    display: block;
+    vertical-align: bottom;
+    z-index: 101;
+}
+footer .copyright .img-empresa img {
+    margin: 0 7px 11px 4px;
+}
+#footer .similar-h2, #footer .similar-h3, #footer .similar-h4 {
+    color: #fff;
+}
+.similar-h3 {
+    font-size: 1.8em !important;
+    letter-spacing: normal !important;
+    line-height: 24px !important;
+    margin: 0 0 32px;
+}

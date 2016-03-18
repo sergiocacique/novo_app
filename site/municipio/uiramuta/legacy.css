@@ -1,0 +1,411 @@
+#wrapper {
+    height: 100%;
+    width: 100%;
+}
+#bar {
+    background-color: #0193de;
+    height: 61px;
+    position: relative;
+    width: 100%;
+    z-index: 6;
+}
+.five-mins {
+    background-image: linear-gradient(#01a44f 0%, #009447 100%);
+    height: 382px;
+    margin-top: 30px;
+    padding: 19px;
+}
+#top {
+    background: #164a87 url("bg-header.jpg") no-repeat scroll center top;
+    width: 100%;
+}
+#top header {
+    height: 466px;
+}
+.container {
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 10px;
+    width: 980px;
+}
+#main {
+    background-color: #fff;
+    background-image: linear-gradient(#dcdcdc, #ffffff 60px);
+    margin-top: -336px;
+    padding-top: 60px;
+    position: relative;
+    width: 100%;
+}
+
+footer {
+    clear: both;
+    margin-top: 80px;
+    width: 100%;
+}
+#bar section {
+    margin-left: auto;
+    margin-right: auto;
+    width: 980px;
+}
+#bar .transparencia {
+    float: left;
+    font-size: 13px;
+    padding: 20px 20px 0 0;
+    text-decoration: none;
+}#top .brasao-municipio {
+     display: block;
+     float: left;
+ }
+ .menu_principal {
+     margin-top: 20px;
+ }
+.container .grid-3 {
+    width: 220px;
+}
+.navbar-nav > li > a{
+    font-weight: bold;
+    color: #fff !important;
+}
+.portal-footer {
+    background-color: #0193de;
+    color: #eee;
+    height: 450px;
+}
+.portal-footer .portal-footer-top {
+    height: 330px;
+    padding-top: 30px;
+}
+.portal-footer .portal-footer-top .titles {
+    color: #ffcc01;
+    font-weight: 700;
+    margin-left: 0;
+    padding: 3px 0;
+    text-transform: uppercase;
+}
+.portal-footer .portal-footer-top li {
+    padding: 3px 0;
+}
+.portal-footer .portal-footer-top li a {
+    font-size: 13px;
+}
+.portal-footer a, .portal-footer a:hover, .portal-footer a:active, .portal-footer a:focus {
+    color: #eee;
+}
+.portal-footer .portal-footer-bottom {
+    padding-bottom: 30px;
+    padding-top: 30px;
+    background: #164a87 url("bg-header.jpg") no-repeat scroll center top;
+    color: #fff;
+}
+.box-plans {
+    padding-top: 30px;
+    position: relative;
+}
+.mar-20 {
+    margin-bottom: 20px !important;
+}
+.mar-40 {
+    margin-bottom: 40px !important;
+}.texto-vermelho{
+    color: #962d22;
+ }
+.faq .text-c {
+    color: #333333;
+    font-size: 16px;
+}
+.faq .text {
+    color: #666666;
+    font-size: 15px;
+    line-height: 140%;
+}
+.faq .control-form {
+    position: relative;
+}
+.faq .control-form .label {
+    clear: both;
+    color: #999999;
+    display: block;
+    font-size: 13px;
+    margin-bottom: 4px;
+}
+label {
+    cursor: pointer;
+}
+.faq .control-form .input-text {
+    background-color: #ffffff;
+    border: 1px solid #cccccc;
+    float: left;
+    font-size: 14px;
+    height: 38px;
+    margin: 0 0 10px;
+    padding: 0 0 0 6px;
+    position: relative;
+    vertical-align: middle;
+    width: 340px;
+    z-index: 2;
+}
+.faq .control-form .aux-shadow {
+    background: transparent none repeat scroll 0 0;
+    box-shadow: 0 11px 9px rgba(0, 0, 0, 0.6);
+    content: "";
+    height: 5px;
+    left: 11px;
+    position: absolute;
+    top: 44px;
+    transform: skew(-15deg) rotate(-5deg);
+    width: 161px;
+    z-index: 1;
+}
+button.btn-new.type-two, input.btn-new.type-two[type="button"], input.btn-new.type-two[type="submit"] {
+    height: 40px;
+}
+.faq .control-form .btn-new {
+    margin-left: 6px;
+}
+button.btn-new, input.btn-new[type="button"], input.btn-new[type="submit"] {
+    padding-top: 0 !important;
+}
+.btn-new.yellow {
+    background-image: linear-gradient(#ffcc01 0%, #f4ae01 100%);
+    border-color: #f0a301;
+    color: #4c4119;
+}
+.btn-new.type-two {
+    font-size: 15px;
+    height: 29px;
+    padding: 9px 20px 0;
+}
+button, input[type="button"], input[type="reset"], input[type="submit"] {
+    cursor: pointer;
+}
+.btn-new {
+    background-color: #999999;
+    border: 1px solid #666666;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.6) inset;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 16px;
+    text-transform: uppercase;
+}
+.line {
+    clear: both;
+    float: left;
+    width: 100%;
+}
+.box-plan.nitro{
+    background-color: #009447;
+}
+.box-plan {
+    float: left;
+    padding-bottom: 40px;
+    padding-top: 60px;
+    position: relative;
+    width: 238px;
+    z-index: 2;
+}
+.box-plan .title {
+    color: #fff;
+    font-size: 30px;
+    text-align: center;
+    text-transform: uppercase;
+}
+.title {
+    color: #393939;
+    font-weight: normal;
+    line-height: 100%;
+}
+.title {
+    color: #393939;
+    font-weight: normal;
+    line-height: 100%;
+}
+.box-plan.nitro .price {
+    background-color: #01a44f;
+}
+.box-plan.ultra {
+    background-color: #d50b4d;
+}
+.box-plan.turbo {
+    background-color: #3b3638;
+}
+.box-plan.mega {
+    background-color: #f8b101;
+}
+.box-plan.ultra .price {
+    background-color: #a90137;
+}
+.box-plan.turbo .price {
+    background-color: #63595d;
+}
+.box-plan.mega .price {
+    background-color: #eba801;
+}
+.box-plan .price {
+    background-color: #2b2b2b;
+    color: #ffffff;
+    font-size: 45px;
+    font-weight: bold;
+    height: 96px;
+    padding: 24px 0 0;
+    text-align: center;
+}
+.box-plan .price {
+    color: #ffffff;
+    font-size: 25px;
+    font-weight: bold;
+    text-align: center;
+}.box-plan .price .sup {
+     color: #fff;
+     font-size: 15px;
+ }
+.box-plan .support {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 16px;
+    line-height: 130%;
+    margin: 0 auto 30px;
+    text-align: center;
+    width: 210px;
+}
+.support {
+    color: #666666;
+    font-size: 16px;
+}
+sup {
+    top: -0.5em;
+}
+sub, sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+}
+.box-plan .price .span {
+    color: #aaaaaa;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.text-c {
+    color: #333;
+}
+.text {
+    font-size: 16px;
+    line-height: 130%;
+    margin-bottom: 20px;
+}
+.line-advantages .container {
+    background: transparent url("../../images/infor.png") no-repeat scroll right top;
+    min-height: 302px;
+}
+.line-100.type-a {
+    background-image: linear-gradient(#eaeaea, #f3f3f3, #eaeaea);
+    border-bottom: 15px solid #f3f3f3;
+    border-top: 15px solid #f3f3f3;
+}
+.line-100.type-c {
+    background-image: linear-gradient(#f4f4f4, #ffffff 30%);
+    padding-top: 40px;
+}
+.line-advantages {
+    padding: 70px 0 0;
+}
+.line-100.type-b {
+    background-image: linear-gradient(#eaeaea, #f3f3f3, #eaeaea);
+}
+.line-100 {
+    float: left;
+    padding: 0;
+    width: 100%;
+}.title-d {
+     color: #164a87;
+     font-size: 30px;
+ }
+.line-100.type-e {
+    background-image: linear-gradient(#f4f4f4, #ffffff 10%);
+    padding-top: 80px;
+}
+.divisor {
+    border-bottom: 1px solid #dddddd;
+    clear: both;
+    display: block;
+    margin: 10px 0 0;
+    position: relative;
+    width: 100%;
+}
+.divisor-c span {
+    background-color: #393939;
+}
+.divisor span {
+    background-color: #dddddd;
+    height: 3px;
+    left: 0;
+    position: absolute;
+    top: -1px;
+    width: 40px;
+}
+.page-plans .box-plan.mega .list-configs, .page-plans .box-plan.nitro .list-configs, .page-plans .box-plan.turbo .list-configs, .page-plans .box-plan.ultra .list-configs, .controller-web2py .box-plan.mega .list-configs, .controller-web2py .box-plan.nitro .list-configs, .controller-web2py .box-plan.turbo .list-configs, .controller-web2py .box-plan.ultra .list-configs, .controller-python .box-plan.mega .list-configs, .controller-python .box-plan.nitro .list-configs, .controller-python .box-plan.turbo .list-configs, .controller-python .box-plan.ultra .list-configs, .controller-django .box-plan.mega .list-configs, .controller-django .box-plan.nitro .list-configs, .controller-django .box-plan.turbo .list-configs, .controller-django .box-plan.ultra .list-configs, .controller-turbogears .box-plan.mega .list-configs, .controller-turbogears .box-plan.nitro .list-configs, .controller-turbogears .box-plan.turbo .list-configs, .controller-turbogears .box-plan.ultra .list-configs, .controller-ruby-on-rails .box-plan.mega .list-configs, .controller-ruby-on-rails .box-plan.nitro .list-configs, .controller-ruby-on-rails .box-plan.turbo .list-configs, .controller-ruby-on-rails .box-plan.ultra .list-configs {
+    margin-left: 10px !important;
+    width: 220px !important;
+}
+.box-plan .list-configs {
+    border-top: 1px dashed #fff;
+    margin: auto;
+    width: 260px;
+}
+.list-configs {
+    padding: 0;
+    width: 100%;
+}
+.list {
+    padding: 6px 0;
+}
+ol, ul {
+    list-style: outside none none;
+}
+.box-plan .list-configs .item {
+    border-color: #fff;
+    color: #ffffff;
+    font-size: 15px;
+    padding-left: 4px;
+}
+.list-configs .item {
+    border-bottom: 1px dashed #cccccc;
+    padding: 5px 0;
+}
+.list .item {
+    font-size: 16px;
+    padding: 10px 0;
+}
+.title-b {
+    color: #4a3979;
+    font-size: 40px;
+}
+.title {
+    color: #393939;
+    font-weight: normal;
+    line-height: 100%;
+}
+.center {
+    text-align: center;
+}
+
+
+.btn.type-d:hover {
+    background-image: linear-gradient(#c3c3c3 0%, #c3c3c3 100%);
+    border-color: #c3c3c3;
+    color: #000;
+    text-decoration: none;
+}
+.btn.type-d {
+    background-image: linear-gradient(#164a87 0%, #164a87 100%);
+    border-color: #164a87;
+    border-style: solid;
+    border-width: 1px;
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+    padding: 7px 14px;
+}
+.btn:hover {
+    background-color: #ffdb4d;
+}

@@ -1,0 +1,941 @@
+@font-face {
+    font-family: 'Calibri';
+    src: url('../fonts/Calibri.eot');
+    src: url('../fonts/Calibri.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/Calibri.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* Isto é necessário para não haver rolagens horizontais quando movermos os elementos */
+html, body {overflow-x: hidden;
+}
+
+h5{
+    text-transform: uppercase;
+}
+
+.modal-header{
+    background-color: #158da2 !important;
+    color: #FFF !important;
+    font-size: 13px;
+}
+/* ### TOPO ###  */
+#topo{
+    position: relative;
+    z-index: 999;
+}
+/* ### TOPO ###  */
+#servidor_remuneracao{
+    float: left;
+    width: 100%;
+}
+.servidor_remuneracao1{
+    float: left;
+    margin-left: 15px;
+    font-size: 13px;
+}
+.servidor_remuneracao2{
+    float: right;
+    color: #5c5c5c;
+}
+#remuneracao_lista{
+    float: left;
+    width: 100%;
+}
+#servidor_remuneracao_eventual{}
+.servidor_remuneracao_eventual1{
+    float: left;
+    margin-left: 15px;
+    font-size: 13px;
+    color: #5c5c5c;
+}
+.servidor_remuneracao_eventual2{
+    float: right;
+    color: #5c5c5c;
+}
+#servidor_deducao{}
+.servidor_deducao1{
+    float: left;
+    color: #fe0000;
+    margin-left: 15px;
+    font-size: 13px;
+}
+.servidor_deducao2{
+    float: right;
+    color: #fe0000;
+}
+#servidor_remuneracao_total{
+    float: left;
+    width: 100%;
+    margin: 30px 0;
+}
+.servidor_remuneracao2{}
+#barra{
+    background-color: #f1f1f1;
+    position: relative;
+    width: 100%;
+    height: 48px;
+}
+#barra_centro{
+    margin: 0 auto;
+    width: 992px;
+    position: relative;
+}
+#logo_boavista{
+    background-image: url(../imagens/logo/boavista.png);
+    width: 135px;
+    height: 32px;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+    top: 11px;
+}
+.titulo1{
+    float: left;
+    width: 100%;
+    font-size: 15px;
+}
+.titulo2{
+    float: left;
+    width: 90%;
+    font-size: 15px;
+    color: #fe0000;
+}
+#transparencia{
+    background-color: #158da2;
+    position: relative;
+    width: 100%;
+    height: 55px;
+    border-bottom: 4px solid #0a7a8e;
+    -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow:    0 3px 9px rgba(0, 0, 0, 0.1);
+    box-shadow:         0 3px 9px rgba(0, 0, 0, 0.1);
+}
+
+#logo_transparencia{
+    background-image: url(../imagens/logo/portal-transparencia.png);
+    width: 171px;
+    height: 32px;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+    margin: 0 auto;
+    top: 11px;
+}
+#logo_transparencia a{
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+#titulo_pesquisa{
+    background-image: -webkit-gradient(
+        linear,
+        left top,
+        left bottom,
+        color-stop(0, #F6F4F4),
+        color-stop(1, #D1D1D1)
+    );
+    background-image: -o-linear-gradient(bottom, #F6F4F4 0%, #D1D1D1 100%);
+    background-image: -moz-linear-gradient(bottom, #F6F4F4 0%, #D1D1D1 100%);
+    background-image: -webkit-linear-gradient(bottom, #F6F4F4 0%, #D1D1D1 100%);
+    background-image: -ms-linear-gradient(bottom, #F6F4F4 0%, #D1D1D1 100%);
+    background-image: linear-gradient(to bottom, #F6F4F4 0%, #D1D1D1 100%);
+    width: 100%;
+    float: left;
+    -moz-border-radius: 5px 5px 0 0;
+    -webkit-border-radius:5px 5px 0 0;
+    border-radius: 5px 5px 0 0;
+}
+#box_1{
+    background-color: #e3e3e3;
+    width: 100%;
+    height: 80px;
+    float: left;
+}
+#box_nome{
+    float: left;
+    width: 35%;
+    margin: 5px 5px 5px 20px;
+}
+#box_ano{
+    float: left;
+    width: 10%;
+    margin: 5px;
+}
+#box_mes{
+    float: left;
+    width: 15%;
+    margin: 5px;
+}
+#box_botao{
+    float: left;
+    width: 15%;
+    margin: 30px 5px 0;
+}
+label {
+    color: #ffffff;
+    font-family: 'Calibri';
+    font-weight: normal;
+}
+.pesquisa_titulo {
+    text-align: center;
+    color: #FFF;
+    font-size: 17px;
+    font-family: 'Calibri;
+}
+#box_1_campo{
+    float: left;
+    margin: 23px;
+    width: 10%;
+}
+.classBbtPesquisar{
+    float: right;
+    margin: 23px;
+    background-color: #158da2;
+    color: #FFF;
+    padding: 10px 20px;
+    font-size: 12px;
+}
+.classBbtPesquisar:hover{
+    float: right;
+    margin: 23px;
+    background-color: #f08531;
+    color: #FFF;
+    padding: 10px 20px;
+    font-size: 12px;
+    text-decoration: none;
+}
+#box_pesquisa{
+    float: left;
+    width: 100%;
+    background-color: #158da2;
+}
+#listagem{
+    float: left;
+    width: 100%;
+    background-color: #f1f1f1;
+    margin-bottom: 4px;
+}
+
+@media screen and (min-width:320px) {
+    #corpo{
+        width: 95%;
+        position: relative;
+        margin: 0 auto;
+    }
+    #corpo, #transparencia, #logo_transparencia, {
+        -webkit-transform: translateX(0);
+        -moz-transform: translateX(0);
+        -ms-transform: translateX(0);
+        transform: translateX(0);
+        -webkit-transition: all .25s linear;
+        -moz-transition: all .25s linear;
+        -ms-transition: all .25s linear;
+        transition: all .25s linear;
+    }
+    #lateral{
+        -webkit-transform: translateX(0px);
+        -moz-transform: translateX(0px);
+        -ms-transform: translateX(0px);
+        transform: translateX(0px);
+        -webkit-transition: all .25s linear;
+        -moz-transition: all .25s linear;
+        -ms-transition: all .25s linear;
+        transition: all .25s linear;
+        display: none;
+    }
+    .menu-active{
+        top: 5px;
+        left: 0;
+        z-index: 1;
+        width: 100%;
+        padding: 15px 20px 2px;
+        background: #ffffff;
+        display: inline !important;
+        position: absolute;
+        border-bottom: 4px solid #f1f1f1;
+        -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, 0.1);
+        -moz-box-shadow:    0 3px 9px rgba(0, 0, 0, 0.1);
+        box-shadow:         0 3px 9px rgba(0, 0, 0, 0.1);
+    }
+    .menu-active #lateral {
+        -webkit-transform: translateX(0);
+        -moz-transform: translateX(0);
+        -ms-transform: translateX(0);
+        transform: translateX(0);
+    }
+
+    .active #conteudo,
+    .active #corpo {
+
+    }
+
+    #lateral_menu{}
+    #conteudo{
+        float: right;
+        width: 100%;
+    }
+    /* ### RODAPE ###  */
+    #rodape_central{
+        margin: 0 auto;
+        width: 290px;
+        position: relative;
+    }
+    #rodape_colunas1{
+        float: left;
+        margin: 25px 10px;
+        width: 290px;
+        height: 200px;
+    }
+    #rodape_colunas2{
+        float: left;
+        margin: 25px 10px;
+        width: 290px;
+        height: 200px;
+        display: none;
+    }
+    #rodape_colunas3{
+        float: left;
+        margin: 25px 10px;
+        width: 290px;
+        height: 200px;
+        display: none;
+    }
+    #rodape_colunas4{
+        float: left;
+        margin: 25px 10px;
+        width: 290px;
+        height: 200px;
+        margin-right: 0;
+        display: none;
+    }
+
+    #logo_pmbv{
+        background-image: url(../imagens/logo/pmbv.png);
+        width: 111px;
+        height: 98px;
+        background-repeat: no-repeat;
+        background-position: center;
+        position: relative;
+        margin: 0 auto;
+    }
+    #rodape_social{
+        width: 221px;
+        height: 37px;
+        margin: 10 auto;
+    }
+    #rodape{
+        height: 352px !important;
+    }
+    .menu-anchor {
+        width: 40px;
+        height: 32px;
+        float: left;
+        position: relative;
+        text-indent: -9999px;
+        overflow: hidden;
+        cursor: pointer;
+        background: #FFF;
+        margin: 10px;
+        display: inline;
+    }
+    .menu-anchor:before {
+        content: "";
+        display: block;
+        margin: 7px auto;
+        width: 70%;
+        height: 0.25em;
+        background: #f49c14;
+        box-shadow:
+            0 .45em 0 0 #f49c14,
+            0 .9em 0 0 #f49c14;
+    }
+    .cpf{
+        float: left;
+        padding: 10px;
+        width: 110px;
+        font-size: 13px;
+    }
+    .nome{
+        float: left;
+        padding: 10px;
+        font-size: 13px;
+        height: 30px;
+        overflow: hidden;
+        width: 44%;
+    }
+    .orgao{
+        float: right;
+        padding: 10px;
+        font-size: 13px;
+        width: 100px;
+        overflow: hidden;
+        height: 30px;
+    }
+}
+@media screen and (min-width:480px) {
+    #corpo{
+        width: 95%;
+        position: relative;
+        margin: 0 auto;
+    }
+    #corpo, #transparencia, #logo_transparencia, {
+        -webkit-transform: translateX(0);
+        -moz-transform: translateX(0);
+        -ms-transform: translateX(0);
+        transform: translateX(0);
+        -webkit-transition: all .25s linear;
+        -moz-transition: all .25s linear;
+        -ms-transition: all .25s linear;
+        transition: all .25s linear;
+    }
+    #lateral{
+        display: none;
+    }
+    .menu-active{
+        top: 5px;
+        left: 0;
+        z-index: 1;
+        width: 100%;
+        padding: 15px 20px 2px;
+        background: #ffffff;
+        display: inline !important;
+        position: absolute;
+        border-bottom: 4px solid #f1f1f1;
+        -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, 0.1);
+        -moz-box-shadow:    0 3px 9px rgba(0, 0, 0, 0.1);
+        box-shadow:         0 3px 9px rgba(0, 0, 0, 0.1);
+    }
+    .menu-active #lateral {
+        -webkit-transform: translateX(0);
+        -moz-transform: translateX(0);
+        -ms-transform: translateX(0);
+        transform: translateX(0);
+    }
+
+    .active #conteudo,
+    .active #corpo {
+        -webkit-transform: translateX(0);
+        -moz-transform: translateX(0);
+        -ms-transform: translateX(0);
+        transform: translateX(0);
+    }
+
+    #lateral_menu{}
+    #conteudo{
+        float: right;
+        width: 100%;
+    }
+    /* ### RODAPE ###  */
+    #rodape{
+        height: 352px !important;
+    }
+    #rodape_central{
+        margin: 0 auto;
+        width: 290px;
+        position: relative;
+    }
+    #rodape_colunas1{
+        float: left;
+        margin: 25px 10px;
+        width: 290px;
+        height: 200px;
+    }
+    #rodape_colunas2{
+        float: left;
+        margin: 25px 10px;
+        width: 290px;
+        height: 200px;
+        display: none;
+    }
+    #rodape_colunas3{
+        float: left;
+        margin: 25px 10px;
+        width: 290px;
+        height: 200px;
+        display: none;
+    }
+    #rodape_colunas4{
+        float: left;
+        margin: 25px 10px;
+        width: 290px;
+        height: 200px;
+        margin-right: 0;
+        display: none;
+    }
+
+    #logo_pmbv{
+        background-image: url(../imagens/logo/pmbv.png);
+        width: 111px;
+        height: 98px;
+        background-repeat: no-repeat;
+        background-position: center;
+        position: relative;
+        margin: 0 auto;
+    }
+    #rodape_social{
+        width: 221px;
+        height: 37px;
+        margin: 10 auto;
+    }
+    .menu-anchor {
+        width: 40px;
+        height: 32px;
+        float: left;
+        position: relative;
+        text-indent: -9999px;
+        overflow: hidden;
+        cursor: pointer;
+        background: #FFF;
+        margin: 10px;
+        display: inline;
+    }
+    .menu-anchor:before {
+        content: "";
+        display: block;
+        margin: 7px auto;
+        width: 70%;
+        height: 0.25em;
+        background: #f49c14;
+        box-shadow:
+            0 .45em 0 0 #f49c14,
+            0 .9em 0 0 #f49c14;
+    }
+    .cpf{
+        float: left;
+        padding: 10px;
+        width: 110px;
+        font-size: 13px;
+    }
+    .nome{
+        float: left;
+        padding: 10px;
+        font-size: 13px;
+        height: 30px;
+        overflow: hidden;
+        width: 38%;
+    }
+    .orgao{
+        float: right;
+        padding: 10px;
+        font-size: 13px;
+        width: 200px;
+        overflow: hidden;
+        height: 30px;
+    }
+}
+@media screen and (min-width:600px) {
+    #corpo{
+        width: 98%;
+        position: relative;
+        margin: 0 auto;
+    }
+    #lateral{
+        float: left;
+        width: 25%;
+        display: inline;
+        -webkit-transform: translateX(0);
+        -moz-transform: translateX(0);
+        -ms-transform: translateX(0);
+        transform: translateX(0);
+    }
+    #lateral_menu{}
+    #conteudo{
+        float: right;
+        width: 70%;
+    }
+    /* ### RODAPE ###  */
+    #rodape_central{
+        margin: 0 auto;
+        width: 290px;
+        position: relative;
+    }
+    #rodape_colunas1{
+        float: left;
+        margin: 25px 10px;
+        width: 290px;
+        height: 200px;
+    }
+    #rodape_colunas2{
+        float: left;
+        margin: 25px 10px;
+        width: 290px;
+        height: 380px;
+        display: none;
+    }
+    #rodape_colunas3{
+        float: left;
+        margin: 25px 10px;
+        width: 290px;
+        height: 380px;
+        display: none;
+    }
+    #rodape_colunas4{
+        float: left;
+        margin: 25px 10px;
+        width: 290px;
+        height: 380px;
+        margin-right: 0;
+        display: none;
+    }
+    #logo_pmbv{
+        background-image: url(../imagens/logo/pmbv.png);
+        width: 111px;
+        height: 98px;
+        background-repeat: no-repeat;
+        background-position: center;
+        position: relative;
+        margin: 0 auto;
+    }
+    #rodape_social{
+        width: 221px;
+        height: 37px;
+        margin: 10 auto;
+    }
+    .menu-anchor{
+        display: none;
+    }
+    .cpf{
+        float: left;
+        padding: 10px;
+        width: 110px;
+        font-size: 13px;
+    }
+    .nome{
+        float: left;
+        padding: 10px;
+        font-size: 13px;
+    }
+    .orgao{
+        float: right;
+        padding: 10px;
+        font-size: 13px;
+    }
+}
+@media screen and (min-width:768px) {
+    #corpo{
+        width: 95%;
+        position: relative;
+        margin: 0 auto;
+    }
+    #lateral{
+        float: left;
+        width: 25%;
+        display: inline;
+        -webkit-transform: translateX(0);
+        -moz-transform: translateX(0);
+        -ms-transform: translateX(0);
+        transform: translateX(0);
+    }
+    #lateral_menu{}
+    #conteudo{
+        float: right;
+        width: 70%;
+    }
+    /* ### RODAPE ###  */
+
+    #rodape_colunas1{
+        float: left;
+        margin: 25px 10px;
+        width: 230px;
+        height: 200px;
+    }
+    #rodape_colunas2{
+        float: left;
+        margin: 25px 10px;
+        width: 220px;
+        height: 380px;
+        display: inline;
+    }
+    #rodape_colunas3{
+        float: left;
+        margin: 25px 10px;
+        width: 220px;
+        height: 380px;
+        display: none;
+    }
+    #rodape_colunas4{
+        float: left;
+        margin: 25px 10px;
+        width: 220px;
+        height: 380px;
+        margin-right: 0;
+        display: inline;
+    }
+    #logo_pmbv{
+        background-image: url(../imagens/logo/pmbv.png);
+        width: 111px;
+        height: 98px;
+        background-repeat: no-repeat;
+        background-position: center;
+        position: relative;
+        margin: 0 auto;
+    }
+    #rodape_social{
+        width: 221px;
+        height: 37px;
+        margin: 10 auto;
+    }
+    .cpf{
+        float: left;
+        padding: 10px;
+        width: 110px;
+        font-size: 13px;
+    }
+    .nome{
+        float: left;
+        padding: 10px;
+        font-size: 13px;
+        width: 80%;
+    }
+    .orgao{
+        float: right;
+        padding: 10px;
+        font-size: 13px;
+    }
+}
+@media screen and (min-width:992px) {
+    #corpo{
+        width: 992px;
+        position: relative;
+        margin: 0 auto;
+    }
+    #lateral{
+        float: left;
+        width: 250px;
+        display: inline;
+        -webkit-transform: translateX(0);
+        -moz-transform: translateX(0);
+        -ms-transform: translateX(0);
+        transform: translateX(0);
+    }
+    #lateral_menu{}
+
+    #conteudo{
+        float: right;
+        width: 720px;
+    }
+    /* ### RODAPE ###  */
+
+    #rodape_colunas1{
+        float: left;
+        margin: 25px 10px;
+        width: 230px;
+        height: 200px;
+    }
+    #rodape_colunas2{
+        float: left;
+        margin: 25px 10px;
+        width: 230px;
+        height: 380px;
+        display: inline;
+    }
+    #rodape_colunas3{
+        float: left;
+        margin: 25px 10px;
+        width: 230px;
+        height: 380px;
+        display: inline;
+    }
+    #rodape_colunas4{
+        float: left;
+        margin: 25px 10px;
+        width: 230px;
+        height: 380px;
+        margin-right: 0;
+        display: inline;
+    }
+    #logo_pmbv{
+        background-image: url(../imagens/logo/pmbv.png);
+        width: 111px;
+        height: 98px;
+        background-repeat: no-repeat;
+        background-position: center;
+        position: relative;
+        margin: 0 auto;
+    }
+    #rodape_social{
+        width: 221px;
+        height: 37px;
+        margin: 10 auto;
+    }
+    .menu-anchor{
+        display: none;
+    }
+    .cpf{
+        float: left;
+        padding: 10px;
+        width: 110px;
+        font-size: 13px;
+    }
+    .nome{
+        float: left;
+        padding: 10px;
+        font-size: 13px;
+    }
+    .orgao{
+        float: right;
+        padding: 10px;
+        font-size: 13px;
+    }
+}
+
+
+/* ### CORPO ###  */
+
+
+.menu-active .menu-anchor {background: #d55401}
+/* ### RODAPE ###  */
+#rodape{
+    width: 100%;
+    height: 530px;
+    background-color: #f1f1f1;
+    bottom: 0;
+}
+#rodape_barra{
+    background-color: #158da2;
+    position: relative;
+    width: 100%;
+    height: 41px;
+    border-bottom: 4px solid #176f9d;
+}
+
+.twitter{
+    width: 35px;
+    height: 35px;
+    float: left;
+    margin: 1px;
+    background-color: #5ea9dd;
+    background-image: url(../imagens/logo/twitter.png);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.facebook{
+    width: 35px;
+    height: 35px;
+    float: left;
+    margin: 1px;
+    background-color: #435282;
+    background-image: url(../imagens/logo/facebook.png);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.youtube{
+    width: 35px;
+    height: 35px;
+    float: left;
+    margin: 1px;
+    background-color: #dc1829;
+    background-image: url(../imagens/logo/youtube.png);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.instagran{
+    width: 35px;
+    height: 35px;
+    float: left;
+    margin: 1px;
+    background-color: #225e83;
+    background-image: url(../imagens/logo/instagran.png);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.google{
+    width: 35px;
+    height: 35px;
+    float: left;
+    margin: 1px;
+    background-color: #dd4b39;
+    background-image: url(../imagens/logo/googleplus.png);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.flickr{
+    width: 35px;
+    height: 35px;
+    float: left;
+    margin: 1px 0 1px 1px;
+    background: #ff0084; /* Old browsers */
+
+    background-image: url(../imagens/logo/flickr.png);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#rodape_final{
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    padding: 20px 0;
+    color: #999;
+    border-top: 1px solid #d8d8d8;
+    background-color: #fff;
+}
+#rodape_titulo{
+    color: #666;
+}
+#rodape_titulo strong{}
+
+#breadcrumb{
+    float: left;
+    width: 100%;
+    margin: 15px 0;
+}
+#breadcrumb_primeiro{
+    float: left;
+    background-image: url(../imagens/label/label1.png);
+    background-repeat: no-repeat;
+    background-position: right;
+    height: 41px;
+    background-color: #f1f1f1;
+    -moz-border-radius:5px 0 0 5px;
+    -webkit-border-radius:5px 0 0 5px;
+    border-radius:5px 0 0 5px;
+}
+#breadcrumb_primeiro span{
+
+    background-color: #f1f1f1;
+    padding: 5px 20px;
+    float: left;
+    margin: 6 17px;
+    text-transform: uppercase;
+}
+#breadcrumb_segundo{
+    float: left;
+    background-image: url(../imagens/label/label1.png);
+    background-repeat: no-repeat;
+    background-position: right;
+    height: 41px;
+    background-color: #f1f1f1;
+}
+#breadcrumb_segundo span{
+    padding: 5px 20px;
+    float: left;
+    margin: 6px 17px 6px 0;
+    text-transform: uppercase;
+}
+#breadcrumb_ultima{
+    float: left;
+    height: 41px;
+    background-color: #f1f1f1;
+    -moz-border-radius:0 5px 5px 0;
+    -webkit-border-radius:0 5px 5px 0;
+    border-radius:0 5px 5px 0;
+}
+#breadcrumb_ultima span{
+    padding: 5px 20px;
+    float: left;
+    margin: 6px 17px 6px 0;
+    text-transform: uppercase;
+}
+#lateral_menu ul li{
+
+    list-style-type: none;
+}
