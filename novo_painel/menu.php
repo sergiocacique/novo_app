@@ -87,14 +87,14 @@ $verPerfil2 = mysql_fetch_array($sqlPerfil2);
             </a>
         </li>
 
-        <!-- <li>
+        <li>
             <a href="acesso_informacao.php">
                 <i class="fa fa-exclamation fa-2x"></i>
                         <span class="nav-text">
                             Acesso á Informação
                         </span>
             </a>
-        </li> -->
+        </li>
         <?php
         if($verPerfil2['NomePerfil'] == "Desenvolvedor" OR $verPerfil2['NomePerfil'] == "Administrador"){
         ?>

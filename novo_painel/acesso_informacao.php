@@ -91,31 +91,7 @@ if (!isset($_SESSION['UsuarioID'])) {
     </div>
 </div>
 <?php include ("menu.php");?>
-<div class="pane">
-    <header class=" hide_when_collapsed">
-        <h1>PÁGINA INICIAL</h1>
-    </header>
-    <div class=" hide_when_collapsed scroll_content">
-        <ul class="filters">
-        <div class="section">
-                <li>
-                    <a href="#">
-                        Chamados
-                    </a>
-                </li>
-            <li>
-                <a href="#">
-                    Usuários
-                </a>
-            </li>
-
-        </div>
-
-        </ul>
-
-
-    </div>
-</div>
+<?php include ("menu_acesso_informacao.php");?>
 <?php include ("topo.php");?>
 
 <div id="conteudo" class="container">
@@ -123,7 +99,7 @@ if (!isset($_SESSION['UsuarioID'])) {
         <div class="row discovery">
             <div class="col-sm-9 col-sm-offset-2 col-md-10 col-md-offset-1">
                 <div class="header">
-                    <h1>Consultas</h1>
+                    <h1>Acesso à Informação</h1>
                     <div class="tagline"> Descubra tudo sobre o e-SIC em um só lugar. Feito para você. Relaxe e aproveite a viagem. </div>
                 </div>
 
