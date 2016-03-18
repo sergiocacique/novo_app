@@ -1,0 +1,9 @@
+[04-Sep-2014 06:34:36 America/Sao_Paulo] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /home/pmbv.rr.gov.br/www/transparencia/servidor.php on line 155
+[04-Sep-2014 06:34:36 America/Sao_Paulo] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /home/pmbv.rr.gov.br/www/transparencia/servidor.php on line 165
+[04-Sep-2014 06:34:36 America/Sao_Paulo] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/pmbv.rr.gov.br/www/transparencia/servidor.php on line 227
+[04-Sep-2014 06:34:53 America/Sao_Paulo] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /home/pmbv.rr.gov.br/www/transparencia/servidor.php on line 155
+[04-Sep-2014 06:34:53 America/Sao_Paulo] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /home/pmbv.rr.gov.br/www/transparencia/servidor.php on line 165
+[04-Sep-2014 06:34:53 America/Sao_Paulo] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/pmbv.rr.gov.br/www/transparencia/servidor.php on line 227
+[04-Sep-2014 10:29:08 America/Sao_Paulo] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /home/pmbv.rr.gov.br/www/transparencia/servidor.php on line 155
+[04-Sep-2014 10:29:08 America/Sao_Paulo] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /home/pmbv.rr.gov.br/www/transparencia/servidor.php on line 165
+[04-Sep-2014 10:29:08 America/Sao_Paulo] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/pmbv.rr.gov.br/www/transparencia/servidor.php on line 227
