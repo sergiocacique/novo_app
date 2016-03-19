@@ -10,7 +10,7 @@
         for ($a = 0; $a < $contaAcesso; $a++){
         $Acessos = mysql_fetch_array($sqlAcesso);
         ?>
-        <li class="list-group-item">
+        <li class="list-group-item AcessoRapido">
             <a href="<?php echo $Acessos['Link'];?>"><?php echo $Acessos['Nome'];?></a>
         </li>
         <?php }?>

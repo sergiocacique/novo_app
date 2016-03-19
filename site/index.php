@@ -11,6 +11,9 @@ $legal = $UrlAmigavel."".$dominio."/";
 $sqlPrefeitura = mysql_query("SELECT * FROM prefeitura WHERE Pasta = '".$dominio."'");
 $rsPrefeitura = mysql_fetch_array($sqlPrefeitura);
 
+$sqlPortal = mysql_query("SELECT * FROM config_capa WHERE CdPrefeitura = '".$rsPrefeitura['CdPrefeitura']."'");
+$rsPortal = mysql_fetch_array($sqlPortal);
+
 $sqlConfig = mysql_query("SELECT * FROM prefeitura_config WHERE CdPrefeitura = '".$rsPrefeitura['CdPrefeitura']."'");
 $rsConfig = mysql_fetch_array($sqlConfig);
 
@@ -31,7 +34,8 @@ if($online =='sim') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title><?php echo $rsConfig['Titulo'] ?></title>
-    <link rel="stylesheet" type="text/css" href="http://www.minhaprefeitura.com.br/municipio/<?php echo $rsPrefeitura['Pasta'] ?>/estilo.css" media="screen">
+    <!-- <link rel="stylesheet" type="text/css" href="http://www.minhaprefeitura.com.br/municipio/<?php echo $rsPrefeitura['Pasta'] ?>/estilo.css" media="screen"> -->
+    <link rel="stylesheet" type="text/css" href="<?php echo $UrlAmigavel ?>css/estilo.css" media="screen">
     <link rel="stylesheet" type="text/css" href="<?php echo $UrlAmigavel ?>css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="<?php echo $UrlAmigavel ?>css/rodape.css">
     <link href='https://fonts.googleapis.com/css?family=Lato:400,300,700' rel='stylesheet' type='text/css'>
