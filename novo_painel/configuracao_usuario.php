@@ -107,7 +107,7 @@ if (!isset($_SESSION['UsuarioID'])) {
 
         //$cmd = "select *, concat(DtCadastro, ' ', HrCadastro) as dthr from site_noticias WHERE Acao = 'Publicado' ORDER BY dthr DESC";
         //$cmd = "select * from admin  ORDER BY Horario DESC";
-        $cmd = "SELECT admin.* FROM admin INNER JOIN admin_prefeitura ON admin.CdUsuario = admin_prefeitura.CdUsuario WHERE CdPrefeitura = '".$_SESSION['PrefeituraID']."' AND CdUsuario <> '1' AND Acao <> 'Excluido' ORDER BY Horario DESC";
+        $cmd = "SELECT * FROM vw_admin WHERE CdPrefeitura = '".$_SESSION['PrefeituraID']."' AND CdUsuario <> '1' AND Acao <> 'Excluido' ORDER BY Horario DESC";
 
         $produtos = mysql_query($cmd);
 
@@ -120,7 +120,7 @@ if (!isset($_SESSION['UsuarioID'])) {
         $inicio = ($registros*$pagina)-$registros;
 
 
-        $cmd = "SELECT admin.* FROM admin INNER JOIN admin_prefeitura ON admin.CdUsuario = admin_prefeitura.CdUsuario WHERE CdPrefeitura = '".$_SESSION['PrefeituraID']."' AND CdUsuario <> '1' AND Acao <> 'Excluido' limit $inicio,$registros";
+        $cmd = "SELECT * FROM vw_admin WHERE CdPrefeitura = '".$_SESSION['PrefeituraID']."' AND CdUsuario <> '1' AND Acao <> 'Excluido' limit $inicio,$registros";
         $produtos = mysql_query($cmd);
         $total = mysql_num_rows($produtos);
         while ($produto = mysql_fetch_array($produtos)) {

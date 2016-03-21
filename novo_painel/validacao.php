@@ -8,7 +8,7 @@ $usuario = $_POST['txUsuario'];
 $senha = $_POST['txSenha'];
 
 
-$verifica = mysql_query("SELECT * FROM vw_admin WHERE Email = '".$usuario."' AND Senha = '".md5($senha)."'") or die("erro ao selecionar");
+$verifica = mysql_query("SELECT * FROM vw_admin WHERE Email = '".$usuario."' AND Senha = '".md5($senha)."' AND Acao = 'Publicado'") or die("erro ao selecionar");
 $mostra = mysql_num_rows($verifica);
 $verDados = mysql_fetch_array($verifica);
 

@@ -143,7 +143,7 @@ $rsPagina = mysql_fetch_array($sqlPagina);
             </div>
           </div>
 
-          <div class=" col-sm-12 col-md-9">
+          <div class=" col-sm-12 col-md-9 ">
             <div class="fancy-form">
               <label>Instagram</label>
               <input id="Instagram" name="Instagram" class="form-control" type="text" value="<?php echo $rsPagina['Instagram'];?>">

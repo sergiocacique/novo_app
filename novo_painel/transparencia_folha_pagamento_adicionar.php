@@ -154,8 +154,7 @@ function vinculo($key){
             $sql = $sql.($key == 1? '': ',')."('$CdPrefeitura','$Protocolo','$CdUsuario','$Nome','$CPF','$Orgao','$Secretaria','$Cargo','$CargoComissao','$RemuneracaoBasica','$IRRF','$PSS','$DecimoAdto','$DecimoFinal','$DecimoPSS','$DecimoIRRF','$Ferias','$Mes','$Ano','$DtCadastro','$Acao')";
         }
     }
-    dump($sql);
-    exit;
+
     mysql_query($sql) or die("Error: ".mysql_error());
 
     echo "</div>";
