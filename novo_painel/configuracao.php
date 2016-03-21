@@ -91,14 +91,11 @@ if (!isset($_SESSION['UsuarioID'])) {
         <div class="col-sm-9 col-sm-offset-2 col-md-10 col-md-offset-1">
             <div class="header">
                 <h1>Configuração</h1>
-                <div class="tagline"> Descubra tudo sobre o e-SIC em um só lugar. Feito para você. Relaxe e aproveite a viagem. </div>
+                <div class="tagline"> Todas as configurações do portal você encontra aqui.. </div>
             </div>
 
             <div class="category">
-                <div class="title">
-                    <h4>Canais</h4>
-                    Canais são as maneiras como os clientes interagem com você.
-                </div>
+
 
                 <div class="cards">
                     <div class="item">
@@ -107,7 +104,7 @@ if (!isset($_SESSION['UsuarioID'])) {
                                 <svg id="ember4501" class="ember-view card-icon" viewBox="0 0 116 116"></svg>
                             </span>
                             <br>
-                            <span class="card-name">Convênios</span>
+                            <span class="card-name">Informações Básicas</span>
                         </a>
                     </div>
 
@@ -117,7 +114,7 @@ if (!isset($_SESSION['UsuarioID'])) {
                                 <svg id="ember4501" class="ember-view card-icon" viewBox="0 0 116 116"></svg>
                             </span>
                             <br>
-                            <span class="card-name">Projetos Sociais</span>
+                            <span class="card-name">Redes Sociais</span>
                         </a>
                     </div>
 
@@ -127,28 +124,16 @@ if (!isset($_SESSION['UsuarioID'])) {
                                 <svg id="ember4501" class="ember-view card-icon" viewBox="0 0 116 116"></svg>
                             </span>
                             <br>
-                            <span class="card-name">Obras</span>
+                            <span class="card-name">Usuários</span>
                         </a>
                     </div>
 
-                    <div class="item">
-                        <a id="ember4500" class="ember-view" href="#/discovery/feature/email">
-                            <span class="card">
-                                <svg id="ember4501" class="ember-view card-icon" viewBox="0 0 116 116"></svg>
-                            </span>
-                            <br>
-                            <span class="card-name">RREO / RGF</span>
-                        </a>
-                    </div>
+
                 </div>
 
             </div>
-
+<!--
             <div class="category">
-                <div class="title">
-                    <h4>Pressem</h4>
-                    Base de conhecimento, comunidades e widgets que capacitam seus clientes.
-                </div>
 
                 <div class="cards">
                     <div class="item">
@@ -182,7 +167,8 @@ if (!isset($_SESSION['UsuarioID'])) {
                     </div>
                 </div>
 
-            </div>
+            </div> -->
+
         </div>
     </div>
 </div>

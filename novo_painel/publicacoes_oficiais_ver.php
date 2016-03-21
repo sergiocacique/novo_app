@@ -54,17 +54,7 @@ if (!isset($_SESSION['UsuarioID'])) {
             $("#loading2").delay(200).fadeOut("slow");
         });
 
-        function listaChamado(acao){
-            start();
-            $('#loading2').css('visibility','visible');
-            $.post("inicio_chamado.php", { acao: acao },
-                function(data){
-                    $('#conteudo').html(data);
-                    $('html, body').animate({scrollTop:0}, 'slow');
-                }).done(function() {
-                    $('#loading2').css('visibility','hidden');
-                });
-        }
+
     </script>
 </head>
 <body class="orders index">
@@ -84,16 +74,21 @@ if (!isset($_SESSION['UsuarioID'])) {
     </div>
 </div>
 <?php include ("menu.php");?>
-<?php include ("menu_configuracao.php");?>
+<?php include ("menu_publicacoes_oficiais.php");?>
 <?php include ("topo.php");?>
+<?php
+$id = $_GET['id'];
 
+$sqlPagina = mysql_query("SELECT * FROM publicacoes_oficiais_categoria WHERE id = '".$id."'");
+$rsPagina = mysql_fetch_array($sqlPagina);
+ ?>
 
 <div id="conteudo" class="container">
     <div class="row discovery">
         <div class="col-sm-9 col-md-10">
           <div class="header">
-              <h1>Usuários</h1>
-              <a class="btn btn-3d btn-reveal btn-red" href="configuracao_usuario_novo.php">ADICIONAR NOVO USUÁRIO</a>
+              <h1><?php echo $rsPagina['Nome'];?></h1>
+              <a class="btn btn-3d btn-reveal btn-red" href="publicacoes_oficiais_licitacao_novo.php?id=<?php echo $rsPagina['id'];?>">ADICIONAR NOVA <?php echo $rsPagina['Nome'];?></a>
           </div>
         </div>
     </div>
@@ -106,8 +101,7 @@ if (!isset($_SESSION['UsuarioID'])) {
         $pagina = (isset($_GET['pagina']))? $_GET['pagina'] : 1;
 
         //$cmd = "select *, concat(DtCadastro, ' ', HrCadastro) as dthr from site_noticias WHERE Acao = 'Publicado' ORDER BY dthr DESC";
-        //$cmd = "select * from admin  ORDER BY Horario DESC";
-        $cmd = "SELECT admin.* FROM admin INNER JOIN admin_prefeitura ON admin.CdUsuario = admin_prefeitura.CdUsuario WHERE CdPrefeitura = '".$_SESSION['PrefeituraID']."' AND CdUsuario <> '1' AND Acao <> 'Excluido' ORDER BY Horario DESC";
+        $cmd = "select * from vw_publicacoes WHERE CdPrefeitura = '".$_SESSION['PrefeituraID']."' AND CdCategoria = '".$rsPagina['id']."' AND Acao <> 'Excluido' ORDER BY DtAbertura DESC";
 
         $produtos = mysql_query($cmd);
 
@@ -120,7 +114,7 @@ if (!isset($_SESSION['UsuarioID'])) {
         $inicio = ($registros*$pagina)-$registros;
 
 
-        $cmd = "SELECT admin.* FROM admin INNER JOIN admin_prefeitura ON admin.CdUsuario = admin_prefeitura.CdUsuario WHERE CdPrefeitura = '".$_SESSION['PrefeituraID']."' AND CdUsuario <> '1' AND Acao <> 'Excluido' limit $inicio,$registros";
+        $cmd = "select * from vw_publicacoes WHERE CdPrefeitura = '".$_SESSION['PrefeituraID']."' AND CdCategoria = '".$rsPagina['id']."' AND Acao <> 'Excluido' ORDER BY DtAbertura DESC limit $inicio,$registros";
         $produtos = mysql_query($cmd);
         $total = mysql_num_rows($produtos);
         while ($produto = mysql_fetch_array($produtos)) {
@@ -138,31 +132,20 @@ if (!isset($_SESSION['UsuarioID'])) {
             $corFonte = "font-cinza";
           }
         ?>
-  			<div class="col-sm-12 col-md-6">
+  			<div class="col-sm-12 col-md-4">
           <div class="listar <?php echo $cor;?>">
-            <a href="configuracao_usuario_novo_editar.php?usaurio=<?php echo $produto['CdUsuario'];?>">
-            <h5 class="<?php echo $corFonte;?>"><?php echo $produto['Nome'];?></h5>
-            <p>
-                <strong>Último acesso:</strong>
-                <?php
-                  if ($produto['Horario'] != ""){
-                      echo twitter_time($produto['Horario']);
-                  }else{
-                      echo "nunca acessou";
-                  }
-                ?><br />
-                <strong>Data Último acesso:</strong>
-                <?php
-                if ($produto['Horario'] != ""){
-                    echo date('d/m/Y', strtotime($produto['Horario']));
-                }else{
-                    echo "nunca acessou";
-                }
-              ?>
-            </p>
-          </a>
-          </div>
+          <a href="publicacoes_oficiais_licitacao_editar.php?receita=<?php echo $produto['id'];?>">
 
+          <h5 class="<?php echo $corFonte;?>"><?php echo $produto['Titulo'];?></h5>
+          <p>
+            <?php echo $produto['Descricao'];?><br /><br />
+            <strong>Categoria:</strong> <?php echo $produto['Nome'];?><br>
+            <strong>SubCategoria:</strong> <?php echo $produto['Nome2'];?><br>
+            <strong>Abertura:</strong> <?php echo date('d/m/Y', strtotime($produto['DtAbertura']));?><br>
+
+          </p>
+        </a>
+      </div>
         </div>
         <?php
         }

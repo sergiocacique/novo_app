@@ -7,6 +7,13 @@ body{
     margin: 10px auto;
     width: 110px;
 }
+#footer{
+  background-color: # !important;
+  color: # !important;
+}
+#footer .similar-h2, #footer .similar-h3, #footer .similar-h4{
+  color: # !important;
+}
 #logo{}
 #topo_titulo{}
 #barra{}
@@ -169,8 +176,8 @@ body{
     text-transform: uppercase;
 }
 #topNav {
-  background-color: #b2c725 !important;
-  border-bottom: 4px solid #dbe18b !important;
+  background-color: #3b3638 !important;
+  border-bottom: 4px solid #004674 !important;
     box-shadow: 0 4px 0 rgba(0, 0, 0, 0.04);
     display: block;
     left: 0;
@@ -181,12 +188,63 @@ body{
     height: 49px;
 }.menu-category {
     font-size: 18px !important;
-    color: #026e36;
+    color: #8e1004;
     font-weight: lighter;
     letter-spacing: normal;
     line-height: 18px;
     margin: 10px 10px 15px !important;
     padding: 0 !important;
+}
+.list-group-item.AcessoRapido{
+    background-color: #c5c6cb;
+    border-color: -moz-use-text-color -moz-use-text-color -moz-use-text-color #8e1004;
+    border-image: none;
+    border-radius: 0;
+    border-style: none none none solid;
+    border-width: 0 0 0 5px;
+    color: #000;
+    margin-bottom: 2px;
+}
+.list-group-item.AcessoRapido:hover{
+  color: #fff!important;
+  background-color:#004674;
+}
+.margin-top30{
+  margin-top: 30px
+}
+.border-azul{
+  border-top: 5px solid #004676;
+  border-bottom: : 5px solid #004676;
+}
+.border-laranja{
+  border-top: 5px solid #c5c6cb;
+  border-bottom: : 5px solid #c5c6cb;
+}
+.border-cinza{
+  border-top: 5px solid #c5c6cb;
+  border-bottom: : 5px solid #c5c6cb;
+}
+.border-laranja{
+  border-top: 5px solid #ff7e00;
+  border-bottom: : 5px solid #ff7e00;
+}
+.border-vermelho{
+  border-top: 5px solid #8e1004;
+  border-bottom: : 5px solid #8e1004;
+}
+.border-verde{
+  border-top: 5px solid #109902;
+  border-bottom: : 5px solid #109902;
+}
+.box-mais-news{
+  border-radius: 2px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  font-size: 12px;
+  padding: 6px;
+  min-height: 335px;
+}
+.list-group-item.AcessoRapido > a{
+  color: #000
 }
 #topNav ul.nav > li.mega-menu div div {
     border-left: 1px solid #eee;
@@ -546,7 +604,7 @@ section {
     background-color: #171717;
 }
 section.theme-color, section.theme-color div.heading-title.heading-dotted h1, section.theme-color div.heading-title.heading-dotted h2, section.theme-color div.heading-title.heading-dotted h3, section.theme-color div.heading-title.heading-dotted h4, section.theme-color div.heading-title.heading-dotted h5, section.theme-color div.heading-title.heading-dotted h6 {
-    background-color: #164a87;
+    background-color: #63595d;
     color: #fff;
 }
 

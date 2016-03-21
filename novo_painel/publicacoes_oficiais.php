@@ -87,43 +87,7 @@ if (!isset($_SESSION['UsuarioID'])) {
     </div>
 </div>
 <?php include ("menu.php");?>
-<div class="pane">
-    <header class=" hide_when_collapsed">
-        <h1>PÁGINA INICIAL</h1>
-    </header>
-    <div class=" hide_when_collapsed scroll_content">
-
-        <div class="section">
-
-            <ul class="filters">
-                <li class="selected">
-                    <a href="#">
-                        Licitações
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        Consursos
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        Legislação
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        Diário Oficial
-                    </a>
-                </li>
-            </ul>
-        </div>
-
-
-
-
-    </div>
-</div>
+<?php include ("menu_publicacoes_oficiais.php");?>
 <?php include ("topo.php");?>
 
 

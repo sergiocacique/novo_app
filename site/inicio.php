@@ -82,11 +82,11 @@ if ($rsPortal['Banner'] == "sim"){?>
                         $idNoticiaDestaque = $idNoticiaDestaque. " CdNoticia <> ".$linha1['CdNoticia']." AND"
                     ?>
                     <div class="img-hover">
-                        <a href="blog-single-default.html">
+                        <a href="?Pages=lerNoticias&noticia=<?php echo $linha1['CdNoticia'];?>">
                             <img class="img-responsive" src="http://www.minhaprefeitura.com.br/arquivosDinamicos/municipio/<?php echo $rsPrefeitura['Pasta'] ?>/noticias/<?php echo $linha1['Imagem']; ?>" alt="">
                         </a>
 
-                        <h4 class="text-left margin-top-20"><a href="blog-single-default.html"><?php echo $rsLinha['Categoria'];?></a></h4>
+                        <h4 class="text-left margin-top-20"><a href="?Pages=lerNoticias&noticia=<?php echo $linha1['CdNoticia'];?>"><?php echo $rsLinha['Categoria'];?></a></h4>
                         <p class="text-left"><?php echo $linha1['Titulo'];?></p>
                         <ul class="text-left size-12 list-inline list-separator">
                             <li>
@@ -352,11 +352,11 @@ if ($rsPortal['OutraNoticias'] == "sim"){?>
                     ?>
                     <div class="col-xs-4 col-sm-4 col-md-4 margin-top30">
                     <div class="img-hover box-mais-news border-<?php echo $rsLinha1['Color'];?>">
-                        <a href="blog-single-default.html">
+                        <a href="?Pages=lerNoticias&noticia=<?php echo $linha3['CdNoticia'];?>">
                             <img class="img-responsive" src="http://www.minhaprefeitura.com.br/arquivosDinamicos/municipio/<?php echo $rsPrefeitura['Pasta'] ?>/noticias/<?php echo $linha3['Imagem']; ?>" alt="">
                         </a>
 
-                        <h4 class="text-left margin-top-20"><a href="blog-single-default.html"><?php echo $rsLinha1['Categoria'];?></a></h4>
+                        <h4 class="text-left margin-top-20"><a href="?Pages=lerNoticias&noticia=<?php echo $linha3['CdNoticia'];?>"><?php echo $rsLinha1['Categoria'];?></a></h4>
                         <p class="text-left"><?php echo $linha3['Titulo'];?></p>
                         <ul class="text-left size-12 list-inline list-separator">
                             <li>

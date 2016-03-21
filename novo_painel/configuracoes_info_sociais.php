@@ -31,9 +31,26 @@ if (!isset($_SESSION['UsuarioID'])) {
 
     <script src="js/bootstrap.js"></script>
     <script src="js/jquery.1.11.1.min.js"></script>
+    <script src="//cdn.ckeditor.com/4.5.7/standard/ckeditor.js"></script>
+    <script src="js/jquery.mask.js"></script>
     <script>
 
-
+    jQuery(function($){
+        // JQUERY MASK INPUT
+        $('[data-mask="date"]').mask('00/00/0000');
+        $('[data-mask="time"]').mask('00:00:00');
+        $('[data-mask="date_time"]').mask('00/00/0000 00:00:00');
+        $('[data-mask="zip"]').mask('00000-000');
+        $('[data-mask="money"]').mask('000.000.000.000.000,00', {reverse: true});
+        $('[data-mask="phone"]').mask('0000-0000');
+        $('[data-mask="phone_with_ddd"]').mask('(00) 0000-0000');
+        $('[data-mask="phone_us"]').mask('(000) 000-0000');
+        $('[data-mask="cpf"]').mask('000.000.000-00', {reverse: true});
+        $('[data-mask="cnpj"]').mask('00.000.000/0000-00', {reverse: true});
+        $('[data-mask="ip_address"]').mask('099.099.099.099');
+        $('[data-mask="percent"]').mask('##0,00%', {reverse: true});
+        // END JQUERY MASK INPUT
+    });
 
         function loadImages() {
             if (document.getElementById) {  // DOM3 = IE5, NS6
@@ -87,87 +104,65 @@ if (!isset($_SESSION['UsuarioID'])) {
 <?php include ("menu_configuracao.php");?>
 <?php include ("topo.php");?>
 
-
+<?php
+$sqlPagina = mysql_query("SELECT * FROM prefeitura_config WHERE CdPrefeitura = '".$_SESSION['PrefeituraID']."'");
+$rsPagina = mysql_fetch_array($sqlPagina);
+ ?>
 <div id="conteudo" class="container">
-    <div class="row discovery">
-        <div class="col-sm-9 col-md-10">
-          <div class="header">
-              <h1>Usuários</h1>
-              <a class="btn btn-3d btn-reveal btn-red" href="configuracao_usuario_novo.php">ADICIONAR NOVO USUÁRIO</a>
-          </div>
+  <div class="row discovery">
+      <div class="col-sm-9 col-md-10">
+        <div class="header">
+            <h1>Redes Sociais</h1>
         </div>
-    </div>
+      </div>
+  </div>
 
     <div class="row discovery2">
-
       <div class="table-responsive">
+        <form class="validate" action="configuracao_redes_sociais_gravar.php" method="post">
 
-        <?php
-        $pagina = (isset($_GET['pagina']))? $_GET['pagina'] : 1;
-
-        //$cmd = "select *, concat(DtCadastro, ' ', HrCadastro) as dthr from site_noticias WHERE Acao = 'Publicado' ORDER BY dthr DESC";
-        //$cmd = "select * from admin  ORDER BY Horario DESC";
-        $cmd = "SELECT admin.* FROM admin INNER JOIN admin_prefeitura ON admin.CdUsuario = admin_prefeitura.CdUsuario WHERE CdPrefeitura = '".$_SESSION['PrefeituraID']."' AND CdUsuario <> '1' AND Acao <> 'Excluido' ORDER BY Horario DESC";
-
-        $produtos = mysql_query($cmd);
-
-        $total = mysql_num_rows($produtos);
-
-        $registros = 50;
-
-        $numPaginas = ceil($total/$registros);
-
-        $inicio = ($registros*$pagina)-$registros;
-
-
-        $cmd = "SELECT admin.* FROM admin INNER JOIN admin_prefeitura ON admin.CdUsuario = admin_prefeitura.CdUsuario WHERE CdPrefeitura = '".$_SESSION['PrefeituraID']."' AND CdUsuario <> '1' AND Acao <> 'Excluido' limit $inicio,$registros";
-        $produtos = mysql_query($cmd);
-        $total = mysql_num_rows($produtos);
-        while ($produto = mysql_fetch_array($produtos)) {
-          if($produto['Acao'] == "Publicado"){
-            $cor = "border-verde";
-            $corFonte = "font-verde";
-          }elseif ($produto['Acao'] == "Aguardando") {
-            $cor = "border-laranja";
-            $corFonte = "font-laranja";
-          }elseif ($produto['Acao'] == "Excluido") {
-            $cor = "border-vermelho";
-            $corFonte = "font-vermelho";
-          }else{
-            $cor = "border-cinza";
-            $corFonte = "font-cinza";
-          }
-        ?>
-  			<div class="col-sm-12 col-md-6">
-          <div class="listar <?php echo $cor;?>">
-            <a href="configuracao_usuario_novo_editar.php?usaurio=<?php echo $produto['CdUsuario'];?>">
-            <h5 class="<?php echo $corFonte;?>"><?php echo $produto['Nome'];?></h5>
-            <p>
-                <strong>Último acesso:</strong>
-                <?php
-                  if ($produto['Horario'] != ""){
-                      echo twitter_time($produto['Horario']);
-                  }else{
-                      echo "nunca acessou";
-                  }
-                ?><br />
-                <strong>Data Último acesso:</strong>
-                <?php
-                if ($produto['Horario'] != ""){
-                    echo date('d/m/Y', strtotime($produto['Horario']));
-                }else{
-                    echo "nunca acessou";
-                }
-              ?>
-            </p>
-          </a>
+          <div class=" col-sm-12 col-md-9">
+            <div class="fancy-form">
+              <label>ID Analytics</label>
+              <input id="IDAnalytics" name="IDAnalytics" class="form-control" type="text" value="<?php echo $rsPagina['IDAnalytics'];?>">
+            </div>
           </div>
 
-        </div>
-        <?php
-        }
-        ?>
+          <div class=" col-sm-12 col-md-9">
+            <div class="fancy-form">
+              <label>Facebook</label>
+              <input id="facebook" name="facebook" class="form-control" type="text" value="<?php echo $rsPagina['facebook'];?>">
+            </div>
+          </div>
 
+
+          <div class=" col-sm-12 col-md-9">
+            <div class="fancy-form">
+              <label>youtube</label>
+              <input id="youtube" name="youtube" class="form-control" type="text" value="<?php echo $rsPagina['youtube'];?>">
+            </div>
+          </div>
+
+          <div class=" col-sm-12 col-md-9">
+            <div class="fancy-form">
+              <label>Instagram</label>
+              <input id="Instagram" name="Instagram" class="form-control" type="text" value="<?php echo $rsPagina['Instagram'];?>">
+            </div>
+          </div>
+
+          <div class=" col-sm-12 col-md-9">
+            <div class="fancy-form">
+              <label>Twitter</label>
+              <input id="Twitter" name="Twitter" class="form-control" type="text" value="<?php echo $rsPagina['Twitter'];?>">
+            </div>
+          </div>
+
+        <div class=" col-sm-12 col-md-12">
+          <button type="submit" class="btn btn-3d btn-teal btn-block margin-top-30">
+  				GRAVAR
+  			</button></div>
+
+        </form>
         </div>
     </div>
 </div>

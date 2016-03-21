@@ -92,7 +92,7 @@ if($verPerfil2['NomePerfil'] != "Desenvolvedor"){
     </div>
 </div>
 <?php include ("menu.php");?>
-<div class="pane">
+<!-- <div class="pane">
     <header class=" hide_when_collapsed">
         <h1>PÁGINA INICIAL</h1>
     </header>
@@ -128,7 +128,7 @@ if($verPerfil2['NomePerfil'] != "Desenvolvedor"){
 
 
     </div>
-</div>
+</div> -->
 <?php include ("topo.php");?>
 
 
@@ -158,7 +158,7 @@ if($verPerfil2['NomePerfil'] != "Desenvolvedor"){
                     <div class="item">
                         <a id="ember4500" class="ember-view" href="ver_prefeitura.php?prefeitura=<?php echo $verGlossario['CdPrefeitura']; ?>">
                             <span class="card">
-                                <img src="imagens/brasao/<?php echo $verGlossario['Pasta']; ?>.png" class="logo_prefeituras">
+                                <img src="imagens/brasao/<?php echo $verGlossario['Pasta']; ?>.png" class="logo_prefeituras" width="45">
                             </span>
                             <br>
                             <span class="card-name"><?php echo $verGlossario['Fantasia']; ?></span>

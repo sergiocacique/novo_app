@@ -69,14 +69,14 @@ $verPerfil2 = mysql_fetch_array($sqlPerfil2);
                         </span>
             </a>
         </li>
-        <!-- <li>
+        <li>
             <a href="publicacoes_oficiais.php">
                 <i class="fa fa-font fa-2x"></i>
                         <span class="nav-text">
                             Publicações Oficiais
                         </span>
             </a>
-        </li> -->
+        </li>
 
         <li>
             <a href="transparencia.php">
