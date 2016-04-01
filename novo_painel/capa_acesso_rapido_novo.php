@@ -1,10 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: sergio cacique
- * Date: 01/03/2016
- * Time: 09:34
- */
+
 include ("conexao.php");
 include ("funcao.php");
 
@@ -25,7 +20,7 @@ if (!isset($_SESSION['UsuarioID'])) {
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Minha Prefeitura - Dashboard</title>
+    <title>Portal da Transparência</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
@@ -36,6 +31,8 @@ if (!isset($_SESSION['UsuarioID'])) {
 
     <script src="js/bootstrap.js"></script>
     <script src="js/jquery.1.11.1.min.js"></script>
+    <script src="//cdn.ckeditor.com/4.5.7/standard/ckeditor.js"></script>
+    <script src="js/jquery.mask.js"></script>
     <script>
 
         function loadImages() {
@@ -68,6 +65,22 @@ if (!isset($_SESSION['UsuarioID'])) {
                     $('#loading2').css('visibility','hidden');
                 });
         }
+
+        jQuery(function($){
+            // JQUERY MASK INPUT
+            $('[data-mask="date"]').mask('00/00/0000');
+            $('[data-mask="time"]').mask('00:00:00');
+            $('[data-mask="date_time"]').mask('00/00/0000 00:00:00');
+            $('[data-mask="zip"]').mask('00000-000');
+            $('[data-mask="money"]').mask('000.000.000.000.000,00', {reverse: true});
+            $('[data-mask="phone"]').mask('0000-0000');
+            $('[data-mask="phone_with_ddd"]').mask('(00) 0000-0000');
+            $('[data-mask="phone_us"]').mask('(000) 000-0000');
+            $('[data-mask="cpf"]').mask('000.000.000-00', {reverse: true});
+            $('[data-mask="ip_address"]').mask('099.099.099.099');
+            $('[data-mask="percent"]').mask('##0,00%', {reverse: true});
+            // END JQUERY MASK INPUT
+        });
     </script>
 </head>
 <body class="orders index">
@@ -90,17 +103,63 @@ if (!isset($_SESSION['UsuarioID'])) {
 <?php include ("menu_capa.php");?>
 <?php include ("topo.php");?>
 
-
 <div id="conteudo" class="container">
-    <div class="row discovery">
-        <div class="col-sm-9 col-sm-offset-2 col-md-10 col-md-offset-1">
-            <div class="header">
-                <h1>Capa</h1>
-                <div class="tagline"> Personalize a capa do seu portal. </div>
+  <div class="row discovery">
+      <div class="col-sm-9 col-md-10">
+        <div class="header">
+            <h1>Adicionar Novo Acesso Rápido</h1>
+        </div>
+      </div>
+  </div>
+    <div class="row discovery2">
+      <div class="table-responsive">
+        <form class="validate" action="capa_acesso_rapido_adicionar.php" method="post">
+
+          <div class=" col-sm-12 col-md-7">
+            <div class="fancy-form">
+              <label>Nome</label>
+              <input id="titulo" name="titulo" class="form-control" type="text" placeholder="Digite o nome da categotia">
             </div>
-</div>
+          </div>
+
+          <div class=" col-sm-12 col-md-7">
+            <div class="fancy-form">
+              <label>Link</label>
+              <input id="link" name="link" class="form-control" type="text" placeholder="http://">
+            </div>
+          </div>
+
+
+          <div class=" col-sm-12 col-md-6">
+            <label>Ação</label>
+            <div class="fancy-form fancy-form-select">
+              <select class="form-control" id="acao" name="acao">
+                <?php
+                $sqlGlossario = mysql_query("SELECT * FROM acao ORDER BY NomeAcao ASC");
+                $Glossario = mysql_num_rows($sqlGlossario);
+
+                for ($y = 0; $y < $Glossario; $y++){
+                    $verGlossario = mysql_fetch_array($sqlGlossario);
+
+                    ?>
+                <option value="<?php echo $verGlossario['NomeAcao']; ?>"><?php echo $verGlossario['NomeAcao']; ?></option>
+                <?php
+                }
+                ?>
+              </select>
+            <i class="fancy-arrow"></i>
+          </div>
+        </div>
+
+        <div class=" col-sm-12 col-md-12">
+          <button type="submit" class="btn btn-3d btn-teal btn-block margin-top-30">
+  				GRAVAR
+  			</button></div>
+
+        </form>
+        </div>
     </div>
 </div>
-<div class="container"></div>
+
 </body>
 </html>

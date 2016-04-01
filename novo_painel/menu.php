@@ -34,7 +34,7 @@ $verPerfil2 = mysql_fetch_array($sqlPerfil2);
         <?php
       }
         ?>
-        <!-- <li class="has-subnav">
+        <li class="has-subnav">
             <a href="capa.php">
                 <i class="fa fa-laptop fa-2x"></i>
                         <span class="nav-text">
@@ -42,7 +42,7 @@ $verPerfil2 = mysql_fetch_array($sqlPerfil2);
                         </span>
             </a>
 
-        </li> -->
+        </li>
         <li class="has-subnav">
             <a href="o_municipio.php">
                 <i class="fa fa-list fa-2x"></i>
@@ -52,7 +52,7 @@ $verPerfil2 = mysql_fetch_array($sqlPerfil2);
             </a>
 
         </li>
-        <!-- <li class="has-subnav">
+        <li class="has-subnav">
             <a href="departamentos.php">
                 <i class="fa fa-folder-open fa-2x"></i>
                         <span class="nav-text">
@@ -60,7 +60,7 @@ $verPerfil2 = mysql_fetch_array($sqlPerfil2);
                         </span>
             </a>
 
-        </li> -->
+        </li>
         <li>
             <a href="informativos.php">
                 <i class="fa fa-tags fa-2x"></i>
