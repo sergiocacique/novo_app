@@ -80,7 +80,7 @@ if (!isset($_SESSION['UsuarioID'])) {
 
 <div id="conteudo" class="container">
     <div class="row discovery">
-        <div class="col-sm-9 col-md-10">
+        <div class="col-sm-9 col-md-9">
           <div class="header">
               <h1>Despesas</h1>
               <a class="btn btn-3d btn-reveal btn-red" href="transparencia_despesas_novo.php">ADICIONAR NOVA DESPESA</a>

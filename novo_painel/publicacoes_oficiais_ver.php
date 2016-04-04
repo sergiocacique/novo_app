@@ -79,16 +79,16 @@ if (!isset($_SESSION['UsuarioID'])) {
 <?php
 $id = $_GET['id'];
 
-$sqlPagina = mysql_query("SELECT * FROM publicacoes_oficiais_categoria WHERE id = '".$id."'");
+$sqlPagina = mysql_query("SELECT * FROM publicacoes_oficiais_categoria WHERE CdCategoria = '".$id."'");
 $rsPagina = mysql_fetch_array($sqlPagina);
  ?>
 
-<div id="conteudo" class="container">
+<div id="conteudo" class="">
     <div class="row discovery">
         <div class="col-sm-9 col-md-10">
           <div class="header">
               <h1><?php echo $rsPagina['Nome'];?></h1>
-              <a class="btn btn-3d btn-reveal btn-red" href="publicacoes_oficiais_licitacao_novo.php?id=<?php echo $rsPagina['id'];?>">ADICIONAR NOVA <?php echo $rsPagina['Nome'];?></a>
+              <a class="btn btn-3d btn-reveal btn-red" href="publicacoes_oficiais_licitacao_novo.php?id=<?php echo $rsPagina['CdCategoria'];?>">ADICIONAR NOVA <?php echo $rsPagina['Nome'];?></a>
           </div>
         </div>
     </div>
@@ -101,7 +101,7 @@ $rsPagina = mysql_fetch_array($sqlPagina);
         $pagina = (isset($_GET['pagina']))? $_GET['pagina'] : 1;
 
         //$cmd = "select *, concat(DtCadastro, ' ', HrCadastro) as dthr from site_noticias WHERE Acao = 'Publicado' ORDER BY dthr DESC";
-        $cmd = "select * from vw_publicacoes WHERE CdPrefeitura = '".$_SESSION['PrefeituraID']."' AND CdCategoria = '".$rsPagina['id']."' AND Acao <> 'Excluido' ORDER BY DtAbertura DESC";
+        $cmd = "select * from vw_publicacoes WHERE CdPrefeitura = '".$_SESSION['PrefeituraID']."' AND CdCategoria = '".$rsPagina['CdCategoria']."' AND Acao <> 'Excluido' ORDER BY DtAbertura DESC";
 
         $produtos = mysql_query($cmd);
 
@@ -114,7 +114,7 @@ $rsPagina = mysql_fetch_array($sqlPagina);
         $inicio = ($registros*$pagina)-$registros;
 
 
-        $cmd = "select * from vw_publicacoes WHERE CdPrefeitura = '".$_SESSION['PrefeituraID']."' AND CdCategoria = '".$rsPagina['id']."' AND Acao <> 'Excluido' ORDER BY DtAbertura DESC limit $inicio,$registros";
+        $cmd = "select * from vw_publicacoes WHERE CdPrefeitura = '".$_SESSION['PrefeituraID']."' AND CdCategoria = '".$rsPagina['CdCategoria']."' AND Acao <> 'Excluido' ORDER BY DtAbertura DESC limit $inicio,$registros";
         $produtos = mysql_query($cmd);
         $total = mysql_num_rows($produtos);
         while ($produto = mysql_fetch_array($produtos)) {
@@ -132,7 +132,7 @@ $rsPagina = mysql_fetch_array($sqlPagina);
             $corFonte = "font-cinza";
           }
         ?>
-  			<div class="col-sm-12 col-md-4">
+  			<div class="col-sm-10 col-md-10">
           <div class="listar <?php echo $cor;?>">
           <a href="publicacoes_oficiais_licitacao_editar.php?receita=<?php echo $produto['id'];?>">
 

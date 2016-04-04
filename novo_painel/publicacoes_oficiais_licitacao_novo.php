@@ -94,10 +94,10 @@ if (!isset($_SESSION['UsuarioID'])) {
 <?php
 $id = $_GET['id'];
 
-$sqlPagina = mysql_query("SELECT * FROM publicacoes_oficiais_categoria WHERE id = '".$id."'");
+$sqlPagina = mysql_query("SELECT * FROM publicacoes_oficiais_categoria WHERE CdCategoria = '".$id."'");
 $rsPagina = mysql_fetch_array($sqlPagina);
  ?>
-<div id="conteudo" class="container">
+<div id="conteudo" class="">
   <div class="row discovery">
       <div class="col-sm-9 col-md-10">
         <div class="header">
@@ -108,10 +108,10 @@ $rsPagina = mysql_fetch_array($sqlPagina);
     <div class="row discovery2">
       <div class="table-responsive">
         <form class="validate" action="publicacoes_oficiais_licitacao_novo_adicionar.php" method="post" enctype="multipart/form-data">
-        <input type="hidden" name="CdCategoria" value="<?php echo $rsPagina['id'];?>">
+        <input type="hidden" name="CdCategoria" value="<?php echo $rsPagina['CdCategoria'];?>">
 
 
-          <div class=" col-sm-12 col-md-7">
+          <div class=" col-sm-12 col-md-6">
             <div class="fancy-form">
               <label>Titulo</label>
               <input id="titulo" name="titulo" class="form-control" type="text" placeholder="Digite o titulo">
@@ -131,7 +131,7 @@ $rsPagina = mysql_fetch_array($sqlPagina);
                     $verGlossario = mysql_fetch_array($sqlGlossario);
 
                     ?>
-                <option value="<?php echo $verGlossario['id']; ?>"><?php echo $verGlossario['Nome2']; ?></option>
+                <option value="<?php echo $verGlossario['CdSub']; ?>"><?php echo $verGlossario['Nome2']; ?></option>
                 <?php
                 }
                 ?>
@@ -140,7 +140,7 @@ $rsPagina = mysql_fetch_array($sqlPagina);
           </div>
         </div>
 
-        <div class=" col-sm-12 col-md-12">
+        <div class=" col-sm-12 col-md-11">
           <div class="fancy-form">
             <label>Descrição</label>
             <input id="Descricao" name="Descricao" class="form-control" type="text" placeholder="">
@@ -176,7 +176,7 @@ $rsPagina = mysql_fetch_array($sqlPagina);
           </div>
         </div>
 
-        <div class=" col-sm-12 col-md-12">
+        <div class=" col-sm-12 col-md-11">
           <div class="col-md-12">
         <label>
           Arquivo
@@ -195,7 +195,7 @@ $rsPagina = mysql_fetch_array($sqlPagina);
       </div>
         </div>
 
-        <div class=" col-sm-12 col-md-12">
+        <div class=" col-sm-12 col-md-11">
           <button type="submit" class="btn btn-3d btn-teal btn-block margin-top-30">
   				GRAVAR
   			</button></div>

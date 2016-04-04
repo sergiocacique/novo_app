@@ -84,8 +84,8 @@ $Ano = $_GET['ano'];
         <div class="col-sm-9 col-md-10">
           <div class="header">
               <h1>Diárias de <strong><?php echo retorna_mes_extenso($Mes)?>/<?php echo $Ano?></strong></h1>
-              <a class="btn btn-3d btn-reveal btn-amber" href="transparencia_passagens.php">SELECIONAR OUTRO MÊS</a>
-              <a class="btn btn-3d btn-reveal btn-red" href="transparencia_passagens_novo.php">ADICIONAR NOVA DIÁRIA</a>
+              <a class="btn btn-3d btn-reveal btn-amber" href="transparencia_diarias.php">SELECIONAR OUTRO MÊS</a>
+              <a class="btn btn-3d btn-reveal btn-red" href="transparencia_diaria_novo.php">ADICIONAR NOVA DIÁRIA</a>
           </div>
         </div>
     </div>

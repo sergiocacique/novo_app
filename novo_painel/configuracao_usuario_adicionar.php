@@ -15,6 +15,9 @@ if (!isset($_SESSION['UsuarioID'])) {
     header("Location: login.php"); exit;
 }
 
+$sqlUsers = mysql_query("SELECT * FROM admin WHERE CdUsuario = ".$_SESSION['UsuarioID']." ");
+$verUsers = mysql_fetch_array($sqlUsers);
+
 $sqlAdmin = mysql_query("SELECT * FROM vw_prefeitura WHERE CdPrefeitura = ".$_SESSION['PrefeituraID']." ");
 $verAdmin = mysql_fetch_array($sqlAdmin);
 
@@ -168,7 +171,7 @@ $verAdmin = mysql_fetch_array($sqlAdmin);
         mail($emaildestinatario, $assunto, $mensagemHTML, $headers, "-r". $emailsender);
 
 
-        $mensagem= "Fulano adicionou novo usuário no municipio tal";
+        $mensagem= $verUsers['Nome']." adicionou novo usuário no municipio ".$verAdmin['Fantasia'];
         salvaLog($mensagem);
 
 header('Location: configuracao_usuario.php'); exit;

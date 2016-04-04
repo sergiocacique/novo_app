@@ -25,6 +25,7 @@ body {
     color: #02b6e6;
     padding: 0 17px;
 }
+.table-responsive{}
 .categoria{}
 .logo_prefeituras{
     margin: 35px;
@@ -355,7 +356,7 @@ section.dark .fancy-form-select:before {
     z-index: 2000;
 }
 #conteudo{
-    left: 390px;
+    left: 364px;
     position: absolute;
 }
 #loading {

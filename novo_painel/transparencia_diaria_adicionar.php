@@ -43,7 +43,7 @@ $verAdmin = mysql_fetch_array($sqlAdmin);
 
 
 
-        $query = "INSET INTO diarias";
+        $query = "INSERT INTO diarias";
         $query = $query . " ( CdUsuario,";
         $query = $query . " CdPrefeitura,";
         $query = $query . " nome,";
@@ -63,8 +63,8 @@ $verAdmin = mysql_fetch_array($sqlAdmin);
         $query = $query . " Acao,";
         $query = $query . " DtCadastro)";
         $query = $query . " VALUES";
-        $query = $query . " ( '" . $Nome . "',";
-        $query = $query . " '" . $Nome . "',";
+        $query = $query . " ( '" . $CdUsuario . "',";
+        $query = $query . " '" . $_SESSION['PrefeituraID'] . "',";
         $query = $query . " '" . $Nome . "',";
         $query = $query . " '" . $Cargo . "',";
         $query = $query . " '" . $Destino . "',";
@@ -84,9 +84,10 @@ $verAdmin = mysql_fetch_array($sqlAdmin);
 
         $verifica = mysql_query($query);
 
+
         if($Acao == "Excluido"){
           header('Location: transparencia_diarias.php'); exit;
       }else{
-        header("Location: transparencia_diarias_ver.php?mes=".$Mes."&ano=".$Ano.""); exit;
+        header("Location: transparencia_diaria_ver.php?mes=".$Mes."&ano=".$Ano.""); exit;
       }
 ?>

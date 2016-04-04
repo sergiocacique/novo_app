@@ -16,7 +16,7 @@
 
                   ?>
                 <li>
-                    <a href="publicacoes_oficiais_ver.php?id=<?php echo $verGlossario['id']; ?>">
+                    <a href="publicacoes_oficiais_ver.php?id=<?php echo $verGlossario['CdCategoria']; ?>">
                         <?php echo $verGlossario['Nome']; ?>
                     </a>
                 </li>
