@@ -9,6 +9,7 @@ body {
     background: #fafafa none repeat scroll 0 0;
     padding-bottom: 50px;
     color: #333 !important;
+    overflow-x: hidden;
 }
 .box-branco{
     background-color: #fff;

@@ -22,7 +22,10 @@ $verAdmin = mysql_fetch_array($sqlAdmin);
     $Titulo = $_POST['titulo'];
     $Subcategoria = addslashes($_POST['Subcategoria']);
     $Descricao = addslashes($_POST['Descricao']);
-    $DtAbertura = $_POST['dtAbertura'];
+    $DtAntiga = $_POST['dtAbertura'];
+    $DtAbertura = implode("-",array_reverse(explode("/",$DtAntiga)));
+
+
     $Acao = (isset($_POST['acao']))? $_POST['acao'] : '';
     $DtAtualizacao = date('Y-m-d H:i:s');
 

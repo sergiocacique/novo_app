@@ -87,7 +87,7 @@ if (!isset($_SESSION['UsuarioID'])) {
 <?php include ("topo.php");?>
 
 <?php
-$sqlPagina = mysql_query("SELECT * FROM gabinete WHERE CdPrefeitura = '".$_SESSION['PrefeituraID']."' AND Tipo = 'Prefeito'");
+$sqlPagina = mysql_query("SELECT * FROM gabinete WHERE CdPrefeitura = '".$_SESSION['PrefeituraID']."' AND Tipo = 'Vice'");
 $rsPagina = mysql_fetch_array($sqlPagina);
 
 $total = mysql_num_rows($sqlPagina)
@@ -96,14 +96,14 @@ $total = mysql_num_rows($sqlPagina)
   <div class="row discovery">
       <div class="col-sm-9 col-md-10">
         <div class="header">
-            <h1>Gabinete do Prefeito</h1>
+            <h1>Gabinete do Vice - Prefeito</h1>
         </div>
       </div>
   </div>
 
     <div class="row discovery2">
       <div class="table-responsive">
-        <form class="validate" action="departamento_prefeito_gravar.php" method="post" enctype="multipart/form-data">
+        <form class="validate" action="departamento_vice_prefeito_gravar.php" method="post" enctype="multipart/form-data">
           <?php
             if($total == 0){
             ?>
