@@ -86,103 +86,85 @@ if (!isset($_SESSION['UsuarioID'])) {
 <?php include ("topo.php");?>
 
 
-<div id="conteudo" class="container">
+<div id="conteudo" class="">
     <div class="row discovery">
-        <div class="col-sm-9 col-sm-offset-2 col-md-10 col-md-offset-1">
+        <div class="col-sm-9 col-md-10">
             <div class="header">
-                <h1>Informações</h1>
-                <div class="tagline"> Descubra tudo sobre o e-SIC em um só lugar. Feito para você. Relaxe e aproveite a viagem. </div>
+                <h1>Informativos</h1>
+                <div class="tagline">  </div>
             </div>
 
-            <div class="category">
+            <div class="category col-md-10">
                 <div class="title">
                     <h4>Canais</h4>
-                    Canais são as maneiras como os clientes interagem com você.
                 </div>
 
                 <div class="cards">
                     <div class="item">
-                        <a id="ember4500" class="ember-view" href="#/discovery/feature/email">
+                        <a id="ember4500" class="ember-view" href="informativos_noticias.php">
                             <span class="card">
                                 <svg id="ember4501" class="ember-view card-icon" viewBox="0 0 116 116"></svg>
                             </span>
                             <br>
-                            <span class="card-name">Convênios</span>
+                            <span class="card-name">Notícias</span>
                         </a>
                     </div>
 
                     <div class="item">
-                        <a id="ember4500" class="ember-view" href="#/discovery/feature/email">
+                        <a id="ember4500" class="ember-view" href="informativos_eventos.php">
                             <span class="card">
                                 <svg id="ember4501" class="ember-view card-icon" viewBox="0 0 116 116"></svg>
                             </span>
                             <br>
-                            <span class="card-name">Projetos Sociais</span>
+                            <span class="card-name">Eventos</span>
                         </a>
                     </div>
 
                     <div class="item">
-                        <a id="ember4500" class="ember-view" href="#/discovery/feature/email">
+                        <a id="ember4500" class="ember-view" href="informativos_links_uteis.php">
                             <span class="card">
                                 <svg id="ember4501" class="ember-view card-icon" viewBox="0 0 116 116"></svg>
                             </span>
                             <br>
-                            <span class="card-name">Obras</span>
+                            <span class="card-name">Links Úteis</span>
                         </a>
                     </div>
 
-                    <div class="item">
-                        <a id="ember4500" class="ember-view" href="#/discovery/feature/email">
-                            <span class="card">
-                                <svg id="ember4501" class="ember-view card-icon" viewBox="0 0 116 116"></svg>
-                            </span>
-                            <br>
-                            <span class="card-name">RREO / RGF</span>
-                        </a>
-                    </div>
                 </div>
 
             </div>
 
-            <div class="category">
+            <!-- <div class="category col-md-10">
                 <div class="title">
-                    <h4>Pressem</h4>
-                    Base de conhecimento, comunidades e widgets que capacitam seus clientes.
+                    <h4>Multimídia</h4>
+
                 </div>
 
                 <div class="cards">
                     <div class="item">
-                        <a id="ember4500" class="ember-view" href="#/discovery/feature/email">
+                        <a id="ember4500" class="ember-view" href="informativos_galeria_de_foto.php">
                             <span class="card">
                                 <svg id="ember4501" class="ember-view card-icon" viewBox="0 0 116 116"></svg>
                             </span>
                             <br>
-                            <span class="card-name">Fundos de Investimentos</span>
+                            <span class="card-name">Galeria de Fotos</span>
                         </a>
                     </div>
 
                     <div class="item">
-                        <a id="ember4500" class="ember-view" href="#/discovery/feature/email">
+                        <a id="ember4500" class="ember-view" href="informativos_galeria_de_videos.php">
                             <span class="card">
                                 <svg id="ember4501" class="ember-view card-icon" viewBox="0 0 116 116"></svg>
                             </span>
                             <br>
-                            <span class="card-name">DAIR</span>
+                            <span class="card-name">Galeria de Vídeos</span>
                         </a>
                     </div>
 
-                    <div class="item">
-                        <a id="ember4500" class="ember-view" href="#/discovery/feature/email">
-                            <span class="card">
-                                <svg id="ember4501" class="ember-view card-icon" viewBox="0 0 116 116"></svg>
-                            </span>
-                            <br>
-                            <span class="card-name">APR</span>
-                        </a>
-                    </div>
+
                 </div>
 
-            </div>
+            </div> -->
         </div>
     </div>
 </div>

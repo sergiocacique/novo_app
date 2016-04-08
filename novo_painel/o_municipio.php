@@ -89,104 +89,145 @@ if (!isset($_SESSION['UsuarioID'])) {
 <?php include ("menu_o_municipio.php");?>
 <?php include ("topo.php");?>
 
-<div id="conteudo" class="container">
+<div id="conteudo" class="">
     <div class="container">
         <div class="row discovery">
-            <div class="col-sm-9 col-sm-offset-2 col-md-10 col-md-offset-1">
+            <div class="col-sm-9 col-md-10">
                 <div class="header">
-                    <h1>Consultas</h1>
-                    <div class="tagline"> Descubra tudo sobre o e-SIC em um só lugar. Feito para você. Relaxe e aproveite a viagem. </div>
+                    <h1>O Município</h1>
+                    <div class="tagline"> Tudo sobre o seu município. </div>
                 </div>
 
-                <div class="category">
+                <div class="category col-md-12">
                     <div class="title">
                         <h4>Canais</h4>
-                        Canais são as maneiras como os clientes interagem com você.
                     </div>
 
                     <div class="cards">
                         <div class="item">
-                            <a id="ember4500" class="ember-view" href="#/discovery/feature/email">
+                            <a id="ember4500" class="ember-view" href="o_municipio_historia.php">
                                 <span class="card">
                                     <svg id="ember4501" class="ember-view card-icon" viewBox="0 0 116 116"></svg>
                                 </span>
                                 <br>
-                                <span class="card-name">Convênios</span>
+                                <span class="card-name">História do Município</span>
                             </a>
                         </div>
 
                         <div class="item">
-                            <a id="ember4500" class="ember-view" href="#/discovery/feature/email">
+                            <a id="ember4500" class="ember-view" href="o_municipio_dados.php">
                                 <span class="card">
                                     <svg id="ember4501" class="ember-view card-icon" viewBox="0 0 116 116"></svg>
                                 </span>
                                 <br>
-                                <span class="card-name">Projetos Sociais</span>
+                                <span class="card-name">Dados do Município</span>
                             </a>
                         </div>
 
                         <div class="item">
-                            <a id="ember4500" class="ember-view" href="#/discovery/feature/email">
+                            <a id="ember4500" class="ember-view" href="o_municipio_simbolo.php">
                                 <span class="card">
                                     <svg id="ember4501" class="ember-view card-icon" viewBox="0 0 116 116"></svg>
                                 </span>
                                 <br>
-                                <span class="card-name">Obras</span>
+                                <span class="card-name">Símbolos do Município</span>
                             </a>
                         </div>
 
                         <div class="item">
-                            <a id="ember4500" class="ember-view" href="#/discovery/feature/email">
+                            <a id="ember4500" class="ember-view" href="o_municipio_projetos.php">
                                 <span class="card">
                                     <svg id="ember4501" class="ember-view card-icon" viewBox="0 0 116 116"></svg>
                                 </span>
                                 <br>
-                                <span class="card-name">RREO / RGF</span>
+                                <span class="card-name">Projetos</span>
                             </a>
                         </div>
                     </div>
 
                 </div>
-                
-                <div class="category">
+
+                <div class="category col-md-12">
                     <div class="title">
-                        <h4>Pressem</h4>
-                        Base de conhecimento, comunidades e widgets que capacitam seus clientes.
+                        <h4>Atrações Turisticas</h4>
                     </div>
 
                     <div class="cards">
                         <div class="item">
-                            <a id="ember4500" class="ember-view" href="#/discovery/feature/email">
+                            <a id="ember4500" class="ember-view" href="o_municipio_categoria.php">
                                 <span class="card">
                                     <svg id="ember4501" class="ember-view card-icon" viewBox="0 0 116 116"></svg>
                                 </span>
                                 <br>
-                                <span class="card-name">Fundos de Investimentos</span>
+                                <span class="card-name">Categorias</span>
                             </a>
                         </div>
 
                         <div class="item">
-                            <a id="ember4500" class="ember-view" href="#/discovery/feature/email">
+                            <a id="ember4500" class="ember-view" href="o_municipio_atracoes.php">
                                 <span class="card">
                                     <svg id="ember4501" class="ember-view card-icon" viewBox="0 0 116 116"></svg>
                                 </span>
                                 <br>
-                                <span class="card-name">DAIR</span>
+                                <span class="card-name">Atrações</span>
                             </a>
                         </div>
 
-                        <div class="item">
-                            <a id="ember4500" class="ember-view" href="#/discovery/feature/email">
-                                <span class="card">
-                                    <svg id="ember4501" class="ember-view card-icon" viewBox="0 0 116 116"></svg>
-                                </span>
-                                <br>
-                                <span class="card-name">APR</span>
-                            </a>
-                        </div>
+
                     </div>
 
                 </div>
+
+                <div class="category col-md-12">
+                    <div class="title">
+                        <h4>Serviços</h4>
+                    </div>
+
+                    <div class="cards">
+                        <div class="item">
+                            <a id="ember4500" class="ember-view" href="o_municipio_servicos_cidadao.php">
+                                <span class="card">
+                                    <svg id="ember4501" class="ember-view card-icon" viewBox="0 0 116 116"></svg>
+                                </span>
+                                <br>
+                                <span class="card-name">Serviços ao Cidadão</span>
+                            </a>
+                        </div>
+
+                        <div class="item">
+                            <a id="ember4500" class="ember-view" href="o_municipio_servicos_empreendedor.php">
+                                <span class="card">
+                                    <svg id="ember4501" class="ember-view card-icon" viewBox="0 0 116 116"></svg>
+                                </span>
+                                <br>
+                                <span class="card-name">Serviços ao Empreendedor</span>
+                            </a>
+                        </div>
+
+                        <div class="item">
+                            <a id="ember4500" class="ember-view" href="o_municipio_servicos_estudante.php">
+                                <span class="card">
+                                    <svg id="ember4501" class="ember-view card-icon" viewBox="0 0 116 116"></svg>
+                                </span>
+                                <br>
+                                <span class="card-name">Serviços ao Estudante</span>
+                            </a>
+                        </div>
+
+                        <div class="item">
+                            <a id="ember4500" class="ember-view" href="o_municipio_servicos_servidor_publico.php">
+                                <span class="card">
+                                    <svg id="ember4501" class="ember-view card-icon" viewBox="0 0 116 116"></svg>
+                                </span>
+                                <br>
+                                <span class="card-name">Serviços ao Servidor Público</span>
+                            </a>
+                        </div>
+
+                    </div>
+
+                </div>
+
             </div>
         </div>
     </div>

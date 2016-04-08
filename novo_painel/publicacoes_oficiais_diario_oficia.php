@@ -1,10 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: elidiane
- * Date: 24/11/14
- * Time: 09:34
- */
+
 include ("conexao.php");
 include ("funcao.php");
 
@@ -38,6 +33,8 @@ if (!isset($_SESSION['UsuarioID'])) {
     <script src="js/jquery.1.11.1.min.js"></script>
     <script>
 
+
+
         function loadImages() {
             if (document.getElementById) {  // DOM3 = IE5, NS6
                 document.getElementById('loading').style.visibility = 'hidden';
@@ -57,17 +54,7 @@ if (!isset($_SESSION['UsuarioID'])) {
             $("#loading2").delay(200).fadeOut("slow");
         });
 
-        function listaChamado(acao){
-            start();
-            $('#loading2').css('visibility','visible');
-            $.post("inicio_chamado.php", { acao: acao },
-                function(data){
-                    $('#conteudo').html(data);
-                    $('html, body').animate({scrollTop:0}, 'slow');
-                }).done(function() {
-                    $('#loading2').css('visibility','hidden');
-                });
-        }
+
     </script>
 </head>
 <body class="orders index">
@@ -93,57 +80,71 @@ if (!isset($_SESSION['UsuarioID'])) {
 
 <div id="conteudo" class="">
     <div class="row discovery">
-        <div class="col-sm-9 col-md-10">
-            <div class="header">
-                <h1>PÚBLICAÇÕES OFICIAIS</h1>
-                <div class="tagline">  </div>
-            </div>
+        <div class="col-sm-9 col-md-9">
+          <div class="header">
+              <h1>Diário Oficial</h1>
+              <a class="btn btn-3d btn-reveal btn-red" href="publicacoes_oficiais_diario_oficial_novo.php">ADICIONAR NOVO DIÁRIO OFICIAL</a>
+          </div>
+        </div>
+    </div>
 
-            <div class="category col-md-10">
-                <div class="title">
-                    <h4>Canais</h4>
-                </div>
+    <div class="row discovery2 col-md-12">
 
-                <div class="cards">
-                  <?php
-                  $sqlGlossario = mysql_query("SELECT * FROM publicacoes_oficiais_categoria ORDER BY Nome ASC");
-                  $Glossario = mysql_num_rows($sqlGlossario);
+      <div class="table-responsive">
 
-                  for ($y = 0; $y < $Glossario; $y++){
-                      $verGlossario = mysql_fetch_array($sqlGlossario);
+        <?php
+        $pagina = (isset($_GET['pagina']))? $_GET['pagina'] : 1;
 
-                      ?>
-                    <div class="item">
-                        <a id="ember4500" class="ember-view" href="publicacoes_oficiais_ver.php?id=<?php echo $verGlossario['CdCategoria']; ?>">
-                            <span class="card">
-                                <svg id="ember4501" class="ember-view card-icon" viewBox="0 0 116 116"></svg>
-                            </span>
-                            <br>
-                            <span class="card-name"><?php echo $verGlossario['Nome']; ?></span>
-                        </a>
-                    </div>
-                    <?php
-                    }
-                    ?>
+        //$cmd = "select *, concat(DtCadastro, ' ', HrCadastro) as dthr from site_noticias WHERE Acao = 'Publicado' ORDER BY dthr DESC";
+        $cmd = "select * from diario_oficial WHERE CdPrefeitura = '".$_SESSION['PrefeituraID']."' AND Acao <> 'Excluido' ORDER BY DtCadastro DESC";
+
+        $produtos = mysql_query($cmd);
+
+        $total = mysql_num_rows($produtos);
+
+        $registros = 50;
+
+        $numPaginas = ceil($total/$registros);
+
+        $inicio = ($registros*$pagina)-$registros;
 
 
-                    <div class="item">
-                        <a id="ember4500" class="ember-view" href="publicacoes_oficiais_diario_oficia.php">
-                            <span class="card">
-                                <svg id="ember4501" class="ember-view card-icon" viewBox="0 0 116 116"></svg>
-                            </span>
-                            <br>
-                            <span class="card-name">Diário Oficial</span>
-                        </a>
-                    </div>
-                </div>
+        $cmd = "select * from diario_oficial WHERE CdPrefeitura = '".$_SESSION['PrefeituraID']."' AND Acao <> 'Excluido' ORDER BY DtCadastro DESC limit $inicio,$registros";
+        $produtos = mysql_query($cmd);
+        $total = mysql_num_rows($produtos);
+        while ($produto = mysql_fetch_array($produtos)) {
+          if($produto['Acao'] == "Publicado"){
+            $cor = "border-verde";
+            $corFonte = "font-verde";
+          }elseif ($produto['Acao'] == "Aguardando") {
+            $cor = "border-laranja";
+            $corFonte = "font-laranja";
+          }elseif ($produto['Acao'] == "Excluido") {
+            $cor = "border-vermelho";
+            $corFonte = "font-vermelho";
+          }else{
+            $cor = "border-cinza";
+            $corFonte = "font-cinza";
+          }
+        ?>
+  			<div class="col-sm-3 col-md-3">
+          <div class="listar <?php echo $cor;?>">
+          <a href="publicacoes_oficiais_diario_oficial_editar.php?diario=<?php echo $produto['id'];?>">
 
-            </div>
-
+          <h5 class="<?php echo $corFonte;?>">Diário <?php echo $produto['NumDiario'];?></h5>
+          <p>
+            <strong>DATA:</strong> <?php echo date('d/m/Y', strtotime($produto['DtCadastro']));?><br>
+          </p>
+        </a>
+      </div>
+        </div>
+        <?php
+        }
+        ?>
 
         </div>
     </div>
 </div>
-<div class="container"></div>
+
 </body>
 </html>

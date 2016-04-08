@@ -44,6 +44,9 @@ $verAdmin = mysql_fetch_array($sqlAdmin);
         $query2 = "INSERT INTO admin_prefeitura (CdUsuario,CdPrefeitura) VALUES ('".$verDados['CdUsuario']."','" . $_SESSION['PrefeituraID'] . "')";
         $verifica2 = mysql_query($query2);
 
+        $query3 = "INSERT INTO admin_prefeitura (CdUsuario,CdPrefeitura) VALUES ('".$verDados['CdUsuario']."','" . $_SESSION['PrefeituraID'] . "')";
+        $verifica3 = mysql_query($query3);
+
         $sqlPagina2 = mysql_query("SELECT * FROM vw_admin WHERE CdUsuario = '".$verDados['CdUsuario']."'");
         $rsPagina2 = mysql_fetch_array($sqlPagina2);
 

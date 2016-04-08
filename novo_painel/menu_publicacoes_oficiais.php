@@ -1,6 +1,6 @@
 <div class="pane">
     <header class=" hide_when_collapsed">
-        <h1>PÚBLICAçÕES OFICIAIS</h1>
+        <h1>PÚBLICAÇÕES OFICIAIS</h1>
     </header>
     <div class=" hide_when_collapsed scroll_content">
 
@@ -23,11 +23,11 @@
                 <?php
                 }
                 ?>
-                <!-- <li>
+                <li>
                     <a href="publicacoes_oficiais_diario_oficia.php">
                         Diário Oficial
                     </a>
-                </li> -->
+                </li>
             </ul>
         </div>
 

@@ -1,6 +1,6 @@
 <div class="pane">
     <header class=" hide_when_collapsed">
-        <h1>PÁGINA INICIAL</h1>
+        <h1>INFORMATIVOS</h1>
     </header>
     <div class=" hide_when_collapsed scroll_content">
         <ul class="filters">
@@ -38,7 +38,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="nformativos_galeria_de_videos.php">
+                    <a href="informativos_galeria_de_videos.php">
                         Galeria de Vídeos
                     </a>
                 </li>

@@ -1,6 +1,6 @@
 <div class="pane">
     <header class=" hide_when_collapsed">
-        <h1>PÁGINA INICIAL</h1>
+        <h1>O MUNICÍPIO</h1>
     </header>
     <div class=" hide_when_collapsed scroll_content">
         <ul class="filters">

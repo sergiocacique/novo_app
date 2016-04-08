@@ -91,104 +91,54 @@ if (!isset($_SESSION['UsuarioID'])) {
 <?php include ("topo.php");?>
 
 
-<div id="conteudo" class="container">
+<div id="conteudo" class="">
     <div class="row discovery">
-        <div class="col-sm-9 col-sm-offset-2 col-md-10 col-md-offset-1">
+        <div class="col-sm-9 col-md-10">
             <div class="header">
-                <h1>Despesa com Pessoal</h1>
-                <div class="tagline"> Descubra tudo sobre o e-SIC em um só lugar. Feito para você. Relaxe e aproveite a viagem. </div>
+                <h1>Departamentos</h1>
+                <div class="tagline">  </div>
             </div>
 
-            <div class="category">
+            <div class="category col-md-10">
                 <div class="title">
                     <h4>Canais</h4>
-                    Canais são as maneiras como os clientes interagem com você.
                 </div>
 
                 <div class="cards">
                     <div class="item">
-                        <a id="ember4500" class="ember-view" href="#/discovery/feature/email">
+                        <a id="ember4500" class="ember-view" href="departamento_prefeito.php">
                             <span class="card">
                                 <svg id="ember4501" class="ember-view card-icon" viewBox="0 0 116 116"></svg>
                             </span>
                             <br>
-                            <span class="card-name">Convênios</span>
+                            <span class="card-name">Gabinete do Prefeito(a)</span>
                         </a>
                     </div>
 
                     <div class="item">
-                        <a id="ember4500" class="ember-view" href="#/discovery/feature/email">
+                        <a id="ember4500" class="ember-view" href="departamento_vice_prefeito.php">
                             <span class="card">
                                 <svg id="ember4501" class="ember-view card-icon" viewBox="0 0 116 116"></svg>
                             </span>
                             <br>
-                            <span class="card-name">Projetos Sociais</span>
+                            <span class="card-name">Gabinete do Vice - Prefeito(a)</span>
                         </a>
                     </div>
 
                     <div class="item">
-                        <a id="ember4500" class="ember-view" href="#/discovery/feature/email">
+                        <a id="ember4500" class="ember-view" href="departamento_secreatrias.php">
                             <span class="card">
                                 <svg id="ember4501" class="ember-view card-icon" viewBox="0 0 116 116"></svg>
                             </span>
                             <br>
-                            <span class="card-name">Obras</span>
+                            <span class="card-name">Secretárias</span>
                         </a>
                     </div>
 
-                    <div class="item">
-                        <a id="ember4500" class="ember-view" href="#/discovery/feature/email">
-                            <span class="card">
-                                <svg id="ember4501" class="ember-view card-icon" viewBox="0 0 116 116"></svg>
-                            </span>
-                            <br>
-                            <span class="card-name">RREO / RGF</span>
-                        </a>
-                    </div>
                 </div>
 
             </div>
-
-            <div class="category">
-                <div class="title">
-                    <h4>Pressem</h4>
-                    Base de conhecimento, comunidades e widgets que capacitam seus clientes.
-                </div>
-
-                <div class="cards">
-                    <div class="item">
-                        <a id="ember4500" class="ember-view" href="#/discovery/feature/email">
-                            <span class="card">
-                                <svg id="ember4501" class="ember-view card-icon" viewBox="0 0 116 116"></svg>
-                            </span>
-                            <br>
-                            <span class="card-name">Fundos de Investimentos</span>
-                        </a>
-                    </div>
-
-                    <div class="item">
-                        <a id="ember4500" class="ember-view" href="#/discovery/feature/email">
-                            <span class="card">
-                                <svg id="ember4501" class="ember-view card-icon" viewBox="0 0 116 116"></svg>
-                            </span>
-                            <br>
-                            <span class="card-name">DAIR</span>
-                        </a>
-                    </div>
-
-                    <div class="item">
-                        <a id="ember4500" class="ember-view" href="#/discovery/feature/email">
-                            <span class="card">
-                                <svg id="ember4501" class="ember-view card-icon" viewBox="0 0 116 116"></svg>
-                            </span>
-                            <br>
-                            <span class="card-name">APR</span>
-                        </a>
-                    </div>
-                </div>
-
-            </div>
-        </div>
+</div>
     </div>
 </div>
 <div class="container"></div>
