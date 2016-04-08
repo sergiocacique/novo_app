@@ -34,6 +34,8 @@ $verPerfil2 = mysql_fetch_array($sqlPerfil2);
         <?php
       }
         ?>
+
+        <?php if($verPerfil2['Capa'] == "sim"){ ?>
         <li class="has-subnav">
             <a href="capa.php">
                 <i class="fa fa-laptop fa-2x"></i>
@@ -42,6 +44,10 @@ $verPerfil2 = mysql_fetch_array($sqlPerfil2);
                         </span>
             </a>
 
+      <?php
+        }
+        if($verPerfil2['Municipio'] == "sim"){
+      ?>
         </li>
         <li class="has-subnav">
             <a href="o_municipio.php">
@@ -52,6 +58,10 @@ $verPerfil2 = mysql_fetch_array($sqlPerfil2);
             </a>
 
         </li>
+        <?php
+          }
+          if($verPerfil2['Departamento'] == "sim"){
+        ?>
         <li class="has-subnav">
             <a href="departamentos.php">
                 <i class="fa fa-folder-open fa-2x"></i>
@@ -61,6 +71,10 @@ $verPerfil2 = mysql_fetch_array($sqlPerfil2);
             </a>
 
         </li>
+        <?php
+          }
+          if($verPerfil2['Informativo'] == "sim"){
+        ?>
         <li>
             <a href="informativos.php">
                 <i class="fa fa-tags fa-2x"></i>
@@ -69,6 +83,10 @@ $verPerfil2 = mysql_fetch_array($sqlPerfil2);
                         </span>
             </a>
         </li>
+        <?php
+          }
+          if($verPerfil2['Publicacoes'] == "sim"){
+        ?>
         <li>
             <a href="publicacoes_oficiais.php">
                 <i class="fa fa-font fa-2x"></i>
@@ -77,16 +95,34 @@ $verPerfil2 = mysql_fetch_array($sqlPerfil2);
                         </span>
             </a>
         </li>
-
+        <?php
+          }
+          if($verPerfil2['Transparencia'] == "sim"){
+        ?>
         <li>
             <a href="transparencia.php">
                 <i class="fa fa-bar-chart-o fa-2x"></i>
                         <span class="nav-text">
-                            Transparencia
+                            Transparência
                         </span>
             </a>
         </li>
-
+        <?php
+          }
+          if($verPerfil2['ContraCheque'] == "sim"){
+        ?>
+        <li>
+            <a href="contra-cheque.php">
+                <i class="fa fa-dollar fa-2x"></i>
+                        <span class="nav-text">
+                            Contra-cheque
+                        </span>
+            </a>
+        </li>
+        <?php
+          }
+          if($verPerfil2['AcessoInfor'] == "sim"){
+        ?>
         <li>
             <a href="acesso_informacao.php">
                 <i class="fa fa-exclamation fa-2x"></i>
@@ -96,6 +132,7 @@ $verPerfil2 = mysql_fetch_array($sqlPerfil2);
             </a>
         </li>
         <?php
+      }
         if($verPerfil2['NomePerfil'] == "Desenvolvedor" OR $verPerfil2['NomePerfil'] == "Administrador"){
         ?>
         <li>
