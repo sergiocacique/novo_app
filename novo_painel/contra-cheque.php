@@ -36,8 +36,56 @@ if (!isset($_SESSION['UsuarioID'])) {
 
     <script src="js/bootstrap.js"></script>
     <script src="js/jquery.1.11.1.min.js"></script>
+    <script>
+
+        function loadImages() {
+            if (document.getElementById) {  // DOM3 = IE5, NS6
+                document.getElementById('loading').style.visibility = 'hidden';
+            }
+            else {
+                if (document.layers) {  // Netscape 4
+                    document.hidepage.visibility = 'hidden';
+                }
+                else {  // IE 4
+                    document.all.hidepage.style.visibility = 'hidden';
+                }
+            }
+        }
+
+        $(window).load(function() {
+            // Animate loader off screen
+            $("#loading2").delay(200).fadeOut("slow");
+        });
+
+        function listaChamado(acao){
+            start();
+            $('#loading2').css('visibility','visible');
+            $.post("inicio_chamado.php", { acao: acao },
+                function(data){
+                    $('#conteudo').html(data);
+                    $('html, body').animate({scrollTop:0}, 'slow');
+                }).done(function() {
+                    $('#loading2').css('visibility','hidden');
+                });
+        }
+    </script>
 </head>
 <body class="orders index">
+  <div id="loading2">
+      <div id="loading">
+          <div class="container">
+              <div class="col-sm-9 col-sm-offset-2 col-md-10 col-md-offset-1">
+                  <h1>Carregando dados</h1>
+                  <p>aguarde por favor</p>
+                  <div id="circleG">
+                      <div id="circleG_1" class="circleG"></div>
+                      <div id="circleG_2" class="circleG"></div>
+                      <div id="circleG_3" class="circleG"></div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
 <?php include ("menu.php");?>
 <?php include ("topo.php");?>
 <header class="header">
@@ -47,7 +95,7 @@ if (!isset($_SESSION['UsuarioID'])) {
                 <div class="row">
                     <div class="col-xs-12">
                         <h1 class="header-title">
-                            Configurações
+                            Contra-Cheque
                         </h1>
                     </div>
                 </div>

@@ -53,8 +53,6 @@ if (!isset($_SESSION['UsuarioID'])) {
             // Animate loader off screen
             $("#loading2").delay(200).fadeOut("slow");
         });
-
-
     </script>
 </head>
 <body class="orders index">
@@ -76,54 +74,65 @@ if (!isset($_SESSION['UsuarioID'])) {
 <?php include ("menu.php");?>
 <?php include ("menu_contra_cheque.php");?>
 <?php include ("topo.php");?>
-
+<?php
+$Mes = $_GET['mes'];
+$Ano = $_GET['ano'];
+?>
 
 <div id="conteudo" class="container">
     <div class="row discovery">
         <div class="col-sm-9 col-md-10">
           <div class="header">
-              <h1>Holerite</h1>
+              <h1>Holerite de <strong><?php echo retorna_mes_extenso($Mes)?>/<?php echo $Ano?></strong></h1>
+              <a class="btn btn-3d btn-reveal btn-amber" href="contra-cheque-arquivo.php">SELECIONAR OUTRO MÊS</a>
               <a class="btn btn-3d btn-reveal btn-red" href="contra-cheque-arquivo_novo.php">ADICIONAR NOVO HOLERITE</a>
           </div>
-          <?php
-          $sqlGlossario = mysql_query("SELECT * FROM folha WHERE CdPrefeitura = '".$_SESSION['PrefeituraID']."' GROUP BY Ano ORDER BY Ano DESC");
-          $Glossario = mysql_num_rows($sqlGlossario);
-
-          for ($y = 0; $y < $Glossario; $y++){
-              $verGlossario = mysql_fetch_array($sqlGlossario);
-
-              ?>
-          <div class="category">
-              <div class="title">
-                  <h4><?php echo $verGlossario['Ano'];?></h4>
-                  Holerite de <strong><?php echo $verGlossario['Ano'];?></strong>.
-              </div>
-              <div class="col-sm-9 col-md-10">
-              <?php
-              $sqlGlossario1 = mysql_query("SELECT * FROM folha WHERE Ano = '".$verGlossario['Ano']."' AND CdPrefeitura = '".$_SESSION['PrefeituraID']."'  GROUP BY Mes ORDER BY Mes DESC");
-              $Glossario1 = mysql_num_rows($sqlGlossario1);
-
-              for ($x = 0; $x < $Glossario1; $x++){
-                  $verGlossario1 = mysql_fetch_array($sqlGlossario1);
-
-                  ?>
-                    <div class="cards">
-                      <div class="item">
-                        <a class="btn btn-3d btn-reveal btn-blue" href="#"><?php echo retorna_mes_extenso($verGlossario1['Mes']);?></a>
-                      </div>
-                    </div>
-                  <?php
-                  }
-                  ?>
-</div>
-
-          </div>
-          <?php
-          }
-          ?>
         </div>
     </div>
 
+    <div class="row discovery2">
+
+      <div class="table-responsive">
+
+        <?php
+        $pagina = (isset($_GET['pagina']))? $_GET['pagina'] : 1;
+
+        //$cmd = "select *, concat(DtCadastro, ' ', HrCadastro) as dthr from site_noticias WHERE Acao = 'Publicado' ORDER BY dthr DESC";
+        $cmd = "select * from folha WHERE CdPrefeitura = '".$_SESSION['PrefeituraID']."' AND Mes = '".$Mes."' AND Ano = '".$Ano."' GROUP BY CPF";
+
+        $produtos = mysql_query($cmd);
+
+        $total = mysql_num_rows($produtos);
+
+        $registros = 50;
+
+        $numPaginas = ceil($total/$registros);
+
+        $inicio = ($registros*$pagina)-$registros;
+
+
+        $cmd = "select * from folha WHERE CdPrefeitura = '".$_SESSION['PrefeituraID']."' AND Mes = '".$Mes."' AND Ano = '".$Ano."' GROUP BY CPF limit $inicio,$registros";
+        $produtos = mysql_query($cmd);
+        $total = mysql_num_rows($produtos);
+        while ($produto = mysql_fetch_array($produtos)) {
+          
+        ?>
+  			<div class="col-sm-12 col-md-6">
+          <div class="listar <?php echo $cor;?>">
+          <a href="transparencia_folha_pagamento_editar.php?protocolo=<?php echo $produto['Protocolo'];?>">
+          <h5 class="<?php echo $corFonte;?>"><?php echo $produto['Orgao'];?></h5>
+          <p>
+              <strong>Cadastrado em:</strong> <?php echo date('d/m/Y', strtotime($produto['DtCadastro']));?> <br>
+          </p>
+        </a>
+      </div>
+        </div>
+        <?php
+        }
+        ?>
+
+        </div>
+    </div>
 </div>
 
 </body>

@@ -31,9 +31,9 @@ if (!isset($_SESSION['UsuarioID'])) {
 
     <script src="js/bootstrap.js"></script>
     <script src="js/jquery.1.11.1.min.js"></script>
+    <script src="//cdn.ckeditor.com/4.5.7/standard/ckeditor.js"></script>
+    <script src="js/jquery.mask.js"></script>
     <script>
-
-
 
         function loadImages() {
             if (document.getElementById) {  // DOM3 = IE5, NS6
@@ -55,6 +55,21 @@ if (!isset($_SESSION['UsuarioID'])) {
         });
 
 
+        jQuery(function($){
+            // JQUERY MASK INPUT
+            $('[data-mask="date"]').mask('00/00/0000');
+            $('[data-mask="time"]').mask('00:00:00');
+            $('[data-mask="date_time"]').mask('00/00/0000 00:00:00');
+            $('[data-mask="zip"]').mask('00000-000');
+            $('[data-mask="money"]').mask('000.000.000.000.000,00', {reverse: true});
+            $('[data-mask="phone"]').mask('0000-0000');
+            $('[data-mask="phone_with_ddd"]').mask('(00) 0000-0000');
+            $('[data-mask="phone_us"]').mask('(000) 000-0000');
+            $('[data-mask="cpf"]').mask('000.000.000-00', {reverse: true});
+            $('[data-mask="ip_address"]').mask('099.099.099.099');
+            $('[data-mask="percent"]').mask('##0,00%', {reverse: true});
+            // END JQUERY MASK INPUT
+        });
     </script>
 </head>
 <body class="orders index">
@@ -77,53 +92,49 @@ if (!isset($_SESSION['UsuarioID'])) {
 <?php include ("menu_contra_cheque.php");?>
 <?php include ("topo.php");?>
 
+<div id="conteudo" class="">
+  <div class="row discovery">
+      <div class="col-sm-9 col-md-10">
+        <div class="header">
+            <h1>Adicionar Novo Holerite</h1>
+        </div>
+      </div>
+  </div>
+    <div class="row discovery2">
+      <div class="table-responsive">
+        <form class="validate" action="contra-cheque-arquivo_adicionar.php" method="post" enctype="multipart/form-data">
+          <input type="hidden" name="protocolo" value="<?php echo date('Y').date('m').date('d').date('H').date('i').date('s')?>">
 
-<div id="conteudo" class="container">
-    <div class="row discovery">
-        <div class="col-sm-9 col-md-10">
-          <div class="header">
-              <h1>Holerite</h1>
-              <a class="btn btn-3d btn-reveal btn-red" href="contra-cheque-arquivo_novo.php">ADICIONAR NOVO HOLERITE</a>
-          </div>
-          <?php
-          $sqlGlossario = mysql_query("SELECT * FROM folha WHERE CdPrefeitura = '".$_SESSION['PrefeituraID']."' GROUP BY Ano ORDER BY Ano DESC");
-          $Glossario = mysql_num_rows($sqlGlossario);
+        <div class=" col-sm-12 col-md-12">
+          <div class="col-md-12">
+        <label>
+          Arquivo
+          <small class="text-muted">obrigatório</small>
+        </label>
 
-          for ($y = 0; $y < $Glossario; $y++){
-              $verGlossario = mysql_fetch_array($sqlGlossario);
+        <!-- custom file upload -->
+        <div class="fancy-file-upload fancy-file-primary">
+          <i class="fa fa-upload"></i>
+          <input type="file" class="form-control" onchange="jQuery(this).next('input').val(this.value);" name="filename" id="filename" />
+          <input type="text" class="form-control" placeholder="no file selected" readonly="" />
+          <span class="button">Procurar Arquivo</span>
+        </div>
+        <small class="text-muted block">Tamanho máximo: 2Mb (pdf)</small>
 
-              ?>
-          <div class="category">
-              <div class="title">
-                  <h4><?php echo $verGlossario['Ano'];?></h4>
-                  Holerite de <strong><?php echo $verGlossario['Ano'];?></strong>.
-              </div>
-              <div class="col-sm-9 col-md-10">
-              <?php
-              $sqlGlossario1 = mysql_query("SELECT * FROM folha WHERE Ano = '".$verGlossario['Ano']."' AND CdPrefeitura = '".$_SESSION['PrefeituraID']."'  GROUP BY Mes ORDER BY Mes DESC");
-              $Glossario1 = mysql_num_rows($sqlGlossario1);
+      </div>
+        </div>
 
-              for ($x = 0; $x < $Glossario1; $x++){
-                  $verGlossario1 = mysql_fetch_array($sqlGlossario1);
 
-                  ?>
-                    <div class="cards">
-                      <div class="item">
-                        <a class="btn btn-3d btn-reveal btn-blue" href="#"><?php echo retorna_mes_extenso($verGlossario1['Mes']);?></a>
-                      </div>
-                    </div>
-                  <?php
-                  }
-                  ?>
-</div>
 
-          </div>
-          <?php
-          }
-          ?>
+
+        <div class=" col-sm-10 col-md-10">
+          <button type="submit" class="btn btn-3d btn-teal btn-block margin-top-30">
+  				GRAVAR
+  			</button></div>
+
+        </form>
         </div>
     </div>
-
 </div>
 
 </body>
