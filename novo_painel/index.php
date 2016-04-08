@@ -91,11 +91,11 @@ if (!isset($_SESSION['UsuarioID'])) {
 <?php include ("topo.php");?>
 
 
-<div id="conteudo" class="container">
+<div id="" class="container">
     <div class="row discovery">
         <div class="col-sm-9 col-sm-offset-2 col-md-10 col-md-offset-1">
             <div class="header">
-                <h1>Dashboard</h1>
+                <h1><?php echo $verPerfil['Nome'];?></h1>
                 <div class="tagline"> Bem vindo ao novo Dashboard. </div>
             </div>
 

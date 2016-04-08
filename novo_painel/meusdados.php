@@ -54,6 +54,17 @@ if (!isset($_SESSION['UsuarioID'])) {
             $("#loading2").delay(200).fadeOut("slow");
         });
 
+        function listaChamado(acao){
+            start();
+            $('#loading2').css('visibility','visible');
+            $.post("inicio_chamado.php", { acao: acao },
+                function(data){
+                    $('#conteudo').html(data);
+                    $('html, body').animate({scrollTop:0}, 'slow');
+                }).done(function() {
+                    $('#loading2').css('visibility','hidden');
+                });
+        }
 
         jQuery(function($){
             // JQUERY MASK INPUT
@@ -102,95 +113,53 @@ $rsPagina = mysql_fetch_array($sqlPagina);
         </div>
       </div>
   </div>
-    <div class="row discovery2">
+    <div class="row discovery2 col-md-8">
       <div class="table-responsive">
-        <form class="validate" action="meusdados_gravar.php" method="post" enctype="multipart/form-data">
-        <input type="hidden" name="CdCategoria" value="<?php echo $rsPagina['id'];?>">
+        <form class="validate" action="meusdados_gravar.php" method="post">
 
-
-          <div class=" col-sm-12 col-md-7">
+          <div class=" col-sm-12 col-md-12">
             <div class="fancy-form">
-              <label>Titulo</label>
-              <input id="titulo" name="titulo" class="form-control" type="text" placeholder="Digite o titulo">
+              <label>Nome Completo</label>
+              <input id="nome" name="nome" class="form-control" type="text" value="<?php echo $rsPagina['Nome'];?>">
             </div>
           </div>
 
 
-          <div class=" col-sm-12 col-md-5">
-            <label>Sub Categoria</label>
-            <div class="fancy-form fancy-form-select">
-              <select class="form-control" id="Subcategoria" name="Subcategoria">
-                <?php
-                $sqlGlossario = mysql_query("SELECT * FROM publicacoes_oficiais_sub WHERE CdCategoria = ".$id." ORDER BY Nome2 ASC");
-                $Glossario = mysql_num_rows($sqlGlossario);
 
-                for ($y = 0; $y < $Glossario; $y++){
-                    $verGlossario = mysql_fetch_array($sqlGlossario);
-
-                    ?>
-                <option value="<?php echo $verGlossario['id']; ?>"><?php echo $verGlossario['Nome2']; ?></option>
-                <?php
-                }
-                ?>
-              </select>
-            <i class="fancy-arrow"></i>
-          </div>
-        </div>
-
-        <div class=" col-sm-12 col-md-12">
+        <div class=" col-sm-12 col-md-6">
           <div class="fancy-form">
-            <label>Descrição</label>
-            <input id="Descricao" name="Descricao" class="form-control" type="text" placeholder="">
+            <label>CPF</label>
+            <input disabled="disabled" data-mask="cpf" id="cpf" name="cpf" class="form-control" type="text" value="<?php echo $rsPagina['CPF'];?>">
           </div>
         </div>
 
-        <div class=" col-sm-12 col-md-7">
+        <div class=" col-sm-12 col-md-6">
           <div class="fancy-form">
-            <label>Data Abertura</label>
-            <input data-mask="date" id="dtAbertura" name="dtAbertura" class="form-control" type="text" placeholder="">
+            <label>Data de Nascimento</label>
+            <input data-mask="date" id="DtNascimento" name="DtNascimento" class="form-control" type="text" value="<?php echo date('d/m/Y', strtotime($rsPagina['DtNascimento']));?>">
           </div>
         </div>
 
+          <div class="box-branco">
+            <div class=" col-sm-12 col-md-12">
+            <h4>Dados de Acesso</h4>
+            <div class=" col-sm-12 col-md-6">
+              <div class="fancy-form">
+                <label>E-mail</label>
+                <input id="email" name="email" class="form-control" type="text" value="<?php echo $rsPagina['Email'];?>">
+              </div>
+            </div>
 
-          <div class=" col-sm-12 col-md-6">
-            <label>Ação</label>
-            <div class="fancy-form fancy-form-select">
-              <select class="form-control" id="acao" name="acao">
-                <?php
-                $sqlGlossario = mysql_query("SELECT * FROM acao ORDER BY NomeAcao ASC");
-                $Glossario = mysql_num_rows($sqlGlossario);
-
-                for ($y = 0; $y < $Glossario; $y++){
-                    $verGlossario = mysql_fetch_array($sqlGlossario);
-
-                    ?>
-                <option value="<?php echo $verGlossario['NomeAcao']; ?>"><?php echo $verGlossario['NomeAcao']; ?></option>
-                <?php
-                }
-                ?>
-              </select>
-            <i class="fancy-arrow"></i>
+            <div class=" col-sm-12 col-md-6">
+              <div class="fancy-form">
+                <label>Senha</label>
+                <input id="senha" name="senha" class="form-control" type="password">
+              </div>
+            </div>
           </div>
-        </div>
+          </div>
 
-        <div class=" col-sm-12 col-md-12">
-          <div class="col-md-12">
-        <label>
-          Arquivo
-          <small class="text-muted">obrigatório</small>
-        </label>
 
-        <!-- custom file upload -->
-        <div class="fancy-file-upload fancy-file-primary">
-          <i class="fa fa-upload"></i>
-          <input type="file" class="form-control" onchange="jQuery(this).next('input').val(this.value);" name="arquivo" id="arquivo" />
-          <input type="text" class="form-control" placeholder="no file selected" readonly="" />
-          <span class="button">Procurar Arquivo</span>
-        </div>
-        <small class="text-muted block">Tamanho máximo: 2Mb (pdf)</small>
-
-      </div>
-        </div>
 
         <div class=" col-sm-12 col-md-12">
           <button type="submit" class="btn btn-3d btn-teal btn-block margin-top-30">
